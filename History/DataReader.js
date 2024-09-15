@@ -52,10 +52,12 @@ Promise.all([
 
     // Split the file content by newlines to get each row
     const rows = data.split('\n').filter(row => row.trim().length > 0);
+
     
     // Map through each row and split by comma to get individual columns
     csvData = rows.map(row => row.split(';').filter(cell => cell.trim().length > 0));
     let myArray = csvData;
+
 
     ///////////////////
     // Fetching Nation data
