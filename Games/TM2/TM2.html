@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="TM2style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+        <title>TWRC</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+        <link rel="icon" href="../../assets/logo.png">
+    </head>
+    <body>
+        <div class="Menu">
+            <div class="Title">
+                <div class="TWRC">
+                    <img src="../../assets/logo2.png" id="TitleLogo">
+                    <div class="ActualTitle">
+                        <h1>Trackmania World Record Central</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="Navigation">
+                <div class="NavigationButtonMenu">
+                    <h4 class="MenuButton"><a class="MenubuttonLink" href="../../hub.html">Home</a></h4>
+                    <h4 class="MenuButton"><a class="MenubuttonLink" href="../games.html">Games</a></h4>
+                    <h4 class="MenuButton"><a class="MenubuttonLink" href="../../Stats/stats.html">Statistics</a></h4>
+                    <h4 class="MenuButton"><a class="MenubuttonLink" href="../../About/about.html">About</a></h4>
+                </div>
+            </div>
+        </div>
+        <div class="Corps">
+            <div class="PageHeader">
+                <div class="HeaderBox" id="HeaderLeft">
+                    <div class="HeaderLeftButton" onclick="location.href='../games.html';" style="cursor: pointer;">
+                        <h4>>>Back</h4>
+                    </div>
+                </div>
+                <div class="HeaderBox" id="TitleHeader">
+                    <h2 style="text-align: center;">Pick the envi</h2>
+                </div>
+                <div class="HeaderBox" id="HeaderRight">
+                    <h4></h4>
+                </div>
+            </div>
+            <div class="ChoiceBox">
+                <div class="GamesContainer">
+                    <div class="GameBoxHover" id="TMT" onclick="location.href='Lagoon/lagoon.html';" style="cursor: pointer;">
+                        <div class="GameHeader">
+                            <div class="GameTitleAndYear">
+                                <h5 class="GameTitle">Trackmania² Lagoon</h5>
+                                <h5 class="GameYear">(23-05-2017)</h5>
+                            </div>
+                            <h5 class="WrStat" id="WrStatTMT">> <span class="WrCount">522</span> WR Archived</h5>
+                        </div>
+                        <div class="GameIconBox">
+                            <img class="GameIcon" src="GamePics/TM2Lagoon.webp">
+                        </div>
+                    </div>
+                    <div class="GameBoxHover" id="TM2" onclick="location.href='Stadium/stadium.html';" style="cursor: pointer;">
+                        <div class="GameHeader">
+                            <div class="GameTitleAndYear">
+                                <h5 class="GameTitle">Trackmania² Stadium</h5>
+                                <h5 class="GameYear">(20-07-2013)</h5>
+                            </div>
+                            <h5 class="WrStat" id="WrStatTM2">> <span class="WrCount">1115</span> WR Archived</h5>
+                        </div>
+                        <div class="GameIconBox">
+                            <img class="GameIcon" src="GamePics/TM2Stadium.jpg">
+                        </div>
+                    </div>
+                    <div class="GameBoxHover" id="TMNF" onclick="location.href='Valley/valley.html';" style="cursor: pointer;">
+                        <div class="GameHeader">
+                            <div class="GameTitleAndYear">
+                                <h5 class="GameTitle">Trackmania² Valley</h5>
+                                <h5 class="GameYear">(04-07-2013)</h5>
+                            </div>
+                            <h5 class="WrStat" id="WrStatTMNF">> <span class="WrCount">391</span> WR Archived</h5>
+                        </div>
+                        <div class="GameIconBox">
+                            <img class="GameIcon" src="GamePics/TM2Valley.webp">
+                        </div>
+                    </div>
+                    <div class="GameBoxHover" id="TMUF" onclick="location.href='Canyon/canyon.html';" style="cursor: pointer;">
+                        <div class="GameHeader">
+                            <div class="GameTitleAndYear">
+                                <h5 class="GameTitle">Trackmania² Canyon</h5>
+                                <h5 class="GameYear">(14-09-2011)</h5>
+                            </div>
+                            <h5 class="WrStat" id="WrStatTMUF">> <span class="WrCount">491</span> WR Archived</h5>
+                        </div>
+                        <div class="GameIconBox">
+                            <img class="GameIcon" src="GamePics/TM2Canyon.webp">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
