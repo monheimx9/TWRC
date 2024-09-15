@@ -36,130 +36,112 @@ document.write("<table id='Leaderboard'><tr><th colspan='2' class='LeaderboardPl
 const LBtable = document.getElementById("Leaderboard");
 document.write('</div>') // end of Leaderboard block
 
-fetch(fileUrl)
-    .then(response => response.text())
-    .then(data => {
-        // Split the file content by newlines to get each row
-        const rows = data.split('\n').filter(row => row.trim().length > 0);
-        
-        // Map through each row and split by comma to get individual columns
-        csvData = rows.map(row => row.split(';').filter(cell => cell.trim().length > 0));
-        let myArray = csvData;
-
-        // Get both the Nation and Flag dictionnaries
-
-        var Nation = getNationality();
-        var Flag = getFlag();
-
-        // Setup of the header of the table
-
-        var result = "";
-        result += "<tr><th colspan='2' class='LeaderboardPlayer' id='headerPlayer'>Player</th><th class='LeaderboardTime'>Time</th><th class='LeaderboardDate'>Date</th><th class='LeaderboardInfo'>Info</th></tr>";
-        
-
-        // Main loop to add each lines
-        for(var i=0; i<myArray.length; i++) {
-            if(myArray[i][1] == SelectedMap){
-                result += "<tr>";
-
-                var Cheat = false
-                if(myArray[i][4] === "Cheated"){
-                    Cheat = true
-                }
-
-                for(var j=0; j<myArray[i].length; j++){
-
-                    if(j == 0){ // Player column
-                        // Finding nationality
-                        // result += "<td class='LeaderboardNation'>" + Nation[myArray[i][j]] + "</td>";
-                        result += "<td class='LeaderboardNation'>" + '<div class="FlagPic"><img src="' + Flag[Nation[myArray[i][j]]] + '" alt=""></div>' + "</td>";
-
-
-                        if(Cheat){
-                            result += "<td class='LeaderboardPlayer'><span class='Cheated'>"+myArray[i][j]+"</span></td>";
-                        }
-                        else{
-                            var redArray = '';
-                            if(myArray[i][j] == "__"){
-                                redArray = "<span class='Question'>__</span>";
-                            }
-                            else{
-                                redArray=myArray[i][j];
-                            }
-                            result += "<td class='LeaderboardPlayer'>"+redArray+"</td>";
-                        }
-                    }
-
-                    if(j == 2){ // Time column
-                        if(Cheat){
-                            result += "<td class='LeaderboardTime'><span class='Cheated'>"+myArray[i][j]+"</span></td>";
-                        }
-                        else{
-                            var redArray = '';
-                            for (elem of myArray[i][j]) {
-                                if (elem === 'x') {
-                                    redArray += "<span class='Question'>" + elem + '</span>';
-                                }
-                                else {
-                                    redArray += elem;
-                                }
-                            }
-                            result += "<td class='LeaderboardTime'>"+redArray+"</td>";
-                        }
-                    }
-
-                    if(j == 3){ // Date column
-                        if(Cheat){
-                            result += "<td class='LeaderboardDate'><span class='Cheated'>"+myArray[i][j]+"</span></td>";
-                        }
-                        else{
-                            var redArray = '';
-                            for (elem of myArray[i][j]) {
-                                if (elem === '?') {
-                                    redArray += "<span class='Question'>" + elem + '</span>';
-                                }
-                                else {
-                                    redArray += elem;
-                                }
-                            }
-                            result += "<td class='LeaderboardDate'>"+redArray+"</td>";
-                        }
-                    }
-
-                    if(j == 4){ // Info column
-                        if(Cheat){
-                            result += "<td class='LeaderboardInfo'><span class='Cheated'>"+myArray[i][j]+"</span></td>";
-                        }
-                        else{
-                            if(myArray[i][j] === "."){
-                                result += "<td class='LeaderboardInfo'> </td>";
-                            }
-                            else{
-                                result += "<td class='LeaderboardInfo'>"+myArray[i][j]+"</td>";
-                            }
-                        }
-                    }
-                }
-                result += "</tr>";
+Promise.all([
+    fetch('https://raw.githubusercontent.com/Loupphok/TWRC/main/data/WRDb.csv'),
+    fetch('https://raw.githubusercontent.com/Loupphok/TWRC/main/data/Nation.csv')
+]).then(function (responses) {
+    return Promise.all(responses.map(function(response){
+        return response.text();
+    }))
+}).then(function (alldata){
+    data = alldata[0];
+    console.log(alldata[1]);
+    // Split the file content by newlines to get each row
+    const rows = data.split('\n').filter(row => row.trim().length > 0);
+    
+    // Map through each row and split by comma to get individual columns
+    csvData = rows.map(row => row.split(';').filter(cell => cell.trim().length > 0));
+    let myArray = csvData;
+    // Get both the Nation and Flag dictionnaries
+    var Nation = getNationality();
+    var Flag = getFlag();
+    // Setup of the header of the table
+    var result = "";
+    result += "<tr><th colspan='2' class='LeaderboardPlayer' id='headerPlayer'>Player</th><th class='LeaderboardTime'>Time</th><th class='LeaderboardDate'>Date</th><th class='LeaderboardInfo'>Info</th></tr>";
+    
+    // Main loop to add each lines
+    for(var i=0; i<myArray.length; i++) {
+        if(myArray[i][1] == SelectedMap){
+            result += "<tr>";
+            var Cheat = false
+            if(myArray[i][4] === "Cheated"){
+                Cheat = true
             }
+            for(var j=0; j<myArray[i].length; j++){
+                if(j == 0){ // Player column
+                    // Finding nationality
+                    // result += "<td class='LeaderboardNation'>" + Nation[myArray[i][j]] + "</td>";
+                    result += "<td class='LeaderboardNation'>" + '<div class="FlagPic"><img src="' + Flag[Nation[myArray[i][j]]] + '" alt=""></div>' + "</td>";
+                    if(Cheat){
+                        result += "<td class='LeaderboardPlayer'><span class='Cheated'>"+myArray[i][j]+"</span></td>";
+                    }
+                    else{
+                        var redArray = '';
+                        if(myArray[i][j] == "__"){
+                            redArray = "<span class='Question'>__</span>";
+                        }
+                        else{
+                            redArray=myArray[i][j];
+                        }
+                        result += "<td class='LeaderboardPlayer'>"+redArray+"</td>";
+                    }
+                }
+                if(j == 2){ // Time column
+                    if(Cheat){
+                        result += "<td class='LeaderboardTime'><span class='Cheated'>"+myArray[i][j]+"</span></td>";
+                    }
+                    else{
+                        var redArray = '';
+                        for (elem of myArray[i][j]) {
+                            if (elem === 'x') {
+                                redArray += "<span class='Question'>" + elem + '</span>';
+                            }
+                            else {
+                                redArray += elem;
+                            }
+                        }
+                        result += "<td class='LeaderboardTime'>"+redArray+"</td>";
+                    }
+                }
+                if(j == 3){ // Date column
+                    if(Cheat){
+                        result += "<td class='LeaderboardDate'><span class='Cheated'>"+myArray[i][j]+"</span></td>";
+                    }
+                    else{
+                        var redArray = '';
+                        for (elem of myArray[i][j]) {
+                            if (elem === '?') {
+                                redArray += "<span class='Question'>" + elem + '</span>';
+                            }
+                            else {
+                                redArray += elem;
+                            }
+                        }
+                        result += "<td class='LeaderboardDate'>"+redArray+"</td>";
+                    }
+                }
+                if(j == 4){ // Info column
+                    if(Cheat){
+                        result += "<td class='LeaderboardInfo'><span class='Cheated'>"+myArray[i][j]+"</span></td>";
+                    }
+                    else{
+                        if(myArray[i][j] === "."){
+                            result += "<td class='LeaderboardInfo'> </td>";
+                        }
+                        else{
+                            result += "<td class='LeaderboardInfo'>"+myArray[i][j]+"</td>";
+                        }
+                    }
+                }
+            }
+            result += "</tr>";
         }
-        LBtable.innerHTML = result;
-    })
-
-
-
-
-
-const fileUrl2 = 'https://raw.githubusercontent.com/Loupphok/TWRC/main/data/Nation.csv'; // Replace with the URL or path to your CSV file
-let outsideVariable;
-
-fetch(fileUrl2)
-    .then(response => response.text())
-    .then(data => {
-        outsideVariable = data;
-    });
-
-console.log(outsideVariable);
+    }
+    LBtable.innerHTML = result;
+ 
+}).catch(function (error){
+    console.log(error);
+});
 
     // Adding extra lines in the end to scroll down bellow leaderboard
 
