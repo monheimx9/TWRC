@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="styletest.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
@@ -22,7 +23,9 @@
                 .then(response => response.text())
                 .then(data => {
                     // Split the file content by newlines to get each row
-                    const rows = data.split('\r\n').filter(row => row.trim().length > 0);
+                    const rows = data.split('\n').filter(row => row.trim().length > 0);
+
+                    console.log(rows);
                     
                     // Map through each row and split by comma to get individual columns
                     csvData = rows.map(row => row.split(';').filter(cell => cell.trim().length > 0));
@@ -92,7 +95,7 @@
         }
 
         // Automatically read the file without user input
-        const fileUrl = 'data/WRDb.csv'; // Replace with the URL or path to your CSV file
-        console.log(readCSV(fileUrl));
+        const fileUrl = 'https://raw.githubusercontent.com/Loupphok/TWRC/main/data/WRDb.csv'; // Replace with the URL or path to your CSV file
+        readCSV(fileUrl);
 </script>
 </html>
