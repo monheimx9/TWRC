@@ -23,6 +23,8 @@ Promise.all([
     // Import data from WRDb.csv
     data = alldata[0];
 
+    console.log(data);
+
     // Split the file content by newlines to get each row
     const rows = data.split('\n').filter(row => row.trim().length > 0);
 
