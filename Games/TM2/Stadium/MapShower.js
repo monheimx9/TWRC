@@ -7,7 +7,7 @@ document.write("<div id='TOUT'></div>");
 tout = document.getElementById("TOUT");
 
 Promise.all([
-    fetch('https://raw.githubusercontent.com/Loupphok/TWRC/main/data/WRDb.csv'),
+    fetch('https://raw.githubusercontent.com/Loupphok/TWRC/refs/heads/main/data/WRDb.csv'),
     fetch('https://raw.githubusercontent.com/Loupphok/TWRC/main/data/Nation.csv'),
     fetch('https://raw.githubusercontent.com/Loupphok/TWRC/main/data/flag.csv')
 ]).then(function (responses) {
@@ -29,7 +29,23 @@ Promise.all([
     // Map through each row and split by comma to get individual columns
     csvData = rows.map(row => row.split(';').filter(cell => cell.trim().length > 0));
     let myArray = csvData;
-    console.log(myArray);
+    var finalarray = [];
+
+    // Only keep the relevant data into the database
+    for(elem of myArray){
+        if(elem[1].split(" - ")[1] === envi){
+            finalarray.push(elem);
+        }
+    }
+
+    // Create a database with all wrs
+    let wrdata = [];
+
+    for(elem of finalarray){
+        if(elem[7] === "1"){
+            wrdata.push(elem);
+        }
+    }
 
 
     ///////////////////
@@ -50,6 +66,7 @@ Promise.all([
         Nation[elem[0]] = elem[1];
     }
 
+
     ///////////////////
     // Fetching Flag data
     ///////////////////
@@ -68,12 +85,15 @@ Promise.all([
         Flag[elem[0]] = "../../../assets/flags/" + elem[1];
     }
 
-    // console.log(myArray);
-    // console.log(Nation);
-    // console.log(Flag);
+    ///////////////////
+    // Showing the data
+    ///////////////////
 
     for(pre of [["A", "White"],["B", "Green"],["C", "Blue"],["D", "Red"]]) {
+        // Select the letter of each maps
         letter = pre[0];
+
+        // Setup of the header of each flag
         result += '<div class="ChoiceBox">';
     
         result += '<div class="FlagHeader"><img src="MapPics/Flag' + letter + '.png">';
@@ -83,22 +103,24 @@ Promise.all([
         result += '<div class="ChoiceBoxFlag">';
     
         for(var i=0; i<15; i++){
+            // Finding the only relevent record
             map = letter + (i+1).toString().padStart(2, '0');
-            // map_data = map + " - " + envi;
-            // for(record of myArray){
-            //     console.log(record[1]);
-            //     if(record[1] === map_data){
-            //         console.log(record);
-            //     }
-            // }
+            map_data = map + " - " + envi;
+            let current_data;
+            for(record of wrdata){
+                if(record[1] === map_data){
+                    current_data = record;
+                }
+            }
 
+            // Setup of each individual map boxes
             result += '<div class="MapThumbnailBox" id="' + map + '" onclick="location.href=' + "'" + "../../../History/map.html?id=" + map + "_-_" + envi + "'" + ';" style="cursor: pointer;">';
             result += '<div class="ThumbnailHeader">';
             result += '<h3 class="ThumbnailMapName">' + map + '</h3>';
             result += '</div>' // End of class: ThumbnailHeader
             result += '<img class="MapThumbnail" src="MapPics/TM2_' + envi + '_' + map + '.jpg"></img>';
             result += '<div class="ThumbnailFooter">';
-            result += '<h5 class="ThumbnailWrInfo">WR: <span class="Wr">XX:XX.XXX</span> - <img class="WrFlag" src="../../../assets/flags/question.png"><span class="WrHolder"> ________</span></h5>';
+            result += '<h5 class="ThumbnailWrInfo">WR: <span class="Wr">'+current_data[2]+'</span> - <img class="WrFlag" src="'+Flag[Nation[current_data[0]]]+'"><span class="WrHolder"> '+current_data[0]+'</span></h5>';
             result += '</div>'; // End of class: ThumbnailFooter
             result += '</div>'; // End of class: MapThumbnailBox
         }
@@ -111,6 +133,8 @@ Promise.all([
     
     // E maps
     letter = "E";
+
+    // Setup of the header of each flag
     result += '<div class="ChoiceBox">';
     
     result += '<div class="FlagHeader"><img src="MapPics/Flag' + letter + '.png">';
@@ -120,14 +144,24 @@ Promise.all([
     result += '<div class="ChoiceBoxFlag">';
     
     for(var i=0; i<5; i++){
+        // Finding the only relevent record
         map = letter + (i+1).toString().padStart(2, '0');
+        map_data = map + " - " + envi;
+        let current_data;
+        for(record of wrdata){
+            if(record[1] === map_data){
+                current_data = record;
+            }
+        }
+
+        // Setup of each individual map boxes
         result += '<div class="MapThumbnailBox" id="' + map + '" onclick="location.href=' + "'" + "../../../History/map.html?id=" + map + "_-_" + envi + "'" + ';" style="cursor: pointer;">';
         result += '<div class="ThumbnailHeader">';
         result += '<h3 class="ThumbnailMapName">' + map + '</h3>';
         result += '</div>' // End of class: ThumbnailHeader
         result += '<img class="MapThumbnail" src="MapPics/TM2_' + envi + '_' + map + '.jpg"></img>';
         result += '<div class="ThumbnailFooter">';
-        result += '<h5 class="ThumbnailWrInfo">WR: <span class="Wr">X:XX.XXX</span> - <span class="WrHolder">________</span></h5>';
+        result += '<h5 class="ThumbnailWrInfo">WR: <span class="Wr">'+current_data[2]+'</span> - <img class="WrFlag" src="'+Flag[Nation[current_data[0]]]+'"><span class="WrHolder"> '+current_data[0]+'</span></h5>';
         result += '</div>'; // End of class: ThumbnailFooter
         result += '</div>'; // End of class: MapThumbnailBox
     }
@@ -136,6 +170,8 @@ Promise.all([
     
     result += '</div>'; // End of class: ChoiceBox
 
+    // Send the result to the previously created 'TOUT' div
+    // Forced to do that because a document.write() will ommit css
     tout.innerHTML = result;
  
 }).catch(function (error){
