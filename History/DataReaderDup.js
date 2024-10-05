@@ -2,8 +2,6 @@
 // Getting the data
 ///////////////////
 
-console.time("Temps d'exécution");
-
 // Import data / fetch
 const fileUrl = 'https://raw.githubusercontent.com/Loupphok/TWRC/main/data/WRDb.csv'; // Replace with the URL or path to your CSV file
 let csvData = [];
@@ -124,9 +122,9 @@ Promise.all([
     
     // Main loop to add each lines
     let redArray;
-    for(CurrentLine of myArray) {
+    for(var i=0; i<myArray.length; i++) {
         var Cheat = false
-        if(CurrentLine[4] === "Cheated"){
+        if(myArray[i][4] === "Cheated"){
             Cheat = true
         }
         
@@ -138,19 +136,19 @@ Promise.all([
 
         //######- Player column -######
         // Finding nationality
-        result += "<td class='LeaderboardNation'>" + '<div class="FlagPic"><img src="' + Flag[Nation[CurrentLine[0]]] + '" alt=""></div>' + "</td>";
+        result += "<td class='LeaderboardNation'>" + '<div class="FlagPic"><img src="' + Flag[Nation[myArray[i][0]]] + '" alt=""></div>' + "</td>";
         redArray = '';
-        if(CurrentLine[0] == "__"){
+        if(myArray[i][0] == "__"){
             redArray = "<span class='Question'>__</span>";
         }
         else{
-            redArray=CurrentLine[0];
+            redArray=myArray[i][0];
         }
         result += "<td class='LeaderboardPlayer'>"+redArray+"</td>";
         
         //######- Time column -######
         redArray = '';
-        for (elem of CurrentLine[2]) {
+        for (elem of myArray[i][2]) {
             if (elem === 'x') {
                 redArray += "<span class='Question'>" + elem + '</span>';
             }
@@ -162,7 +160,7 @@ Promise.all([
 
         //######- Date column -######
         redArray = '';
-        for (elem of CurrentLine[3]) {
+        for (elem of myArray[i][3]) {
             if (elem === '?') {
                 redArray += "<span class='Question'>" + elem + '</span>';
             }
@@ -173,11 +171,11 @@ Promise.all([
         result += "<td class='LeaderboardDate'>"+redArray+"</td>";
         
         //######- Info column -######
-        if(CurrentLine[4] === "."){
+        if(myArray[i][4] === "."){
             result += "<td class='LeaderboardInfo'> </td>";
         }
         else{
-            result += "<td class='LeaderboardInfo'>"+CurrentLine[4]+"</td>";
+            result += "<td class='LeaderboardInfo'>"+myArray[i][4]+"</td>";
         }
         
         result += "</tr>";
@@ -208,8 +206,6 @@ function createMapSelector() {
     code += '</div></div>';
     return code;
 }
-
-console.timeEnd("Temps d'exécution"); //0.614ms
 
 // Function that returns a column into an array
 function getUniqueColumn(data, column){
