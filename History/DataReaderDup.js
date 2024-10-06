@@ -2,6 +2,23 @@
 // Getting the data
 ///////////////////
 
+console.time("Temps d'exécution");
+
+
+    // Variable globale à switcher
+let estVrai = true;
+
+    // Fonction pour basculer la valeur de la variable
+function toggleVariable() {
+        // Inverser la valeur de la variable
+    estVrai = !estVrai;
+
+        // Afficher la nouvelle valeur dans la console
+    console.log("La valeur de estVrai est maintenant : " + estVrai);
+}
+
+// Attacher l'événement click à la div
+
 // Import data / fetch
 const fileUrl = 'https://raw.githubusercontent.com/Loupphok/TWRC/main/data/WRDb.csv'; // Replace with the URL or path to your CSV file
 let csvData = [];
@@ -39,7 +56,6 @@ document.write('</div>') // end of Leaderboard block
 ///////////////////
 // Parse and show data
 ///////////////////
-
 Promise.all([
     fetch('https://raw.githubusercontent.com/Loupphok/TWRC/main/data/WRDb.csv'),
     fetch('https://raw.githubusercontent.com/Loupphok/TWRC/main/data/Nation.csv'),
@@ -118,13 +134,15 @@ Promise.all([
 
     // Setup of the header of the table
     var result = "";
-    result += "<tr><th colspan='2' class='LeaderboardPlayer' id='headerPlayer'>Player</th><th class='LeaderboardTime'>Time</th><th class='LeaderboardDate'>Date</th><th class='LeaderboardInfo'>Info</th></tr>";
+    result += "<tr><th class='LeaderboardIndex'>#</th><th colspan='2' class='LeaderboardPlayer' id='headerPlayer'>Player</th><th class='LeaderboardTime'>Time</th><th class='LeaderboardDate'>Date</th><th class='LeaderboardInfo'>Info</th></tr>";
     
     // Main loop to add each lines
     let redArray;
-    for(var i=0; i<myArray.length; i++) {
+    let index = 0;
+    for(CurrentLine of myArray) {
+        index += 1;
         var Cheat = false
-        if(myArray[i][4] === "Cheated"){
+        if(CurrentLine[4] === "Cheated"){
             Cheat = true
         }
         
@@ -134,21 +152,24 @@ Promise.all([
         }
         result += ">";
 
+        //######- Index -######
+        result += "<td class='LeaderboardIndex'>" + index + "</td>";
+
         //######- Player column -######
         // Finding nationality
-        result += "<td class='LeaderboardNation'>" + '<div class="FlagPic"><img src="' + Flag[Nation[myArray[i][0]]] + '" alt=""></div>' + "</td>";
+        result += "<td class='LeaderboardNation'>" + '<div class="FlagPic"><img src="' + Flag[Nation[CurrentLine[0]]] + '" alt=""></div></td>';
         redArray = '';
-        if(myArray[i][0] == "__"){
+        if(CurrentLine[0] == "__"){
             redArray = "<span class='Question'>__</span>";
         }
         else{
-            redArray=myArray[i][0];
+            redArray=CurrentLine[0];
         }
         result += "<td class='LeaderboardPlayer'>"+redArray+"</td>";
         
         //######- Time column -######
         redArray = '';
-        for (elem of myArray[i][2]) {
+        for (elem of CurrentLine[2]) {
             if (elem === 'x') {
                 redArray += "<span class='Question'>" + elem + '</span>';
             }
@@ -160,7 +181,7 @@ Promise.all([
 
         //######- Date column -######
         redArray = '';
-        for (elem of myArray[i][3]) {
+        for (elem of CurrentLine[3]) {
             if (elem === '?') {
                 redArray += "<span class='Question'>" + elem + '</span>';
             }
@@ -171,11 +192,11 @@ Promise.all([
         result += "<td class='LeaderboardDate'>"+redArray+"</td>";
         
         //######- Info column -######
-        if(myArray[i][4] === "."){
+        if(CurrentLine[4] === "."){
             result += "<td class='LeaderboardInfo'> </td>";
         }
         else{
-            result += "<td class='LeaderboardInfo'>"+myArray[i][4]+"</td>";
+            result += "<td class='LeaderboardInfo'>"+CurrentLine[4]+"</td>";
         }
         
         result += "</tr>";
@@ -206,6 +227,8 @@ function createMapSelector() {
     code += '</div></div>';
     return code;
 }
+
+console.timeEnd("Temps d'exécution"); //0.614ms
 
 // Function that returns a column into an array
 function getUniqueColumn(data, column){
