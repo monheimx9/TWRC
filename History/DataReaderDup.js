@@ -1,136 +1,67 @@
-///////////////////
-// Getting the data
-///////////////////
+// Grab all the data from the github sources
+async function getData(){
+    try {
+        /* Fetch all the data concurrently */
+        const responses = await Promise.all([
+            fetch('https://raw.githubusercontent.com/Loupphok/TWRC/main/data/WRDb.csv'),
+            fetch('https://raw.githubusercontent.com/Loupphok/TWRC/main/data/Nation.csv'),
+            fetch('https://raw.githubusercontent.com/Loupphok/TWRC/main/data/flag.csv')
+        ]);
 
-console.time("Temps d'exécution");
+        /* Extract the text from each response */
+        const alldata = await Promise.all(responses.map(response => response.text()));
 
+        parseData(alldata); // Parse the data
 
-    // Variable globale à switcher
-let estVrai = true;
-
-    // Fonction pour basculer la valeur de la variable
-function toggleVariable() {
-        // Inverser la valeur de la variable
-    estVrai = !estVrai;
-
-        // Afficher la nouvelle valeur dans la console
-    console.log("La valeur de estVrai est maintenant : " + estVrai);
+    } catch (error) {
+        console.error(error);
+    }
 }
 
-// Attacher l'événement click à la div
+// Parse the data so we can use it (convert from csv to list of lists)
+function parseData(alldata){
 
-// Import data / fetch
-const fileUrl = 'https://raw.githubusercontent.com/Loupphok/TWRC/main/data/WRDb.csv'; // Replace with the URL or path to your CSV file
-let csvData = [];
-
-// Récupérer les paramètres de l'URL
-const params = new URLSearchParams(window.location.search);
-
-// Récupérer la valeur de l'ID
-const id = params.get('id');
-
-// Afficher ou utiliser la valeur récupérée
-SelectedMap = id.replace(/_/g, ' ');
-
-
-///////////////////
-// Output of blocks on the page
-///////////////////
-
-// List insertion
-document.write('<div class="MapChoiceBlock">')
-
-// document.write(createMapSelector());
-document.write('<h1 class="output" id="output1">Map: '+SelectedMap+'</h1>')
-const out1 = document.getElementById("output1"); // Getting what's inside "ouiput1"
-document.write('</div>') // end of List block
-
-// Leaderboard insertion
-
-document.write('<div class="LeaderboardBlock">')
-document.write("<table id='Leaderboard'><tr><th colspan='2' class='LeaderboardPlayer' id='headerPlayer'>Player</th><th class='LeaderboardTime'>Time</th><th class='LeaderboardDate'>Date</th><th class='LeaderboardInfo'>Info</th></tr></table>");
-const LBtable = document.getElementById("Leaderboard");
-document.write('</div>') // end of Leaderboard block
-
-
-///////////////////
-// Parse and show data
-///////////////////
-Promise.all([
-    fetch('https://raw.githubusercontent.com/Loupphok/TWRC/main/data/WRDb.csv'),
-    fetch('https://raw.githubusercontent.com/Loupphok/TWRC/main/data/Nation.csv'),
-    fetch('https://raw.githubusercontent.com/Loupphok/TWRC/main/data/flag.csv')
-]).then(function (responses) {
-    return Promise.all(responses.map(function(response){
-        return response.text();
-    }))
-}).then(function (alldata){
-
-    ///////////////////
-    // Fetching HISTORY data
-    ///////////////////
-
-    // Import data from WRDb.csv
-    data = alldata[0];
-
-    // Split the file content by newlines to get each row
-    const rows = data.split('\n').filter(row => row.trim().length > 0);
-
-    // Map through each row and split by comma to get individual columns
-    csvData = rows.map(row => row.split(';').filter(cell => cell.trim().length > 0));
+    /* Fetching HISTORY data */
+    data = alldata[0]; // Import data from WRDb.csv
+    const rows = data.split('\n').filter(row => row.trim().length > 0); // Split the file content by newlines to get each row
+    csvData = rows.map(row => row.split(';').filter(cell => cell.trim().length > 0)); // Split the file content by newlines to get each row
     
-    // Keep only relevent maps
-    let myArray = [];
+    // Keep only relevent map
+    var mapWR = [];
     for(elem of csvData){
         if(elem[1] === SelectedMap){
-            myArray.push(elem);
+            mapWR.push(elem);
         }
     }
-
-    // Sort by rank to have the current wr on top of the list
-    myArray.sort((a, b) => {
-        return a[7] - b[7];
-    });
-
-    ///////////////////
-    // Fetching Nation data
-    ///////////////////
-
-    // Import data from Nation.csv
-    dataNation = alldata[1];
-
-    // Split the file content by newlines to get each row
-    const rowsNation = dataNation.split('\n').filter(row => row.trim().length > 0);
     
-    // Map through each row and split by comma to get individual columns
+    mapWR.sort((a, b) => {return a[7] - b[7];}); // Sort by rank to have the current wr on top of the list
+
+    /* Fetching Nation data */
+    dataNation = alldata[1];  // Import data from Nation.csv
+    const rowsNation = dataNation.split('\n').filter(row => row.trim().length > 0); // Split the file content by newlines to get each row
+    
     csvDataNation = rowsNation.map(row => row.split(';').filter(cell => cell.trim().length > 0));
     var Nation = {};
-
     for (elem of csvDataNation) {
         Nation[elem[0]] = elem[1];
     }
-
-    ///////////////////
-    // Fetching Flag data
-    ///////////////////
-
-    // Import data from Flag.csv
-    dataFlag = alldata[2];
-
-    // Split the file content by newlines to get each row
-    const rowsFlag = dataFlag.split('\n').filter(row => row.trim().length > 0);
     
-    // Map through each row and split by comma to get individual columns
+    /* Fetching Flag data */
+    dataFlag = alldata[2]; // Import data from Flag.csv
+    const rowsFlag = dataFlag.split('\n').filter(row => row.trim().length > 0); // Split the file content by newlines to get each row
     csvDataFlag = rowsFlag.map(row => row.split(';').filter(cell => cell.trim().length > 0));
     var Flag = {};
-
     for (elem of csvDataFlag) {
         Flag[elem[0]] = "assets/flags/" + elem[1];
     }
 
-    ///////////////////
-    // Create and show the table
-    ///////////////////
+    showInfo(mapWR, Nation, Flag); // Once its parsed, put the data into the table
+}
+
+// Show info into the already made table
+function showInfo(mapWR, Nation, Flag){
+
+    /* Create and show the table */
 
     // Setup of the header of the table
     var result = "";
@@ -139,22 +70,25 @@ Promise.all([
     // Main loop to add each lines
     let redArray;
     let index = 0;
-    for(CurrentLine of myArray) {
-        index += 1;
-        var Cheat = false
+    let anyCheat = false;
+    for(CurrentLine of mapWR) {
+        var Cheat = false;
         if(CurrentLine[4] === "Cheated"){
-            Cheat = true
+            Cheat = true;
+            anyCheat = true;
+            if(!CheatOn){
+                continue;
+            }
         }
+        index += 1;
         
         result += "<tr";
         if(Cheat){
             result += " style='color: #e06560; font-style: italic;'";
         }
         result += ">";
-
         //######- Index -######
         result += "<td class='LeaderboardIndex'>" + index + "</td>";
-
         //######- Player column -######
         // Finding nationality
         result += "<td class='LeaderboardNation'>" + '<div class="FlagPic"><img src="' + Flag[Nation[CurrentLine[0]]] + '" alt=""></div></td>';
@@ -178,7 +112,6 @@ Promise.all([
             }
         }
         result += "<td class='LeaderboardTime'>"+redArray+"</td>";
-
         //######- Date column -######
         redArray = '';
         for (elem of CurrentLine[3]) {
@@ -203,32 +136,45 @@ Promise.all([
     }
     // Inputing the loop into the table
     LBtable.innerHTML = result;
- 
-}).catch(function (error){
-    console.log(error);
-});
+    if(!anyCheat){
+        buttonCheat.innerHTML = "";
+    }
+}
 
-
-// Adding extra lines in the end to scroll down bellow leaderboard
-document.write("<p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>")
-document.write("<p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>")
+// Fonction pour basculer la valeur de la variable
+function toggleVariable() {
+    CheatOn = !CheatOn;
+    getData(CheatOn);
+    if(CheatOn){
+        Togglecheat.innerHTML = "Cheater On";
+    }
+    else{
+        Togglecheat.innerHTML = "Cheater Off";
+    }
+}
 
 // Function that creates the horizontal scroller on top of the page to chose close relatives maps
 function createMapSelector() {
-    code = '';
-    code += '<div style="width: 75%; overflow-x: scroll; margin: auto;">';
-    code += '<div class="scrollmenu", id="mapScroller" style="width: 2630px;">';
+    let firstDiv = document.createElement("div");
+    firstDiv.style = 'width: 75%; overflow-x: scroll; margin: auto;';
+
+    let mapScroller = document.createElement("div");
+    mapScroller.className = "scrollmenu";
+    mapScroller.id = "mapScroller";
+    mapScroller.style = "width: 2630px;";
+
     for (let i = 1; i <= 15; i++) {
         format = i.toString().padStart(2, '0');
-        code += '<div style="background-image: url(./assets/mapThumbnails/canyonA' + format + '.jpg); background-size: 175px; width: 175px; height: 117px;">';
-        code += '<a href="#home">A' + format + '</a>';
-        code += '</div>';
-    }
-    code += '</div></div>';
-    return code;
-}
+        let singleMap = document.createElement("div");
+        singleMap.style = "background-image: url(./assets/mapThumbnails/canyonA" + format + ".jpg); background-size: 175px; width: 175px; height: 117px;";
+        singleMap.innerHTML = '<a href="#home">A' + format + '</a>';
 
-console.timeEnd("Temps d'exécution"); //0.614ms
+        mapScroller.appendChild(singleMap);
+    }
+    firstDiv.appendChild(mapScroller);
+
+    MapChoiceBlock.insertBefore(firstDiv, output1);
+}
 
 // Function that returns a column into an array
 function getUniqueColumn(data, column){
@@ -238,3 +184,70 @@ function getUniqueColumn(data, column){
     }
     return [...Something.keys()]
 }
+
+/*
+Start of the main code
+*/
+
+console.time("Temps d'exécution");
+
+const Corps = document.getElementsByClassName("Corps")[0];
+
+const buttonCheat = document.createElement("div");
+buttonCheat.id = "buttonCheatBox";
+buttonCheat.innerHTML = '<div id="monDiv" class="toggleCheat" onclick="toggleVariable()">Cheater On</div>';
+
+Corps.appendChild(buttonCheat);
+
+var CheatOn = true; // Global variable that will get switch if there are cheated runs in the map history
+const Togglecheat = document.getElementById("monDiv");
+
+const params = new URLSearchParams(window.location.search); // Get the parameters from the URL
+const SelectedMap = params.get('id').replace(/_/g, ' '); // Name of the track without underscores
+
+/* List insertion */
+
+const MapChoiceBlock = document.createElement("div");
+MapChoiceBlock.className = "MapChoiceBlock";
+
+MapChoiceBlock.innerHTML = '<h1 class="output" id="output1">Map: '+SelectedMap+'</h1>';
+
+Corps.appendChild(MapChoiceBlock);
+
+const output1 = document.getElementById("output1");
+
+//createMapSelector(); // add the experimental map selector
+
+/* Leaderboard insertion */
+
+// Créer un conteneur pour le leaderboard
+const leaderboardBlock = document.createElement('div');
+leaderboardBlock.className = 'LeaderboardBlock';
+
+// Ajouter la structure HTML directement avec innerHTML
+leaderboardBlock.innerHTML = `
+  <table id="Leaderboard">
+    <tr>
+      <th class='LeaderboardIndex'>#</th>
+      <th colspan="2" class="LeaderboardPlayer" id="headerPlayer">Player</th>
+      <th class="LeaderboardTime">Time</th>
+      <th class="LeaderboardDate">Date</th>
+      <th class="LeaderboardInfo">Info</th>
+    </tr>
+  </table>
+`;
+
+// Ajouter le conteneur au DOM (par exemple, dans le body)
+Corps.appendChild(leaderboardBlock);
+
+// Récupérer la table pour d'autres manipulations si nécessaire
+const LBtable = document.getElementById('Leaderboard');
+
+getData();
+
+// Adding extra lines in the end to scroll down bellow leaderboard
+const bottomSpaces = document.createElement("p");
+bottomSpaces.innerHTML = '<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>';
+document.body.appendChild(bottomSpaces);
+
+console.timeEnd("Temps d'exécution"); //~0.614m
