@@ -89,7 +89,8 @@ function showInfo(mapWR, Nation, Flag){
         }
 
         /* Setup line of table */
-        var tableLine = document.createElement("tr");
+        var tableLine = document.createElement("tr");     
+
         if(Cheat){
             tableLine.style = "color: #e06560; font-style: italic;";
         }
@@ -98,7 +99,13 @@ function showInfo(mapWR, Nation, Flag){
         indexLine += 1;
         const index = document.createElement("td");
         index.className = "LeaderboardIndex";
-        index.innerHTML = indexLine;
+
+        if(indexLine == 1) {
+            index.innerHTML = "<div class='FlagPic'><img src='"+indexLine+".png' alt=''></div>";
+        }
+        else {
+            index.innerHTML = indexLine;
+        }
         tableLine.appendChild(index);
 
         /* Player column */

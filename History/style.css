@@ -139,6 +139,18 @@ th{
     text-align: left;
 }
 
+tr:hover{
+    background-color: #23262b;
+    /*text-shadow: 0px 0px 5px rgb(255, 187, 0);*/
+}
+
+/*
+tr:hover td{
+    font-size: 26px;
+}
+PAS OUF
+*/
+
 .MapChoiceBlock{
     padding-left: 10%;
     padding-right: 10%;
