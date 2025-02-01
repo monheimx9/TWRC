@@ -100,8 +100,20 @@ function showInfo(mapWR, Nation, Flag){
         const index = document.createElement("td");
         index.className = "LeaderboardIndex";
 
-        if(indexLine == 1) {
-            index.innerHTML = "<div class='FlagPic'><img src='"+indexLine+".png' alt=''></div>";
+        if(indexLine < 5) {
+            index.innerHTML = "<div class='FlagPic'><img src='assets/"+indexLine+".png' alt=''></div>";
+            // if(indexLine == 4){
+            //     tableLine.style.backgroundColor = "#312a20";
+            // }
+            // else if (indexLine == 3){
+            //     tableLine.style.backgroundColor = "#313131";
+            // }
+            // else if(indexLine == 2){
+            //     tableLine.style.backgroundColor = "#3d3320";
+            // }
+            // else{
+            //     tableLine.style.backgroundColor = "#273127";
+            // }
         }
         else {
             index.innerHTML = indexLine;
