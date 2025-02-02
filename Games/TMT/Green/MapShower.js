@@ -3,31 +3,34 @@ var FirstMap = 41;
 var map = "";
 var envi = "";
 
-document.write("<div id='TOUT'></div>");
-tout = document.getElementById("TOUT");
+// Grab all the data from the github sources
+async function getData(){
+    try {
+        /* Fetch all the data concurrently */
+        const responses = await Promise.all([
+            fetch('https://raw.githubusercontent.com/Loupphok/TWRC/main/data/WRDb.csv'),
+            fetch('https://raw.githubusercontent.com/Loupphok/TWRC/main/data/Nation.csv'),
+            fetch('https://raw.githubusercontent.com/Loupphok/TWRC/main/data/flag.csv')
+        ]);
 
-Promise.all([
-    fetch('https://raw.githubusercontent.com/Loupphok/TWRC/refs/heads/main/data/WRDb.csv'),
-    fetch('https://raw.githubusercontent.com/Loupphok/TWRC/main/data/Nation.csv'),
-    fetch('https://raw.githubusercontent.com/Loupphok/TWRC/main/data/flag.csv')
-]).then(function (responses) {
-    return Promise.all(responses.map(function(response){
-        return response.text();
-    }))
-}).then(function (alldata){
+        /* Extract the text from each response */
+        const alldata = await Promise.all(responses.map(response => response.text()));
 
-    ///////////////////
-    // Fetching HISTORY data
-    ///////////////////
+        parseData(alldata); // Parse the data
 
-    // Import data from WRDb.csv
-    data = alldata[0];
+    } catch (error) {
+        console.error(error);
+    }
+}
 
-    // Split the file content by newlines to get each row
-    const rows = data.split('\n').filter(row => row.trim().length > 0);
+// Parse the data so we can use it (convert from csv to list of lists)
+function parseData(alldata){
 
-    // Map through each row and split by comma to get individual columns
-    csvData = rows.map(row => row.split(';').filter(cell => cell.trim().length > 0));
+    /* Fetching HISTORY data */
+    data = alldata[0]; // Import data from WRDb.csv
+    const rows = data.split('\n').filter(row => row.trim().length > 0); // Split the file content by newlines to get each row
+    csvData = rows.map(row => row.split(';').filter(cell => cell.trim().length > 0)); // Split the file content by newlines to get each row
+    
     let myArray = csvData;
     var finalarray = [];
 
@@ -52,48 +55,29 @@ Promise.all([
         }
     }
 
-
-    ///////////////////
-    // Fetching Nation data
-    ///////////////////
-
-    // Import data from Nation.csv
-    dataNation = alldata[1];
-
-    // Split the file content by newlines to get each row
-    const rowsNation = dataNation.split('\n').filter(row => row.trim().length > 0);
+    /* Fetching Nation data */
+    dataNation = alldata[1];  // Import data from Nation.csv
+    const rowsNation = dataNation.split('\n').filter(row => row.trim().length > 0); // Split the file content by newlines to get each row
     
-    // Map through each row and split by comma to get individual columns
     csvDataNation = rowsNation.map(row => row.split(';').filter(cell => cell.trim().length > 0));
     var Nation = {};
-
     for (elem of csvDataNation) {
         Nation[elem[0]] = elem[1];
     }
-
-
-    ///////////////////
-    // Fetching Flag data
-    ///////////////////
-
-    // Import data from Flag.csv
-    dataFlag = alldata[2];
-
-    // Split the file content by newlines to get each row
-    const rowsFlag = dataFlag.split('\n').filter(row => row.trim().length > 0);
     
-    // Map through each row and split by comma to get individual columns
+    /* Fetching Flag data */
+    dataFlag = alldata[2]; // Import data from Flag.csv
+    const rowsFlag = dataFlag.split('\n').filter(row => row.trim().length > 0); // Split the file content by newlines to get each row
     csvDataFlag = rowsFlag.map(row => row.split(';').filter(cell => cell.trim().length > 0));
     var Flag = {};
-
     for (elem of csvDataFlag) {
         Flag[elem[0]] = "../../../assets/flags/" + elem[1];
     }
 
-    ///////////////////
-    // Showing the data
-    ///////////////////
+    showInfo(wrdata, Nation, Flag); // Once its parsed, put the data into the table
+}
 
+function showInfo(wrdata, Nation, Flag){
 
     for(var i=FirstMap; i<40+FirstMap; i++){
         map = i.toString().padStart(3, '0');
@@ -103,23 +87,28 @@ Promise.all([
         else if(i<20+FirstMap){
             envi = "Valley";
         }
-
         else if(i<30+FirstMap){
             envi = "Lagoon";
         }
-
         else {
             envi = "Stadium";
         }
 
         if ((i - 1) % 10 === 0) {
-            result += '<div class="ChoiceBox">';
+            var ChoiceBox = document.createElement("div");
+            ChoiceBox.className = "ChoiceBox";
 
-            result += '<div class="FlagHeader"><img src="MapPics/' + envi + '.png">';
-            result += '<h1 class="FlagTitle">' + envi + '</h1><img src="MapPics/' + envi + '.png">';
-            result += '</div>' // End of class: FlagHeader
+            var FlagHeader = document.createElement("div");
+            FlagHeader.className = "FlagHeader";
+            let enviLogo = '<img src="MapPics/' + envi + '.png">';
+            let enviName = '<h1 class="FlagTitle">' + envi + '</h1>';
+            FlagHeader.innerHTML = enviLogo + enviName + enviLogo;
+            ChoiceBox.appendChild(FlagHeader);
 
-            result += '<div class="ChoiceBoxFlag">';
+            TOUT.appendChild(ChoiceBox);
+
+            var ChoiceBoxFlag = document.createElement("div");
+            ChoiceBoxFlag.className = "ChoiceBoxFlag";
         }
 
         let current_data;
@@ -129,30 +118,44 @@ Promise.all([
             }
         }
 
-        result += '<div class="MapThumbnailBox" id="' + map + '" onclick="location.href=' + "'" + "../../../History/map.html?id=" + map  + "'" + ';" style="cursor: pointer;">';
-        result += '<div class="ThumbnailHeader">';
-        result += '<h3 class="ThumbnailMapName">#' + map + '</h3>';
-        result += '</div>' // End of class: ThumbnailHeader
-        result += '<img class="MapThumbnail" src="MapPics/' + map + '.jpg"></img>';
-        result += '<div class="ThumbnailFooter">';
-        result += '<h5 class="ThumbnailWrInfo">WR: <span class="Wr">'+current_data[2]+'</span> - <img class="WrFlag" src="'+Flag[Nation[current_data[0]]]+'"><span class="WrHolder"> '+current_data[0]+'</span></h5>';
-        result += '</div>'; // End of class: ThumbnailFooter
-        result += '</div>'; // End of class: MapThumbnailBox
+        var MapThumbnailBox = document.createElement("div");
+        MapThumbnailBox.className = "MapThumbnailBox";
+        MapThumbnailBox.id = map;
+        MapThumbnailBox.style = "cursor: pointer;";
+        MapThumbnailBox.onclick = function(){
+            window.location.href = "../../../History/map.html?id=" + this.id;
+        };
 
+        MapThumbnailBox.innerHTML = '<div class="ThumbnailHeader"><h3 class="ThumbnailMapName">' + map + '</h3></div>';
+        
+        var MapThumbnail = document.createElement("img");
+        MapThumbnail.className = "MapThumbnail";
+        MapThumbnail.src = "MapPics/" + map + ".jpg";
 
-        if ((i) % 10 === 0) {
-            result += '</div>'; // End of class: ChoiceBoxFlag
+        MapThumbnailBox.appendChild(MapThumbnail);
 
-            result += '</div>'; // End of class: ChoiceBox
-        }
+        var ThumbnailFooter = document.createElement("div");
+        ThumbnailFooter.className = "ThumbnailFooter";
+        
+        var ThumbnailWrInfo = document.createElement("h5");
+        ThumbnailWrInfo.className = "ThumbnailWrInfo";
+        ThumbnailWrInfo.innerHTML = 'WR: <span class="Wr">'+current_data[2]+'</span> - '; /* "WR: " + the WR time */
+        ThumbnailWrInfo.innerHTML += '<img class="WrFlag" src="' + Flag[Nation[current_data[0]]] + '">'; /* Adding the flag */
+        ThumbnailWrInfo.innerHTML += '<span class="WrHolder"> '+current_data[0]+'</span>'; /* Adding the wr holder */
+        ThumbnailFooter.appendChild(ThumbnailWrInfo);
 
+        MapThumbnailBox.appendChild(ThumbnailFooter);
+
+        ChoiceBoxFlag.appendChild(MapThumbnailBox);
+
+        ChoiceBox.appendChild(ChoiceBoxFlag);
     }
+};
 
+const Corps = document.getElementsByClassName("Corps")[0];
 
-    // Send the result to the previously created 'TOUT' div
-    // Forced to do that because a document.write() will ommit css
-    tout.innerHTML = result;
- 
-}).catch(function (error){
-    // console.log(error);
-});
+const TOUT = document.createElement("div");
+TOUT.id = "TOUT";
+Corps.appendChild(TOUT);
+
+getData();
