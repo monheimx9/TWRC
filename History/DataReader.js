@@ -56,6 +56,7 @@ function parseData(alldata){
     }
 
     showInfo(mapWR, Nation, Flag); // Once its parsed, put the data into the table
+    mapInfo(mapWR, Nation, Flag);
 }
 
 // Show info into the already made table
@@ -75,7 +76,7 @@ function showInfo(mapWR, Nation, Flag){
 
     let redArray;
     let indexLine = 0;
-    let anyCheat = false;
+    var anyCheat = false;
 
     /* Creation line by line of the data */
     for(CurrentLine of mapWR){
@@ -186,7 +187,100 @@ function showInfo(mapWR, Nation, Flag){
 
         LBtable.appendChild(tableLine) ; // Inputing the loop into the table
     }
+    console.log(anyCheat);
+
+    var toggleCheat = document.getElementById("monDiv");
+    if(!anyCheat){
+        toggleCheat.style = "visibility: hidden;";
+    }
+    else if(anyCheat){
+        toggleCheat.style = "visibility: visible;";
+    }
 }
+
+function getFullGameName(name, envi=null){
+    if(name=="TM2"){
+        return "Trackmania² "+envi;
+    };
+
+    if(name=="TMT"){
+        return "Trackmania Turbo";
+    };
+
+    return name;
+}
+
+function getCorrectMapName(map, game){
+    if(game=="TM2"){
+        return map.slice(0,3);
+    };
+
+    if(game=="TMT"){
+        return "#" + SelectedMap;
+    };
+
+    return map;
+}
+
+function getCorrectFileName(map, envi=null, game=null){
+    if(game=="TM2"){
+        return "../assets/mapThumbnails/TM2_" + envi + "_" + getCorrectMapName(SelectedMap, game) + ".jpg";
+    };
+
+    if(game=="TMT"){
+        return"../assets/mapThumbnails/" + SelectedMap + ".jpg";
+    };
+
+    return map;
+}
+
+function mostFrequentElement(arr) {
+    let count = {}; // Stock all occurrences
+    let maxFreq = 0;
+    let mostFrequent = null;
+
+    for (let item of arr) {
+        count[item] = (count[item] || 0) + 1; // Increments the counter
+
+        if (count[item] > maxFreq) { // Check if its the new most represented element
+            maxFreq = count[item];
+            mostFrequent = item;
+        }
+    }
+    return mostFrequent;
+}
+
+function mapInfo(mapWR, Nation, Flag){
+    let envi = mapWR[0][5];
+    let game = mapWR[0][6];
+
+    var mapPic = document.getElementById("mapPic");
+    mapPic.src = getCorrectFileName(SelectedMap, envi, game);
+
+    var gameInfo = document.getElementById("gameInfo");
+    gameInfo.innerHTML = getFullGameName(game, envi);
+
+    var mapInfo = document.getElementById("mapInfo");
+    mapInfo.innerHTML = getCorrectMapName(SelectedMap, game);
+
+    var wrHolderList = [];
+
+    for(CurrentLine of mapWR){
+        if(CurrentLine[4] === "Cheated"){
+            if(!CheatOn){
+                continue;
+            }
+        }
+        wrHolderList.push(CurrentLine[0]);
+    }
+
+    var WRAmountInfo = document.getElementById("WRAmountInfo"); // AJOUTER LES INFOS EN TITLE
+    WRAmountInfo.innerHTML = wrHolderList.length;
+
+    var dominantInfo = document.getElementById("dominantInfo");
+    let dominantPlayer = mostFrequentElement(wrHolderList);
+    dominantInfo.innerHTML = '<img src="' + Flag[Nation[dominantPlayer]] + '" alt="" style="width: 25px; height: 25px;vertical-align:middle;"> ' + dominantPlayer;
+};
 
 // Fonction pour basculer la valeur de la variable
 function toggleVariable() {
@@ -238,32 +332,24 @@ Start of the main code
 
 console.time("Temps d'exécution");
 
-const Corps = document.getElementsByClassName("Corps")[0];
+const leaderboardColumn = document.getElementsByClassName("leaderboardColumn")[0];
+const mapInfoColumn = document.getElementsByClassName("mapInfoColumn")[0];
 
 const buttonCheat = document.createElement("div");
 buttonCheat.id = "buttonCheatBox";
 buttonCheat.innerHTML = '<div id="monDiv" class="toggleCheat" onclick="toggleVariable()">Cheater On</div>';
 
-Corps.appendChild(buttonCheat);
+mapInfoColumn.appendChild(buttonCheat);
 
 var CheatOn = true; // Global variable that will get switch if there are cheated runs in the map history
 const Togglecheat = document.getElementById("monDiv");
 
 const params = new URLSearchParams(window.location.search); // Get the parameters from the URL
-const SelectedMap = params.get('id').replace(/_/g, ' '); // Name of the track without underscores
+var SelectedMap = params.get('id').replace(/_/g, ' '); // Name of the track without underscores
 
 /* List insertion */
 
-const MapChoiceBlock = document.createElement("div");
-MapChoiceBlock.className = "MapChoiceBlock";
-
-MapChoiceBlock.innerHTML = '<h1 class="output" id="output1">Map: '+SelectedMap+'</h1>';
-
-Corps.appendChild(MapChoiceBlock);
-
-const output1 = document.getElementById("output1");
-
-//createMapSelector(); // add the experimental map selector
+// createMapSelector(); // add the experimental map selector
 
 /* Leaderboard insertion */
 
@@ -276,7 +362,7 @@ leaderboardBlock.innerHTML = `
   <table id="Leaderboard">
     <tr>
       <th class='LeaderboardIndex'>#</th>
-      <th colspan="2" class="LeaderboardPlayer" id="headerPlayer">Player</th>
+      <th colspan="2" class="LeaderboardPlayer" id="headerPlayer" style="text-align: left;">Player</th>
       <th class="LeaderboardTime">Time</th>
       <th class="LeaderboardDate">Date</th>
       <th class="LeaderboardInfo">Info</th>
@@ -285,7 +371,7 @@ leaderboardBlock.innerHTML = `
 `;
 
 // Ajouter le conteneur au DOM (par exemple, dans le body)
-Corps.appendChild(leaderboardBlock);
+leaderboardColumn.appendChild(leaderboardBlock);
 
 // Récupérer la table pour d'autres manipulations si nécessaire
 const LBtable = document.getElementById('Leaderboard');
@@ -294,7 +380,7 @@ getData();
 
 // Adding extra lines in the end to scroll down bellow leaderboard
 const bottomSpaces = document.createElement("p");
-bottomSpaces.innerHTML = '<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>';
+// bottomSpaces.innerHTML = '<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>';
 document.body.appendChild(bottomSpaces);
 
 console.timeEnd("Temps d'exécution"); //~0.614m
