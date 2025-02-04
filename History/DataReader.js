@@ -190,12 +190,17 @@ function showInfo(mapWR, Nation, Flag){
     console.log(anyCheat);
 
     var toggleCheat = document.getElementById("monDiv");
+    var mapInfoColumn = document.getElementsByClassName("mapInfoColumn")[0];
+    console.log(mapInfoColumn.style);
     if(!anyCheat){
         toggleCheat.style = "visibility: hidden;";
+        mapInfoColumn.style.height = "580px";
     }
     else if(anyCheat){
         toggleCheat.style = "visibility: visible;";
+        mapInfoColumn.style.height = "640px";
     }
+    console.log(mapInfoColumn.style);
 }
 
 function getFullGameName(name, envi=null){
@@ -234,6 +239,19 @@ function getCorrectFileName(map, envi=null, game=null){
     return map;
 }
 
+function getDifficulty(map, game){
+    if(game=="TM2"){
+        return map[0];
+    }
+    if(game=="TMT"){
+        if(map<41){return "A"}
+        else if(map<81){return "B"}
+        else if(map<121){return "C"}
+        else if(map<161){return "D"}
+        else {return "E"};
+    }
+}
+
 function mostFrequentElement(arr) {
     let count = {}; // Stock all occurrences
     let maxFreq = 0;
@@ -260,9 +278,13 @@ function mapInfo(mapWR, Nation, Flag){
     var gameInfo = document.getElementById("gameInfo");
     gameInfo.innerHTML = getFullGameName(game, envi);
 
-    var mapInfo = document.getElementById("mapInfo");
-    mapInfo.innerHTML = getCorrectMapName(SelectedMap, game);
+    var enviInfo = document.getElementById("enviInfo");
+    enviInfo.innerHTML = "<img src= '../assets/enviLogos/" + envi + ".png' alt='' style='width: 35px; height: 35px;vertical-align:middle;'> ";
+    enviInfo.innerHTML += "<span class='playerSpan'>" + envi + "<span>";
 
+    var mapInfo = document.getElementById("mapInfo");
+    mapInfo.innerHTML = "<img src= '../assets/difficultyLogos/Flag" + getDifficulty(SelectedMap, game) + ".png' alt='' style='width: 25px; height: 25px;vertical-align:middle;'> ";
+    mapInfo.innerHTML += "<span class='playerSpan'>" + getCorrectMapName(SelectedMap, game) + "<span>";
     var wrHolderList = [];
 
     for(CurrentLine of mapWR){
@@ -279,7 +301,8 @@ function mapInfo(mapWR, Nation, Flag){
 
     var dominantInfo = document.getElementById("dominantInfo");
     let dominantPlayer = mostFrequentElement(wrHolderList);
-    dominantInfo.innerHTML = '<img src="' + Flag[Nation[dominantPlayer]] + '" alt="" style="width: 25px; height: 25px;vertical-align:middle;"> ' + dominantPlayer;
+    dominantInfo.innerHTML = '<img src="' + Flag[Nation[dominantPlayer]] + '" alt="" style="width: 25px; height: 25px;vertical-align:middle;"> ';
+    dominantInfo.innerHTML += "<span class='playerSpan'>" + dominantPlayer + "<span>";
 };
 
 // Fonction pour basculer la valeur de la variable
