@@ -62,15 +62,17 @@ def get_all_nadeo_uploads():
 
         current_map = sorted(current_map, key=lambda x: x[4])
         current_wr = current_map[0]
-        all_uploads.append([current_wr[0], current_wr[1],current_wr[2],current_wr[4].strftime("%d/%m/%Y"), ".", "TMNF"])
+        index_wr = 1
+        all_uploads.append([current_wr[0], current_wr[1],current_wr[2],current_wr[4].strftime("%d/%m/%Y"), ".", "Stadium", "TMNF", 1])
         for run in current_map[1:]:
             if run[3] < current_wr[3]:
                 current_wr = run
-                all_uploads.append([run[0], run[1], run[2], run[4].strftime("%d/%m/%Y"), ".", "TMNF"])
+                index_wr += 1
+                all_uploads.append([run[0], run[1], run[2], run[4].strftime("%d/%m/%Y"), ".", "Stadium", "TMNF", index_wr])
 
     # Sort and save replay data
     # all_uploads = sorted(all_uploads, key=lambda k: k[4])
-    with open('AllUploads - New.txt', 'w') as file:
+    with open('otherTests/AllUploads - New.txt', 'w') as file:
         for replay in all_uploads:
             print(';'.join(map(str, replay)), file=file)
 
