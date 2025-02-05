@@ -124,7 +124,12 @@ function showInfo(mapWR, Nation, Flag){
         /* Player column */
         const LeaderboardNation = document.createElement("td");
         LeaderboardNation.className = "LeaderboardNation";
-        LeaderboardNation.innerHTML = '<div class="FlagPic"><img src="' + Flag[Nation[CurrentLine[0]]] + '" alt=""></div>';
+        let drapeau = Flag[Nation[CurrentLine[0]]]; 
+        if(typeof(drapeau)==="undefined"){
+            drapeau = "assets/flags/question.png";
+        };
+
+        LeaderboardNation.innerHTML = '<div class="FlagPic"><img src="' + drapeau + '" alt=""></div>';
         tableLine.appendChild(LeaderboardNation);
         
         redArray = '';
@@ -204,6 +209,10 @@ function showInfo(mapWR, Nation, Flag){
 }
 
 function getFullGameName(name, envi=null){
+    if(name=="TMNF"){
+        return"Trackmania Nation Forever";
+    };
+    
     if(name=="TM2"){
         return "Trackmania² "+envi;
     };
