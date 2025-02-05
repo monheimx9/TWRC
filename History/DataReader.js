@@ -34,7 +34,7 @@ function parseData(alldata){
         }
     }
     
-    mapWR.sort((a, b) => {return a[7] - b[7];}); // Sort by rank to have the current wr on top of the list
+    mapWR.sort((a, b) => {return b[7] - a[7];}); // Sort by rank to have the current wr on top of the list
 
     /* Fetching Nation data */
     dataNation = alldata[1];  // Import data from Nation.csv
