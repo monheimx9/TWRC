@@ -210,9 +210,9 @@ function showInfo(mapWR, Nation, Flag){
 
 function getFullGameName(name, envi=null){
     if(name=="TMNF"){
-        return"Trackmania Nation Forever";
+        return"Trackmania Nations Forever";
     };
-    
+
     if(name=="TM2"){
         return "Trackmania² "+envi;
     };
@@ -225,7 +225,7 @@ function getFullGameName(name, envi=null){
 }
 
 function getCorrectMapName(map, game){
-    if(game=="TM2"){
+    if(game=="TMNF" || game=="TM2"){
         return map.slice(0,3);
     };
 
@@ -237,6 +237,10 @@ function getCorrectMapName(map, game){
 }
 
 function getCorrectFileName(map, envi=null, game=null){
+    if(game=="TMNF"){
+        return "../assets/mapThumbnails/TMNF_" + SelectedMap.slice(0,3) + ".jpg";
+    };
+
     if(game=="TM2"){
         return "../assets/mapThumbnails/TM2_" + envi + "_" + getCorrectMapName(SelectedMap, game) + ".jpg";
     };
@@ -249,7 +253,7 @@ function getCorrectFileName(map, envi=null, game=null){
 }
 
 function getDifficulty(map, game){
-    if(game=="TM2"){
+    if(game=="TMNF" || game=="TM2"){
         return map[0];
     }
     if(game=="TMT"){
@@ -283,6 +287,10 @@ function mapInfo(mapWR, Nation, Flag){
 
     var mapPic = document.getElementById("mapPic");
     mapPic.src = getCorrectFileName(SelectedMap, envi, game);
+    if(game=="TMNF" || game=="TMT"){
+        mapPic.style.height = "400px";
+        mapInfoColumn.style.height = "690px";
+    };
 
     var gameInfo = document.getElementById("gameInfo");
     gameInfo.innerHTML = getFullGameName(game, envi);
@@ -310,7 +318,11 @@ function mapInfo(mapWR, Nation, Flag){
 
     var dominantInfo = document.getElementById("dominantInfo");
     let dominantPlayer = mostFrequentElement(wrHolderList);
-    dominantInfo.innerHTML = '<img src="' + Flag[Nation[dominantPlayer]] + '" alt="" style="width: 25px; height: 25px;vertical-align:middle;"> ';
+    var drapeau = Flag[Nation[dominantPlayer]];
+    if(typeof(drapeau)==="undefined"){
+        drapeau = "assets/flags/question.png";
+    };
+    dominantInfo.innerHTML = '<img src="' + drapeau + '" alt="" style="width: 25px; height: 25px;vertical-align:middle;"> ';
     dominantInfo.innerHTML += "<span class='playerSpan'>" + dominantPlayer + "<span>";
 };
 
