@@ -1,0 +1,20 @@
+[
+    {
+        "game": "TMNF",
+        "maplist": [
+            "A01-Race", "A02-Race", "A03-Race", "A04-Acrobatic", "A05-Race",
+            "A06-Obstacle", "A07-Race", "A08-Endurance", "A09-Race", "A10-Acrobatic",
+            "A11-Race", "A12-Speed", "A13-Race", "A14-Race", "A15-Speed",
+            "B01-Race", "B02-Race", "B03-Race", "B04-Acrobatic", "B05-Race",
+            "B06-Obstacle", "B07-Race", "B08-Endurance", "B09-Acrobatic", "B10-Speed",
+            "B11-Race", "B12-Race", "B13-Obstacle", "B14-Speed", "B15-Race",
+            "C01-Race", "C02-Race", "C03-Acrobatic", "C04-Race", "C05-Endurance",
+            "C06-Speed", "C07-Race", "C08-Obstacle", "C09-Race", "C10-Acrobatic",
+            "C11-Race", "C12-Obstacle", "C13-Race", "C14-Endurance", "C15-Speed",
+            "D01-Endurance", "D02-Race", "D03-Acrobatic", "D04-Race", "D05-Race",
+            "D06-Obstacle", "D07-Race", "D08-Speed", "D09-Obstacle", "D10-Race",
+            "D11-Acrobatic", "D12-Speed", "D13-Race", "D14-Endurance", "D15-Endurance",
+            "E01-Obstacle", "E02-Endurance", "E03-Endurance", "E04-Obstacle", "E05-Endurance"
+        ]
+    }
+]

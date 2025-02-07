@@ -69,7 +69,7 @@ def get_all_nadeo_uploads():
                 current_wr = run
                 index_wr += 1
                 all_uploads.append([run[0], run[1], run[2], run[4].strftime("%d/%m/%Y"), ".", "Stadium", "TMNF", index_wr])
-
+                
     # Sort and save replay data
     # all_uploads = sorted(all_uploads, key=lambda k: k[4])
     with open('otherTests/AllUploads - New.txt', 'w') as file:

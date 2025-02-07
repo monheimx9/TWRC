@@ -103,19 +103,8 @@ function showInfo(mapWR, Nation, Flag){
 
         if(indexLine < 5) {
             index.innerHTML = "<div class='FlagPic'><img src='assets/"+indexLine+".png' alt=''></div>";
-            // if(indexLine == 4){
-            //     tableLine.style.backgroundColor = "#312a20";
-            // }
-            // else if (indexLine == 3){
-            //     tableLine.style.backgroundColor = "#313131";
-            // }
-            // else if(indexLine == 2){
-            //     tableLine.style.backgroundColor = "#3d3320";
-            // }
-            // else{
-            //     tableLine.style.backgroundColor = "#273127";
-            // }
         }
+        
         else {
             index.innerHTML = indexLine;
         }
@@ -198,12 +187,10 @@ function showInfo(mapWR, Nation, Flag){
     var mapInfoColumn = document.getElementsByClassName("mapInfoColumn")[0];
     console.log(mapInfoColumn.style);
     if(!anyCheat){
-        toggleCheat.style = "visibility: hidden;";
-        mapInfoColumn.style.height = "580px";
+        toggleCheat.style = "display: none;";
     }
     else if(anyCheat){
-        toggleCheat.style = "visibility: visible;";
-        mapInfoColumn.style.height = "640px";
+        toggleCheat.style.removeProperty("display");
     }
     console.log(mapInfoColumn.style);
 }
@@ -281,16 +268,58 @@ function mostFrequentElement(arr) {
     return mostFrequent;
 }
 
+function convertTimeStr(time){
+    let minutesSplit = time.split(":");
+    let minute = parseInt(minutesSplit[0]);
+    let secondSplit = minutesSplit[1].split(".");
+    let second = parseInt(secondSplit[0]);
+    let decim = 1000 + parseInt(secondSplit[1].padEnd(3,"0"));
+    return minute * 60000 + second * 1000 + decim - 1000;
+}
+
+function getBestImprovement(mapWR, game){
+    var coolDown = 7; // Number of days after first WR to start the tracking
+    if(game=="TMNF"){
+        unsort = mapWR.reverse();
+        var improvement = 0;
+        var wrOfBestImprovement = NaN;
+        var indexOfBestImprovement = 0;
+        let [day, month, year] = unsort[0][3].split("/").map(Number);
+        var firstDate = new Date(year, month-1, day);
+        firstDate.setDate(firstDate.getDate() + coolDown);
+        
+        for(wr of unsort){
+            let [day, month, year] = wr[3].split("/").map(Number);
+            var newDate = new Date(year, month-1, day);
+            if(newDate<firstDate){
+                var currentWR = convertTimeStr(wr[2]);
+            }
+            else if(newDate>firstDate){
+                let currentWRTest = convertTimeStr(wr[2]+"0");
+                let improvementTest = currentWR - currentWRTest;
+                if(improvementTest>improvement){
+                    improvement = improvementTest;
+                    wrOfBestImprovement = indexOfBestImprovement;
+                };
+                currentWR = currentWRTest;
+            };
+            indexOfBestImprovement += 1;
+        }
+    }
+    
+    let thousandths = game=="TMNF";
+    return [
+        unsort[wrOfBestImprovement][2] + " <span class='improveSpan'>(-" + (improvement/1000).toFixed(3-thousandths)+"s)</span>",
+        "by " + unsort[wrOfBestImprovement][0]
+    ];
+}
+
 function mapInfo(mapWR, Nation, Flag){
     let envi = mapWR[0][5];
     let game = mapWR[0][6];
 
     var mapPic = document.getElementById("mapPic");
     mapPic.src = getCorrectFileName(SelectedMap, envi, game);
-    if(game=="TMNF" || game=="TMT"){
-        mapPic.style.height = "400px";
-        mapInfoColumn.style.height = "690px";
-    };
 
     var gameInfo = document.getElementById("gameInfo");
     gameInfo.innerHTML = getFullGameName(game, envi);
@@ -324,6 +353,11 @@ function mapInfo(mapWR, Nation, Flag){
     };
     dominantInfo.innerHTML = '<img src="' + drapeau + '" alt="" style="width: 25px; height: 25px;vertical-align:middle;"> ';
     dominantInfo.innerHTML += "<span class='playerSpan'>" + dominantPlayer + "<span>";
+
+    var biggestInfo = document.getElementById("biggestInfo");
+    biggestInfo_results = getBestImprovement(mapWR, game);
+    biggestInfo.innerHTML = biggestInfo_results[0];
+    biggestInfo.title = biggestInfo_results[1]
 };
 
 // Fonction pour basculer la valeur de la variable
