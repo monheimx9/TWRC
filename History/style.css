@@ -200,7 +200,7 @@ body::before{
     box-shadow: 0px 0px 10px rgb(0, 0, 0);
 }
 
-@media (max-width: 1300px) { /* Lorsque l'écran est plus petit que 768px */
+@media (max-width: 1800px) { /* Lorsque l'écran est plus petit que 768px */
     #Leaderboard td:nth-child(6), /* Cache la 3e colonne */
     #Leaderboard th:nth-child(5) { 
         display: none;
@@ -355,7 +355,7 @@ body::before{
     /* max-height: 580px; */
     height: auto;
     max-width: 410px;
-    min-width: 280px;
+    min-width: 410px;
     width: 30%;
     font-family: "Noto Sans", "Century Gothic", Verdana, sans-serif;
 }
