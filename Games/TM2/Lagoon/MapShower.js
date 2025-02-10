@@ -43,11 +43,12 @@ function parseData(alldata){
 
     // Create a database with all wrs
     let wrdata = [];
-
-    for(elem of finalarray){
-        if(elem[7] === "1"){
+    let prevRank = 0;
+    for(elem of finalarray.reverse()){
+        if(Number(elem[7]) >= prevRank){
             wrdata.push(elem);
         }
+        prevRank = elem[7];
     }
 
     /* Fetching Nation data */
@@ -83,7 +84,7 @@ function showInfo(wrdata, Nation, Flag){
 
         const FlagHeader = document.createElement("div");
         FlagHeader.className = "FlagHeader";
-        let drapeau = "<img src='MapPics/Flag" + letter + ".png'>";
+        let drapeau = "<img src='../../../assets/difficultyLogos/Flag" + letter + ".png'>";
         let diff = "<h1 class='FlagTitle'>" + pre[1] + " difficulty</h1>";
         FlagHeader.innerHTML = drapeau + diff + drapeau;
         ChoiceBox.appendChild(FlagHeader);
@@ -121,7 +122,7 @@ function showInfo(wrdata, Nation, Flag){
             
             var MapThumbnail = document.createElement("img");
             MapThumbnail.className = "MapThumbnail";
-            MapThumbnail.src = "MapPics/TM2_" + envi + "_" + map + ".jpg";
+            MapThumbnail.src = "../../../assets/mapThumbnails/TM2_" + envi + "_" + map + ".jpg";
 
             MapThumbnailBox.appendChild(MapThumbnail);
 
@@ -131,7 +132,12 @@ function showInfo(wrdata, Nation, Flag){
             var ThumbnailWrInfo = document.createElement("h5");
             ThumbnailWrInfo.className = "ThumbnailWrInfo";
             ThumbnailWrInfo.innerHTML = 'WR: <span class="Wr">'+current_data[2]+'</span> - '; /* "WR: " + the WR time */
-            ThumbnailWrInfo.innerHTML += '<img class="WrFlag" src="' + Flag[Nation[current_data[0]]] + '">'; /* Adding the flag */
+            let drapeau = Flag[Nation[current_data[0]]];
+            if(typeof(drapeau)==="undefined"){
+                drapeau = "../../assets/flags/question.png";
+            };
+
+            ThumbnailWrInfo.innerHTML += '<img class="WrFlag" src="' + drapeau + '">'; /* Adding the flag */
             ThumbnailWrInfo.innerHTML += '<span class="WrHolder"> '+current_data[0]+'</span>'; /* Adding the wr holder */
             ThumbnailFooter.appendChild(ThumbnailWrInfo);
 

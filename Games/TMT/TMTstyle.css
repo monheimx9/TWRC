@@ -3,8 +3,23 @@ body{
     font-family: "Noto Sans", "Century Gothic", Verdana, sans-serif;
     color: white;
     margin: 0px;
-    background-image: url(GamePics/TurboBackground.png);
+    background-image: url(../../assets/TM2LagoonBackground.png);
     background-attachment: fixed;
+}
+
+body::before{
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../../assets/TM2LagoonBackground.png);
+    background-size: cover;
+    background-position: center;
+    filter: blur(3px);
+    transform: scale(1.2); /* Agrandit l’image pour éviter les bords blancs */
+    z-index: -1;
 }
 
 .Menu{

@@ -47,12 +47,12 @@ function parseData(alldata){
     let wrdata = [];
     let prevRank = 0;
     for(elem of finalarray.reverse()){
-        if(Number(elem[7]) > prevRank){
+        if(Number(elem[7]) >= prevRank){
             wrdata.push(elem);
         }
         prevRank = elem[7];
     }
-    console.log(wrdata)
+
 
     /* Fetching Nation data */
     dataNation = alldata[1];  // Import data from Nation.csv
