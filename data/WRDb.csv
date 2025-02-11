@@ -163,6 +163,7 @@ Mebe12;B02 - Canyon;31.811;23/05/2021;.;Canyon;TM2;6
 Mebe12;B02 - Canyon;31.796;03/07/2021;.;Canyon;TM2;7
 Ricky;B03 - Canyon;20.648;30/03/2020;.;Canyon;TM2;1
 Mebe12;B03 - Canyon;20.600;25/08/2020;.;Canyon;TM2;2
+asphalte;B03 - Canyon;20.386;20/11/2024;.;Canyon;TM2;2
 riolu;B04 - Canyon;30.440;02/04/2019;.;Canyon;TM2;1
 Mebe12;B04 - Canyon;30.420;17/07/2020;.;Canyon;TM2;2
 Mebe12;B04 - Canyon;30.415;13/02/2021;.;Canyon;TM2;3
@@ -647,6 +648,7 @@ RotakeR;A09 - Stadium;24.511;04/07/2019;.;Stadium;TM2;16
 riolu;A09 - Stadium;24.503;11/01/2020;Cheated;Stadium;TM2;17
 Loupphok;A09 - Stadium;24.502;10/10/2021;DUCK;Stadium;TM2;18
 Sapi;A09 - Stadium;24.484;16/05/2024;.;Stadium;TM2;19
+instable;A09 - Stadium;24.431;15/12/2024;.;Stadium;TM2;20
 Wally;A10 - Stadium;1:06.188;23/06/2013;.;Stadium;TM2;1
 Demon;A10 - Stadium;1:05.918;15/07/2013;Sub 1:06;Stadium;TM2;2
 Blizz;A10 - Stadium;1:05.866;20/07/2013;.;Stadium;TM2;3
@@ -701,6 +703,7 @@ eprotizuu;A12 - Stadium;22.104;07/09/2019;.;Stadium;TM2;9
 riolu;A12 - Stadium;22.103;25/12/2019;Cheated;Stadium;TM2;10
 MiThyX;A12 - Stadium;22.096;12/11/2021;DUCK;Stadium;TM2;11
 Loupphok;A12 - Stadium;22.094;02/06/2024;.;Stadium;TM2;12
+instable;A12 - Stadium;22.090;19/12/2024;.;Stadium;TM2;13
 riolu;A13 - Stadium;25.626;19/07/2013;.;Stadium;TM2;1
 racehans;A13 - Stadium;25.608;20/08/2013;.;Stadium;TM2;2
 riolu;A13 - Stadium;25.544;22/08/2013;.;Stadium;TM2;3
@@ -1115,6 +1118,9 @@ instable;C04 - Stadium;43.361;24/07/2023;.;Stadium;TM2;16
 Loupphok;C04 - Stadium;43.288;30/07/2023;.;Stadium;TM2;17
 Loupphok;C04 - Stadium;43.274;31/07/2023;.;Stadium;TM2;18
 Loupphok;C04 - Stadium;43.265;20/09/2023;.;Stadium;TM2;19
+instable;C04 - Stadium;43.240;04/12/2024;.;Stadium;TM2;20
+instable;C04 - Stadium;43.232;06/12/2024;.;Stadium;TM2;21
+instable;C04 - Stadium;43.215;08/12/2024;.;Stadium;TM2;22
 mt17;C05 - Stadium;1:43.726;16/07/2013;.;Stadium;TM2;1
 Tween;C05 - Stadium;1:41.712;23/07/2013;.;Stadium;TM2;2
 Loic;C05 - Stadium;1:41.398;05/08/2013;.;Stadium;TM2;3
@@ -1143,6 +1149,8 @@ Scrapie;C06 - Stadium;37.578;23/08/2018;.;Stadium;TM2;11
 RACETA;C06 - Stadium;37.558;11/11/2019;.;Stadium;TM2;12
 Spam;C06 - Stadium;37.521;22/11/2019;.;Stadium;TM2;13
 Loupphok;C06 - Stadium;37.511;25/04/2021;.;Stadium;TM2;14
+instable;C06 - Stadium;37.496;30/10/2024;.;Stadium;TM2;15
+Loupphok;C06 - Stadium;37.466;20/12/2024;.;Stadium;TM2;16
 Jaja;C07 - Stadium;35.723;01/07/2013;.;Stadium;TM2;1
 Savier;C07 - Stadium;35.685;04/07/2013;.;Stadium;TM2;2
 Demon;C07 - Stadium;35.596;19/07/2013;.;Stadium;TM2;3
@@ -1226,6 +1234,11 @@ LAMArtifice;C11 - Stadium;40.085;24/08/2019;.;Stadium;TM2;14
 Affi;C11 - Stadium;39.848;25/08/2019;Sub 40;Stadium;TM2;15
 RACETA;C11 - Stadium;39.838;12/12/2019;.;Stadium;TM2;16
 instable;C11 - Stadium;39.798;09/08/2022;.;Stadium;TM2;17
+instable;C11 - Stadium;39.772;22/09/2024;.;Stadium;TM2;18
+instable;C11 - Stadium;39.768;24/09/2024;.;Stadium;TM2;19
+instable;C11 - Stadium;39.731;24/09/2024;.;Stadium;TM2;20
+instable;C11 - Stadium;39.718;29/09/2024;.;Stadium;TM2;21
+instable;C11 - Stadium;39.685;29/09/2024;.;Stadium;TM2;22
 Jaja;C12 - Stadium;37.354;01/07/2013;.;Stadium;TM2;1
 Katic;C12 - Stadium;37.292;11/07/2013;.;Stadium;TM2;2
 Demon;C12 - Stadium;37.281;26/10/2013;.;Stadium;TM2;3
@@ -1248,6 +1261,8 @@ Bluts;C12 - Stadium;36.958;04/06/2020;.;Stadium;TM2;19
 RACETA;C12 - Stadium;36.948;27/03/2023;.;Stadium;TM2;20
 Bluts;C12 - Stadium;36.945;04/04/2023;.;Stadium;TM2;21
 Bluts;C12 - Stadium;36.938;27/12/2023;.;Stadium;TM2;22
+instable;C12 - Stadium;36.928;11/10/2024;.;Stadium;TM2;23
+Bluts;C12 - Stadium;36.906;13/10/2024;.;Stadium;TM2;24
 7Alvin;C13 - Stadium;36.550;05/07/2013;.;Stadium;TM2;1
 7Alvin;C13 - Stadium;36.423;09/07/2013;.;Stadium;TM2;2
 7Alvin;C13 - Stadium;36.397;10/07/2013;.;Stadium;TM2;3
@@ -1269,6 +1284,8 @@ eprotizuu;C13 - Stadium;35.673;10/09/2019;.;Stadium;TM2;18
 Samuel;C13 - Stadium;35.648;22/10/2019;.;Stadium;TM2;19
 Loupphok;C13 - Stadium;35.633;14/04/2021;.;Stadium;TM2;20
 Loupphok;C13 - Stadium;35.612;27/10/2023;.;Stadium;TM2;21
+Flechetas;C13 - Stadium;35.601;21/11/2024;.;Stadium;TM2;22
+Flechetas;C13 - Stadium;35.566;26/11/2024;.;Stadium;TM2;23
 CarlJr;C14 - Stadium;38.658;01/07/2013;.;Stadium;TM2;1
 CarlJr;C14 - Stadium;38.590;17/07/2013;.;Stadium;TM2;2
 Philkos;C14 - Stadium;38.520;26/04/2014;.;Stadium;TM2;3
@@ -1357,6 +1374,7 @@ RotakeR;D03 - Stadium;36.693;23/05/2018;.;Stadium;TM2;14
 fliks;D03 - Stadium;36.497;28/07/2018;.;Stadium;TM2;15
 RACETA;D03 - Stadium;36.374;05/01/2020;.;Stadium;TM2;16
 fliks;D03 - Stadium;36.077;16/07/2020;.;Stadium;TM2;17
+Phip;D03 - Stadium;35.418;18/08/2024;.;Stadium;TM2;18
 TnT;D04 - Stadium;43.233;23/06/2013;.;Stadium;TM2;1
 CarlJr;D04 - Stadium;43.197;17/07/2013;.;Stadium;TM2;2
 JaV;D04 - Stadium;43.031;25/07/2013;.;Stadium;TM2;3
@@ -1499,6 +1517,9 @@ MiThyX;D12 - Stadium;53.271;05/08/2022;.;Stadium;TM2;20
 MiThyX;D12 - Stadium;53.230;06/08/2022;.;Stadium;TM2;21
 Loupphok;D12 - Stadium;53.228;08/08/2023;.;Stadium;TM2;22
 Loupphok;D12 - Stadium;53.200;09/08/2023;.;Stadium;TM2;23
+Flechetas;D12 - Stadium;53.165;21/12/2024;.;Stadium;TM2;24
+Loupphok;D12 - Stadium;53.094;23/12/2024;.;Stadium;TM2;25
+Flechetas;D12 - Stadium;53.092;22/01/2025;.;Stadium;TM2;26
 7Alvin;D13 - Stadium;30.154;28/06/2013;.;Stadium;TM2;1
 7Alvin;D13 - Stadium;28.497;01/07/2013;New cut;Stadium;TM2;2
 7Alvin;D13 - Stadium;28.360;01/07/2013;.;Stadium;TM2;3
@@ -1717,9 +1738,11 @@ Mebe12;B05 - Valley;1:58.031;-;.;Valley;TM2;3
 KAYS;B05 - Valley;1:58.025;14/08/2024;.;Valley;TM2;4
 Mebe12;B05 - Valley;1:57.958;16/08/2024;.;Valley;TM2;5
 KAYS;B05 - Valley;1:57.905;17/08/2024;.;Valley;TM2;6
+Mebe12;B05 - Valley;1:57.688;21/08/2024;.;Valley;TM2;7
 riolu;B06 - Valley;-;-;.;Valley;TM2;1
 Speed;B06 - Valley;-;-;.;Valley;TM2;2
 Howell;B06 - Valley;-;-;.;Valley;TM2;3
+AM98;B06 - Valley;32.938;18/11/2024;.;Valley;TM2;4
 riolu;B07 - Valley;-;-;.;Valley;TM2;1
 Speed;B07 - Valley;-;-;.;Valley;TM2;2
 SzNaJdeR;B08 - Valley;-;-;.;Valley;TM2;1
@@ -1798,6 +1821,9 @@ Mebe12;C03 - Valley;-;-;.;Valley;TM2;4
 riolu;C04 - Valley;-;-;.;Valley;TM2;1
 Speed;C04 - Valley;-;-;.;Valley;TM2;2
 Mebe12;C04 - Valley;-;-;.;Valley;TM2;3
+HQCookie;C04 - Valley;36.680;04/09/2024;.;Valley;TM2;4
+Mebe12;C04 - Valley;36.657;04/09/2024;.;Valley;TM2;5
+Mebe12;C04 - Valley;36.598;05/09/2024;.;Valley;TM2;6
 riolu;C05 - Valley;-;-;.;Valley;TM2;1
 Speed;C05 - Valley;-;-;.;Valley;TM2;2
 Speed;C05 - Valley;-;-;.;Valley;TM2;3
@@ -1839,6 +1865,7 @@ Speed;C09 - Valley;-;-;.;Valley;TM2;5
 Speed;C09 - Valley;-;-;.;Valley;TM2;6
 Speed;C09 - Valley;-;-;.;Valley;TM2;7
 Speed;C09 - Valley;-;-;.;Valley;TM2;8
+Mebe12;C09 - Valley;41.805;16/01/2025;.;Valley;TM2;9
 riolu;C10 - Valley;-;-;.;Valley;TM2;1
 Speed;C10 - Valley;-;-;.;Valley;TM2;2
 Speed;C10 - Valley;-;-;.;Valley;TM2;3
@@ -1911,6 +1938,7 @@ fanakuri;D04 - Valley;-;-;.;Valley;TM2;8
 riolu;D05 - Valley;-;-;.;Valley;TM2;1
 Speed;D05 - Valley;-;-;.;Valley;TM2;2
 Speed;D05 - Valley;-;-;.;Valley;TM2;3
+Howell;D05 - Valley;1:49.228;02/11/2024;.;Valley;TM2;4
 Speed;D06 - Valley;-;-;.;Valley;TM2;1
 GravelGuy;D06 - Valley;-;-;.;Valley;TM2;2
 Speed;D06 - Valley;-;-;.;Valley;TM2;3
@@ -2214,6 +2242,8 @@ Flechetas;B11 - Lagoon;-;-;.;Lagoon;TM2;4
 Flechetas;B11 - Lagoon;-;-;.;Lagoon;TM2;5
 Flechetas;B11 - Lagoon;-;-;.;Lagoon;TM2;6
 eddyey;B11 - Lagoon;-;-;.;Lagoon;TM2;7
+fanakuri;B11 - Lagoon;35.376;01/10/2024;.;Lagoon;TM2;8
+eddyey;B11 - Lagoon;35.301;04/10/2024;.;Lagoon;TM2;9
 DarkLink94;B12 - Lagoon;-;-;.;Lagoon;TM2;1
 ivan;B12 - Lagoon;-;-;.;Lagoon;TM2;2
 ydooWoody;B12 - Lagoon;-;-;.;Lagoon;TM2;3
@@ -2243,6 +2273,7 @@ Samerlifofwer;B14 - Lagoon;-;-;.;Lagoon;TM2;8
 ender;B15 - Lagoon;-;-;.;Lagoon;TM2;1
 Mnichu;B15 - Lagoon;-;-;.;Lagoon;TM2;2
 eddyey;B15 - Lagoon;-;-;.;Lagoon;TM2;3
+HQCookie;B15 - Lagoon;1:51.441;22/12/2024;.;Lagoon;TM2;4
 riolu;C01 - Lagoon;-;-;.;Lagoon;TM2;1
 mime;C01 - Lagoon;-;-;.;Lagoon;TM2;2
 Eyohna;C01 - Lagoon;-;-;.;Lagoon;TM2;3
@@ -2466,6 +2497,7 @@ wormk22;D12 - Lagoon;-;-;.;Lagoon;TM2;4
 Speed;D12 - Lagoon;-;-;.;Lagoon;TM2;5
 wormk22;D12 - Lagoon;-;-;.;Lagoon;TM2;6
 eddyey;D12 - Lagoon;-;-;.;Lagoon;TM2;7
+wormk22;D12 - Lagoon;1:02.397;18/01/2025;.;Lagoon;TM2;8
 mime;D13 - Lagoon;-;-;.;Lagoon;TM2;1
 mime;D13 - Lagoon;-;-;.;Lagoon;TM2;2
 mime;D13 - Lagoon;-;-;.;Lagoon;TM2;3
@@ -2474,6 +2506,7 @@ mime;D13 - Lagoon;-;-;.;Lagoon;TM2;5
 wormk22;D13 - Lagoon;-;-;.;Lagoon;TM2;6
 mime;D13 - Lagoon;-;-;.;Lagoon;TM2;7
 wormk22;D13 - Lagoon;-;-;.;Lagoon;TM2;8
+wormk22;D13 - Lagoon;29.983;12/12/2024;.;Lagoon;TM2;9
 mime;D14 - Lagoon;-;-;.;Lagoon;TM2;1
 Speed;D14 - Lagoon;-;-;.;Lagoon;TM2;2
 Speed;D14 - Lagoon;-;-;.;Lagoon;TM2;3
