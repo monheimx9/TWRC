@@ -130,7 +130,7 @@ body{
 }
 
 #mainTitle{
-    margin-top: 300px;
+    margin-top: 350px;
     position: absolute;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -138,7 +138,7 @@ body{
 }
 
 #nbWR{
-    font-size: 80px;
+    font-size: 100px;
     padding: 0px 30px;
     border-radius: 50px;
     background-color: #000000b6;
@@ -161,9 +161,9 @@ body{
 
 #latestWR-container{
     width: 500px;
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
+    /* display: flex;
+    justify-content: center; */
+    margin-top: 130px;
     background-color: #000000b6;
     box-shadow: 0px 0px 10px #000000b6;
     border-radius: 25px;
@@ -173,6 +173,13 @@ body{
 
     overflow: hidden;
     white-space: nowrap;
+}
+
+#lastXWR{
+    margin-left: 100px;
+    font-style: italic;
+    font-size: 30px;
+    padding-bottom: 0px;
 }
 
 .latestWR-menu{
@@ -193,7 +200,7 @@ body{
 }
 
 .latestWR-menu::-webkit-scrollbar-track {
-    background: #ddd; /* Couleur de l’arrière-plan */
+    background: #dddddd00; /* Couleur de l’arrière-plan */
 }
 
 .latestWR-menu h3{
@@ -225,6 +232,15 @@ body{
     justify-items: start;
     align-items: center;
     border-left: 4px solid green;
+    cursor: pointer;
+    -webkit-transition: background-color 0.2s;
+    -moz-transition: background-color 0.2s;
+    -o-transition: background-color 0.2s;
+    transition: background-color 0.2s;
+}
+
+.latest-subitem:hover{
+    background-color: #085c083d;
 }
 
 #latestThumbnail{
@@ -239,9 +255,8 @@ body{
 }
 
 #latestInfo{
-    margin: 0px;
+    margin: 0px 10px;
     padding: 0px;
-    margin-left: 10px;
 }
 
 .flagLatestWR{
@@ -254,4 +269,26 @@ body{
 .wrBox{
     color: green;
     text-shadow: 0px 0px 5px #2d7926;
+}
+
+#nbWR{
+    animation: jitter 15s infinite;
+}
+
+@keyframes jitter{
+    0% { 
+        transform: translateX(0) rotate(1deg); 
+    }
+    25% { 
+        transform: translateX(-5px) rotate(-1deg); 
+    }
+    50% { 
+        transform: translateX(5px) rotate(1deg); 
+    }
+    75% { 
+        transform: translateX(-5px) rotate(-1deg); 
+    }
+    100% { 
+        transform: translateX(0) rotate(1deg); 
+    }
 }

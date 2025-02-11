@@ -119,6 +119,10 @@ function getInfo(mapWR, Nation, Flag){
 
         let latest_subitem = document.createElement("div");
         latest_subitem.className = "latest-subitem";
+        latest_subitem.id = wr[1];
+        latest_subitem.onclick = function(){
+            window.location.href = "History/map.html?id=" + this.id;
+        };
 
         let latestThumbnail = document.createElement("div");
         latestThumbnail.id = "latestThumbnail";
