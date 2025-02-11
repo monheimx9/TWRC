@@ -129,104 +129,6 @@ body{
     margin-bottom: 50px;
 }
 
-tr:nth-child(even){
-    background-color: #1b1d22;
-}
-
-tr:nth-child(odd){
-    background-color: #1f2226;
-}
-
-th{
-    background-color: #2d2f34;
-    font-style: normal;
-    text-align: left;
-}
-
-.MapChoiceBlock{
-    padding-left: 10%;
-    padding-right: 10%;
-}
-
-.LeaderboardBlock{
-    display: flex;
-    justify-content: center;
-}
-
-#Leaderboard{
-    padding: 0%;
-    margin: 0%;
-    width: 50%;
-    border-collapse: collapse;
-    font-family: "Lexend", "Century Gothic", Verdana, sans-serif;
-    box-shadow: 0px 0px 25px #111111;
-}
-
-#output1{
-    display: flex;
-    justify-content: center;
-}
-
-td, th{
-    height: 40px;
-    font-size: 25px;
-}
-
-.LeaderboardNation{
-    padding-left: 15px;
-    padding-right: 0px;
-    width: 2%;
-    /* background-color: aqua; */
-}
-
-.FlagPic{
-    width: 35px;
-    height: 35px;
-}
-
-.FlagPic img{
-    width: 100%;
-}
-
-#headerPlayer{
-    padding-left: 30px;
-    width: 21%;
-    padding-right: 0px;
-}
-
-.LeaderboardPlayer{
-    padding-left: 5px;
-    padding-right: 0px;
-    /* width: 65px; */
-    font-size: 23px;
-    /* background-color: aqua; */
-}
-
-.LeaderboardTime{
-    text-align: center;
-    width: 17%;
-}
-
-.LeaderboardDate{
-    text-align: center;
-    width: 27%;
-}
-
-.LeaderboardInfo{
-    text-align: center;
-    width: 37%;
-}
-
-.Question, .ex{
-    color: #e06560;
-}
-
-.Cheated{
-    color: #e06560;
-    font-style: italic;
-    text-decoration: line-through;
-}
-
 #mainTitle{
     margin-top: 300px;
     position: absolute;
@@ -257,30 +159,89 @@ td, th{
     transition: box-shadow 0.2s;
 }
 
-#latestWR{
-    padding: 20px;
-    width: auto;
+#latestWR-container{
+    width: 500px;
     display: flex;
     justify-content: center;
     margin-top: 50px;
     background-color: #000000b6;
     box-shadow: 0px 0px 10px #000000b6;
     border-radius: 25px;
-    padding-bottom: 15px;
     position:relative;
     left: 50%;
     transform: translate(-50%, -10%);
+
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.latestWR-menu{
+    display:flex;
+    overflow-x: auto; /* Active le défilement horizontal */
+    scroll-snap-type: x mandatory; /* Active l'effet snap horizontal */
+    scroll-behavior: smooth; /* Défilement fluide */
+}
+
+.latestWR-menu::-webkit-scrollbar {
+    width: 8px; /* Largeur du scroller */
+    height: 8px; /* Hauteur pour le scroll horizontal */
+}
+
+.latestWR-menu::-webkit-scrollbar-thumb {
+    background: green; /* Couleur de la barre */
+    border-radius: 10px; /* Coins arrondis */
+}
+
+.latestWR-menu::-webkit-scrollbar-track {
+    background: #ddd; /* Couleur de l’arrière-plan */
+}
+
+.latestWR-menu h3{
+    margin: 0px;
+}
+
+.latestWR-item{
+    padding: 10px 10px;
+    height: auto;
+    width: auto;
+    display:inline-block;
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
+    vertical-align: top;
+    scroll-snap-align: center; /* Stoppe le défilement au centre de l'élément */
+    
+}
+
+.latest-subitem{
+    display: flex;
+    width: auto;
+    height: 160px;
+    gap: 0px;
+    background-color: #1b1b1b5e;
+    margin: 0px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px #1b1b1b5e;
+    justify-items: start;
+    align-items: center;
+    border-left: 4px solid green;
+}
+
+#latestThumbnail{
+    width: 160px;
 }
 
 #latestThumbnail img{
-    width: auto;
-    height: 210px;
+    width: 160px;
+    height: auto;
     border-radius: 15px;
+    margin-top: 5px;
 }
 
 #latestInfo{
-    padding-top: 15px;
-    padding-left: 20px;
+    margin: 0px;
+    padding: 0px;
+    margin-left: 10px;
 }
 
 .flagLatestWR{

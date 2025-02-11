@@ -82,43 +82,6 @@ function getCorrectMapName(map, game){
     return map;
 }
 
-function getInfo(mapWR, Nation, Flag){
-    // Number of WR archived
-    let wrBox = document.getElementsByClassName("wrBox")[0];
-    wrBox.innerHTML = mapWR.length;
-
-    // Find latest WR
-    console.log(mapWR)
-    let latestWR;
-    let latestWRDate = convertDate("01/01/2000");
-    for(wr of mapWR){
-        if(!(wr[3].includes("?") | wr[3].includes("-"))){
-            let currentDate = convertDate(wr[3]);
-            if(currentDate > latestWRDate){
-                latestWRDate = currentDate;
-                latestWR = wr;
-            }
-        }
-    }
-    console.log(getMostRecentLists(mapWR));
-
-    let latestThumbnail = document.getElementById("latestThumbnail");
-    latestThumbnail.innerHTML = "<img src='" + getCorrectFileName(latestWR[1], latestWR[5], latestWR[6]) + "'>";
-
-    let latestMap = document.getElementById("latestMap");
-    latestMap.innerHTML = latestWR[1];
-
-    let latestHolder = document.getElementById("latestHolder");
-    let drapeau = Flag[Nation[latestWR[0]]];
-    if(typeof(drapeau)==="undefined"){
-        drapeau = "assets/flags/question.png";
-    };
-    latestHolder.innerHTML = "by " + latestWR[0] + " <img class='flagLatestWR' src='" + drapeau + "'>";
-
-    let latestDate = document.getElementById("latestDate");
-    latestDate.innerHTML = latestWR[3];
-}
-
 function parseDate(dateStr) {
     const [day, month, year] = dateStr.split("/").map(Number);
     return year && month && day ? new Date(year, month - 1, day) : null;
@@ -137,4 +100,79 @@ function getMostRecentLists(lists, k = 5) {
         .map(item => item.list);
 }
 
+function getInfo(mapWR, Nation, Flag){
+    // Number of WR archived
+    let wrBox = document.getElementsByClassName("wrBox")[0];
+    wrBox.innerHTML = mapWR.length;
+
+    // Find latest WR
+    console.log(mapWR)
+    let latestWRs = getMostRecentLists(mapWR, 15);
+    console.log(latestWRs);
+
+    let latestWR_menu = document.getElementsByClassName("latestWR-menu")[0];
+
+    let index = 1
+    for(wr of latestWRs){
+        let latest_item = document.createElement("div");
+        latest_item.className = "latestWR-item";
+
+        let latest_subitem = document.createElement("div");
+        latest_subitem.className = "latest-subitem";
+
+        let latestThumbnail = document.createElement("div");
+        latestThumbnail.id = "latestThumbnail";
+        latestThumbnail.innerHTML = "<img src='" + getCorrectFileName(wr[1], wr[5], wr[6]) + "'>";
+        latest_subitem.appendChild(latestThumbnail);
+
+        let latestInfo = document.createElement("div");
+        latestInfo.id = "latestInfo";
+        latestInfo.innerHTML = '<h1 style="margin: 0px;">#'+ index +'</h1>'; //MODIFY THIS IN THE END
+        index += 1;
+
+        let latestMap = document.createElement("h3");
+        latestMap.innerHTML = wr[1];
+        latestInfo.appendChild(latestMap);
+
+        let latestHolder = document.createElement("h3");
+        let drapeau = Flag[Nation[wr[0]]];
+        if(typeof(drapeau)==="undefined"){
+            drapeau = "assets/flags/question.png";
+        };
+        latestHolder.innerHTML = "by " + wr[0] + " <img class='flagLatestWR' src='" + drapeau + "'>";
+        latestInfo.appendChild(latestHolder);
+
+        let latestDate = document.createElement("h3");
+        latestDate.innerHTML = wr[3];
+        latestInfo.appendChild(latestDate);
+        
+        latest_subitem.appendChild(latestInfo);
+        latest_item.appendChild(latest_subitem);
+        latestWR_menu.appendChild(latest_item);
+    }
+
+    // let latestThumbnail = document.getElementById("latestThumbnail");
+    // latestThumbnail.innerHTML = "<img src='" + getCorrectFileName(latestWR[1], latestWR[5], latestWR[6]) + "'>";
+
+    // let latestMap = document.getElementById("latestMap");
+    // latestMap.innerHTML = latestWR[1];
+
+    // let latestHolder = document.getElementById("latestHolder");
+    // let drapeau = Flag[Nation[latestWR[0]]];
+    // if(typeof(drapeau)==="undefined"){
+    //     drapeau = "assets/flags/question.png";
+    // };
+    // latestHolder.innerHTML = "by " + latestWR[0] + " <img class='flagLatestWR' src='" + drapeau + "'>";
+
+    // let latestDate = document.getElementById("latestDate");
+    // latestDate.innerHTML = latestWR[3];
+}
+
 getData()
+
+const container = document.querySelector(".latestWR-menu");
+
+container.addEventListener("wheel", (event) => {
+    event.preventDefault(); // Empêche le scroll vertical
+    container.scrollLeft += event.deltaY *4; // Fait défiler horizontalement
+});
