@@ -26,7 +26,7 @@ function parseData(alldata){
     const rows = data.split('\n').filter(row => row.trim().length > 0); // Split the file content by newlines to get each row
     mapWR = rows.map(row => row.split(';').filter(cell => cell.trim().length > 0)); // Split the file content by newlines to get each row
     // mapWR = mapWR.slice(0,4264);
-
+    
     /* Fetching Nation data */
     dataNation = alldata[1];  // Import data from Nation.csv
     const rowsNation = dataNation.split('\n').filter(row => row.trim().length > 0); // Split the file content by newlines to get each row
@@ -106,9 +106,7 @@ function getInfo(mapWR, Nation, Flag){
     wrBox.innerHTML = mapWR.length;
 
     // Find latest WR
-    console.log(mapWR)
     let latestWRs = getMostRecentLists(mapWR, 15);
-    console.log(latestWRs);
 
     let latestWR_menu = document.getElementsByClassName("latestWR-menu")[0];
 
@@ -174,9 +172,14 @@ function getInfo(mapWR, Nation, Flag){
 
 getData()
 
+fetch("start_serv.txt") // Remplace par ton fichier (CSV, JSON, TXT...)
+  .then(response => response.text()) // Convertit la réponse en texte
+  .then(data => console.log(data)) // Affiche le contenu dans la console
+  .catch(error => console.error("Erreur :", error));
+
 const container = document.querySelector(".latestWR-menu");
 
 container.addEventListener("wheel", (event) => {
     event.preventDefault(); // Empêche le scroll vertical
-    container.scrollLeft += event.deltaY *4; // Fait défiler horizontalement
+    container.scrollLeft += event.deltaY *5; // Fait défiler horizontalement
 });
