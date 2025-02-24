@@ -47,6 +47,7 @@ def get_all_nadeo_uploads():
 
         current_map = []
         for replay in all_replays:
+            user_id = replay["User"]["UserId"]
             username = replay['User']['Name'].replace('|', '')
             replay_time = f"{int(replay['ReplayTime'] // 60000):01}:{int((replay['ReplayTime'] / 1000) % 60):02}.{int(replay['ReplayTime'] % 1000 / 10):02}"
             replay_score = replay['Score']
@@ -58,20 +59,20 @@ def get_all_nadeo_uploads():
             replay_seconds = replay['ReplayTime']
             wr_diff_ms = replay_seconds - track_wrs[track_name]
             wr_diff = f"{int(wr_diff_ms // 60000):01}:{int((wr_diff_ms / 1000) % 60):02}.{int(wr_diff_ms % 1000 / 10):02}"
-            current_map.append([username, track_name, replay_time, replay_seconds, upload_date])
+            current_map.append([username, track_name, replay_time, replay_seconds, upload_date, user_id])
 
         current_map = sorted(current_map, key=lambda x: x[4])
         current_wr = current_map[0]
         index_wr = 1
-        all_uploads.append([current_wr[0], current_wr[1],current_wr[2],current_wr[4].strftime("%d/%m/%Y"), ".", "Stadium", "TMNF", 1])
+        all_uploads.append([current_wr[0], current_wr[1],current_wr[2],current_wr[4].strftime("%d/%m/%Y"), ".", "Stadium", "TMNF", 1, current_wr[-1]])
         for run in current_map[1:]:
             if run[3] < current_wr[3]:
                 current_wr = run
                 index_wr += 1
-                all_uploads.append([run[0], run[1], run[2], run[4].strftime("%d/%m/%Y"), ".", "Stadium", "TMNF", index_wr])
+                all_uploads.append([run[0], run[1], run[2], run[4].strftime("%d/%m/%Y"), ".", "Stadium", "TMNF", index_wr, run[-1]])
                 
     # Sort and save replay data
-    # all_uploads = sorted(all_uploads, key=lambda k: k[4])
+    all_uploads = sorted(all_uploads, key=lambda k: k[4])
     with open('otherTests/AllUploads - New.txt', 'w') as file:
         for replay in all_uploads:
             print(';'.join(map(str, replay)), file=file)
