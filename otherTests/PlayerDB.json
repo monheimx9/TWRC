@@ -574,7 +574,7 @@
     {
         "Id": 44,
         "Display_Name": "JaV",
-        "Country": "nzl",
+        "Country": "nzd",
         "TMO_Id": null,
         "TMS_Id": null,
         "TMN_Id": null,
@@ -795,7 +795,7 @@
     {
         "Id": 62,
         "Display_Name": "Yam",
-        "Country": "nzl",
+        "Country": "nzd",
         "TMO_Id": null,
         "TMS_Id": null,
         "TMN_Id": null,
@@ -1848,7 +1848,7 @@
     {
         "Id": 144,
         "Display_Name": "Scrat",
-        "Country": "nzl",
+        "Country": "nzd",
         "TMO_Id": null,
         "TMS_Id": null,
         "TMN_Id": null,
