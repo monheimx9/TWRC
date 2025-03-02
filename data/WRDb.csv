@@ -4318,13 +4318,13 @@ kripke;A01-Race;0:23.96;24/09/2011;.;Stadium;TMNF;19;3842303
 kripke;A01-Race;0:23.95;13/07/2012;.;Stadium;TMNF;20;3842303
 kripke;A01-Race;0:23.92;04/08/2012;.;Stadium;TMNF;21;3842303
 kripke;A01-Race;0:23.88;03/12/2014;.;Stadium;TMNF;22;3842303
-Rollin;A01-Race;0:23.87;25/12/2017;.;Stadium;TMNF;23;1158852
+kripke;A01-Race;0:23.87;21/12/2014;.;Stadium;TMNF;23;3842303
 Drarker;A01-Race;0:23.86;05/06/2021;.;Stadium;TMNF;24;5862361
 Rollin;A01-Race;0:23.85;11/06/2021;.;Stadium;TMNF;25;1158852
 Rollin;A01-Race;0:23.84;13/06/2021;.;Stadium;TMNF;26;1158852
 Rollin;A01-Race;0:23.83;18/06/2021;.;Stadium;TMNF;27;1158852
 Drarker;A01-Race;0:23.81;18/07/2021;.;Stadium;TMNF;28;5862361
-Lackadal;A01-Race;0:23.80;23/02/2022;.;Stadium;TMNF;29;7123551
+Lackadal;A01-Race;0:23.80;27/01/2022;.;Stadium;TMNF;29;7123551
 Eddiel33t;A01-Race;0:23.79;03/08/2023;.;Stadium;TMNF;30;10165899
 /ITA\Silk;A02-Race;0:16.09;16/04/2008;.;Stadium;TMNF;1;2647
 X-ROC divgott;A02-Race;0:15.97;16/04/2008;.;Stadium;TMNF;2;2744
@@ -4825,7 +4825,7 @@ Bartouille;B04-Acrobatic;0:12.54;14/05/2009;.;Stadium;TMNF;14;2907
 nsc.Sativa;B04-Acrobatic;0:12.50;16/10/2017;.;Stadium;TMNF;16;3826152
 nsc.Sativa;B04-Acrobatic;0:12.49;31/12/2018;.;Stadium;TMNF;17;3826152
 Almighty Hefest;B04-Acrobatic;0:12.48;23/06/2020;.;Stadium;TMNF;18;6853602
-Fwo.Link;B04-Acrobatic;0:12.47;23/02/2022;.;Stadium;TMNF;19;7459137
+Fwo.Link;B04-Acrobatic;0:12.47;24/12/2021;.;Stadium;TMNF;19;7459137
 BluEjAck;B05-Race;0:26.18;16/04/2008;.;Stadium;TMNF;1;2930
 /ITA\Silk;B05-Race;0:25.92;16/04/2008;.;Stadium;TMNF;2;2647
 Hock;B05-Race;0:25.57;16/04/2008;.;Stadium;TMNF;3;2008
@@ -4904,9 +4904,11 @@ theinsan3;B07-Race;0:27.65;29/10/2019;.;Stadium;TMNF;28;5996382
 Almighty Hefest;B07-Race;0:27.57;30/10/2019;.;Stadium;TMNF;29;6853602
 theinsan3;B07-Race;0:27.53;01/07/2020;.;Stadium;TMNF;30;5996382
 Almighty Hefest;B07-Race;0:27.52;19/06/2021;.;Stadium;TMNF;31;6853602
-Almighty Hefest;B07-Race;0:27.38;23/02/2022;.;Stadium;TMNF;32;6853602
-Simi TM;B07-Race;0:27.36;14/08/2024;.;Stadium;TMNF;33;7695992
-jan.;B07-Race;0:27.35;22/08/2024;.;Stadium;TMNF;34;8869183
+Schmaniol;B07-Race;0:27.50;24/12/2021;.;Stadium;TMNF;32;7058877
+Simi TM;B07-Race;0:27.48;27/12/2021;.;Stadium;TMNF;33;7695992
+Almighty Hefest;B07-Race;0:27.38;08/02/2022;.;Stadium;TMNF;34;6853602
+Simi TM;B07-Race;0:27.36;14/08/2024;.;Stadium;TMNF;35;7695992
+jan.;B07-Race;0:27.35;22/08/2024;.;Stadium;TMNF;36;8869183
 M�SleriSM;B08-Endurance;1:40.15;16/04/2008;.;Stadium;TMNF;1;3649
 enf;B08-Endurance;1:36.44;16/04/2008;.;Stadium;TMNF;2;3519
 Figos;B08-Endurance;1:35.82;16/04/2008;.;Stadium;TMNF;3;5473
@@ -4937,7 +4939,7 @@ Wave.�emon;B08-Endurance;1:28.90;05/11/2017;.;Stadium;TMNF;27;214778
 racehans;B08-Endurance;1:28.76;09/11/2017;.;Stadium;TMNF;28;3396742
 racehans;B08-Endurance;1:28.70;04/12/2018;.;Stadium;TMNF;29;3396742
 Wave.�emon;B08-Endurance;1:28.30;28/04/2019;.;Stadium;TMNF;30;214778
-Wave.�emon;B08-Endurance;1:28.24;23/02/2022;.;Stadium;TMNF;31;214778
+Wave.�emon;B08-Endurance;1:28.24;26/12/2021;.;Stadium;TMNF;31;214778
 BluEjAck;B09-Acrobatic;0:13.68;16/04/2008;.;Stadium;TMNF;1;2930
 .max;B09-Acrobatic;0:13.67;16/04/2008;.;Stadium;TMNF;2;2750
 empy.off;B09-Acrobatic;0:13.60;16/04/2008;.;Stadium;TMNF;3;3181
@@ -5918,7 +5920,7 @@ racehans;D09-Obstacle;0:41.77;11/12/2018;.;Stadium;TMNF;24;3396742
 Wave.�emon;D09-Obstacle;0:41.76;19/12/2019;.;Stadium;TMNF;25;214778
 racehans;D09-Obstacle;0:41.71;05/06/2020;.;Stadium;TMNF;26;3396742
 Wave.�emon;D09-Obstacle;0:41.66;20/06/2020;.;Stadium;TMNF;27;214778
-trinitymot;D09-Obstacle;0:41.59;23/02/2022;.;Stadium;TMNF;28;5594219
+trinitymot;D09-Obstacle;0:41.59;10/02/2022;.;Stadium;TMNF;28;5594219
 dennis090;D09-Obstacle;0:40.85;20/09/2023;.;Stadium;TMNF;29;6650217
 Fwo.Link;D09-Obstacle;0:40.77;19/08/2024;.;Stadium;TMNF;30;7459137
 Fwo.Link;D09-Obstacle;0:40.69;19/08/2024;.;Stadium;TMNF;31;7459137
@@ -5997,7 +5999,7 @@ Drew.;D11-Acrobatic;0:09.67;18/09/2012;.;Stadium;TMNF;28;1092385
 Drew.;D11-Acrobatic;0:09.56;24/09/2012;.;Stadium;TMNF;29;1092385
 florian35235;D11-Acrobatic;0:09.45;30/11/2012;.;Stadium;TMNF;30;4495467
 Drew.;D11-Acrobatic;0:09.44;10/10/2019;.;Stadium;TMNF;31;1092385
-dennis090;D11-Acrobatic;0:09.22;23/02/2022;.;Stadium;TMNF;32;6650217
+dennis090;D11-Acrobatic;0:09.22;19/02/2022;.;Stadium;TMNF;32;6650217
 SabineGoth;D12-Speed;0:44.81;16/04/2008;.;Stadium;TMNF;1;2027
 aiden.KraL';D12-Speed;0:42.46;16/04/2008;.;Stadium;TMNF;2;3159
 BluEjAck;D12-Speed;0:41.87;16/04/2008;.;Stadium;TMNF;3;2930
@@ -6071,7 +6073,7 @@ Wirtual #mot;D13-Race;1:03.74;05/06/2021;.;Stadium;TMNF;35;5721413
 crosshairs;D13-Race;1:03.52;10/06/2021;.;Stadium;TMNF;36;7167467
 Wirtual #mot;D13-Race;1:03.12;19/06/2021;.;Stadium;TMNF;37;5721413
 crosshairs;D13-Race;1:03.01;15/08/2021;.;Stadium;TMNF;38;7167467
-Wirtual #mot;D13-Race;1:02.67;26/02/2022;.;Stadium;TMNF;39;5721413
+Wirtual #mot;D13-Race;1:02.67;07/01/2022;.;Stadium;TMNF;39;5721413
 crosshairs;D13-Race;1:02.65;04/11/2022;.;Stadium;TMNF;40;7167467
 Wirtual #mot;D13-Race;1:02.60;25/08/2024;.;Stadium;TMNF;41;5721413
 jan.;D13-Race;1:02.53;01/01/2025;.;Stadium;TMNF;42;8869183
@@ -6273,16 +6275,17 @@ Mehh;E04-Obstacle;1:31.50;04/11/2018;.;Stadium;TMNF;41;6144092
 racehans;E04-Obstacle;1:31.47;04/11/2018;.;Stadium;TMNF;42;3396742
 johalss;E04-Obstacle;1:31.30;12/09/2019;.;Stadium;TMNF;43;5828918
 Mehh;E04-Obstacle;1:31.27;10/01/2021;.;Stadium;TMNF;44;6144092
-Mehh;E04-Obstacle;1:31.13;21/06/2022;.;Stadium;TMNF;45;6144092
-Mehh;E04-Obstacle;1:31.04;07/07/2022;.;Stadium;TMNF;46;6144092
-Fwo.Link;E04-Obstacle;1:30.93;16/08/2022;.;Stadium;TMNF;47;7459137
-Fwo.Link;E04-Obstacle;1:30.85;20/08/2022;.;Stadium;TMNF;48;7459137
-dennis090;E04-Obstacle;1:30.57;02/09/2022;.;Stadium;TMNF;49;6650217
-Fwo.Link;E04-Obstacle;1:30.43;07/09/2022;.;Stadium;TMNF;50;7459137
-Fwo.Link;E04-Obstacle;1:30.00;08/09/2022;.;Stadium;TMNF;51;7459137
-Fwo.Link;E04-Obstacle;1:29.28;20/05/2023;.;Stadium;TMNF;52;7459137
-dennis090;E04-Obstacle;1:29.11;20/09/2023;.;Stadium;TMNF;53;6650217
-Fwo.Link;E04-Obstacle;1:28.48;28/10/2024;.;Stadium;TMNF;54;7459137
+Mehh;E04-Obstacle;1:31.25;29/12/2021;.;Stadium;TMNF;45;6144092
+Mehh;E04-Obstacle;1:31.13;21/06/2022;.;Stadium;TMNF;46;6144092
+Mehh;E04-Obstacle;1:31.04;07/07/2022;.;Stadium;TMNF;47;6144092
+Fwo.Link;E04-Obstacle;1:30.93;16/08/2022;.;Stadium;TMNF;48;7459137
+Fwo.Link;E04-Obstacle;1:30.85;20/08/2022;.;Stadium;TMNF;49;7459137
+dennis090;E04-Obstacle;1:30.57;02/09/2022;.;Stadium;TMNF;50;6650217
+Fwo.Link;E04-Obstacle;1:30.43;07/09/2022;.;Stadium;TMNF;51;7459137
+Fwo.Link;E04-Obstacle;1:30.00;08/09/2022;.;Stadium;TMNF;52;7459137
+Fwo.Link;E04-Obstacle;1:29.28;20/05/2023;.;Stadium;TMNF;53;7459137
+dennis090;E04-Obstacle;1:29.11;20/09/2023;.;Stadium;TMNF;54;6650217
+Fwo.Link;E04-Obstacle;1:28.48;28/10/2024;.;Stadium;TMNF;55;7459137
 SWRT#the_punish3r;E05-Endurance;59:04.08;19/04/2008;.;Stadium;TMNF;1;16626
 Sago;E05-Endurance;58:22.92;19/04/2008;.;Stadium;TMNF;2;5620
 .max;E05-Endurance;58:21.96;19/04/2008;.;Stadium;TMNF;3;2750
