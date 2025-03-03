@@ -106,7 +106,7 @@
     {
         "Id": 8,
         "Display_Name": "Bartouille",
-        "Country": "Uruguay",
+        "Country": "uru",
         "TMO_Id": null,
         "TMS_Id": null,
         "TMN_Id": null,
@@ -587,7 +587,7 @@
     {
         "Id": 45,
         "Display_Name": "craxx",
-        "Country": "Senegal",
+        "Country": "sen",
         "TMO_Id": null,
         "TMS_Id": null,
         "TMN_Id": null,
@@ -1016,7 +1016,7 @@
     {
         "Id": 79,
         "Display_Name": "Steph",
-        "Country": "Luxembourg",
+        "Country": "lxb",
         "TMO_Id": null,
         "TMS_Id": null,
         "TMN_Id": null,
@@ -1419,7 +1419,7 @@
     {
         "Id": 111,
         "Display_Name": "Galax",
-        "Country": "Lithuania",
+        "Country": "lit",
         "TMO_Id": null,
         "TMS_Id": null,
         "TMN_Id": null,
@@ -1536,7 +1536,7 @@
     {
         "Id": 120,
         "Display_Name": "emin",
-        "Country": "Turkey",
+        "Country": "trk",
         "TMO_Id": null,
         "TMS_Id": null,
         "TMN_Id": null,
@@ -1549,7 +1549,7 @@
     {
         "Id": 121,
         "Display_Name": "X-Mind",
-        "Country": "Nigeria",
+        "Country": "nga",
         "TMO_Id": null,
         "TMS_Id": null,
         "TMN_Id": null,
@@ -1614,7 +1614,7 @@
     {
         "Id": 126,
         "Display_Name": "Speed",
-        "Country": "India",
+        "Country": "ind",
         "TMO_Id": null,
         "TMS_Id": null,
         "TMN_Id": null,
@@ -1744,7 +1744,7 @@
     {
         "Id": 136,
         "Display_Name": "didimothie",
-        "Country": "Turkey",
+        "Country": "trk",
         "TMO_Id": null,
         "TMS_Id": null,
         "TMN_Id": null,
@@ -1874,7 +1874,7 @@
     {
         "Id": 146,
         "Display_Name": "Maccron",
-        "Country": "Luxembourg",
+        "Country": "lxb",
         "TMO_Id": null,
         "TMS_Id": null,
         "TMN_Id": null,
@@ -1913,7 +1913,7 @@
     {
         "Id": 149,
         "Display_Name": "Pugacev",
-        "Country": "Vietnam",
+        "Country": "vie",
         "TMO_Id": null,
         "TMS_Id": null,
         "TMN_Id": null,
@@ -2147,7 +2147,7 @@
     {
         "Id": 167,
         "Display_Name": "VAMPIRE_XXZ",
-        "Country": "Latvia",
+        "Country": "lat",
         "TMO_Id": null,
         "TMS_Id": null,
         "TMN_Id": null,
@@ -2589,7 +2589,7 @@
     {
         "Id": 201,
         "Display_Name": "ADO_PG",
-        "Country": "?",
+        "Country": "mtn",
         "TMO_Id": null,
         "TMS_Id": null,
         "TMN_Id": null,
@@ -2602,7 +2602,7 @@
     {
         "Id": 202,
         "Display_Name": "J&B",
-        "Country": "Argentina",
+        "Country": "arg",
         "TMO_Id": null,
         "TMS_Id": null,
         "TMN_Id": null,
@@ -2628,7 +2628,7 @@
     {
         "Id": 204,
         "Display_Name": "Häg",
-        "Country": "Argentina",
+        "Country": "arg",
         "TMO_Id": null,
         "TMS_Id": null,
         "TMN_Id": null,
@@ -3109,7 +3109,7 @@
     {
         "Id": 241,
         "Display_Name": "DIABLO-ITA",
-        "Country": "Romania",
+        "Country": "rom",
         "TMO_Id": null,
         "TMS_Id": null,
         "TMN_Id": null,
@@ -3889,7 +3889,7 @@
     {
         "Id": 301,
         "Display_Name": "KoS",
-        "Country": "Congo",
+        "Country": "cgo",
         "TMO_Id": null,
         "TMS_Id": null,
         "TMN_Id": null,
@@ -3941,7 +3941,7 @@
     {
         "Id": 305,
         "Display_Name": "AsfarcDunga",
-        "Country": "Uzbekistan",
+        "Country": "uzb",
         "TMO_Id": null,
         "TMS_Id": null,
         "TMN_Id": null,
@@ -3954,7 +3954,7 @@
     {
         "Id": 306,
         "Display_Name": "CakeyFA",
-        "Country": "Estonia",
+        "Country": "est",
         "TMO_Id": null,
         "TMS_Id": null,
         "TMN_Id": null,
@@ -3967,7 +3967,7 @@
     {
         "Id": 307,
         "Display_Name": "Drew",
-        "Country": "Lithuania",
+        "Country": "lit",
         "TMO_Id": null,
         "TMS_Id": null,
         "TMN_Id": null,
@@ -4344,7 +4344,7 @@
     {
         "Id": 338,
         "Display_Name": "Sandder",
-        "Country": "Estonia",
+        "Country": "est",
         "TMO_Id": null,
         "TMS_Id": null,
         "TMN_Id": null,
