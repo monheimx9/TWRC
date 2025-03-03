@@ -52,7 +52,7 @@ function parseData(alldata){
     csvDataFlag = rowsFlag.map(row => row.split(';').filter(cell => cell.trim().length > 0));
     var Flag = {};
     for (elem of csvDataFlag) {
-        Flag[elem[0]] = "assets/flags/" + elem[1];
+        Flag[elem[0]] = "../assets/flags/" + elem[1];
     }
 
     /* Fetching Player data */
@@ -123,7 +123,7 @@ function showInfo(mapWR, Nation, Flag, playerDB){
         }
 
         if(typeof(drapeau)==="undefined"){
-            drapeau = "assets/flags/question.png";
+            drapeau = "../assets/flags/question.png";
         };
 
         LeaderboardNation.innerHTML = '<div class="FlagPic"><img src="' + drapeau + '" alt=""></div>';
@@ -453,7 +453,7 @@ function mapInfo(mapWR, Nation, Flag, playerDB){
     }
 
     if(typeof(drapeau)==="undefined"){
-        drapeau = "assets/flags/question.png";
+        drapeau = "../assets/flags/question.png";
     };
 
     dominantInfo.innerHTML = '<img src="' + drapeau + '" alt="" style="width: 25px; height: 25px;vertical-align:middle;"> ';
@@ -464,7 +464,7 @@ function mapInfo(mapWR, Nation, Flag, playerDB){
 
     drapeau = Flag[Nation[biggestInfo_results[1]]];
     if(typeof(drapeau)==="undefined"){
-        drapeau = "assets/flags/question.png";
+        drapeau = "../assets/flags/question.png";
     };
     biggestInfo.innerHTML = '<img src="' + drapeau + '" alt="" style="width: 25px; height: 25px;vertical-align:middle;"> ';
     biggestInfo.innerHTML += "<span class='playerSpan'>" + biggestInfo_results[1] + " - " + biggestInfo_results[0] + "<span>";
@@ -479,7 +479,7 @@ function mapInfo(mapWR, Nation, Flag, playerDB){
         playerINFO = getDBID(playerDB, biggesttId, game);
         drapeau = Flag[playerINFO[1]]
         if(typeof(drapeau)==="undefined"){
-            drapeau = "assets/flags/question.png";
+            drapeau = "../assets/flags/question.png";
         };
         biggestInfo.innerHTML = '<img src="' + drapeau + '" alt="" style="width: 25px; height: 25px;vertical-align:middle;"> ';
         biggestInfo.innerHTML += "<span class='playerSpan'>" + playerINFO[2] + " - " + biggestInfo_results[0] + "<span>";
@@ -490,7 +490,7 @@ function mapInfo(mapWR, Nation, Flag, playerDB){
 
     drapeau = Flag[Nation[longestInfo_results[0]]];
     if(typeof(drapeau)==="undefined"){
-        drapeau = "assets/flags/question.png";
+        drapeau = "../assets/flags/question.png";
     };
     longestInfo.innerHTML = '<img src="' + drapeau + '" alt="" style="width: 25px; height: 25px;vertical-align:middle;"> ';
     let duration = convertTimeDuration(longestInfo_results[1]);
@@ -507,7 +507,7 @@ function mapInfo(mapWR, Nation, Flag, playerDB){
         playerINFO = getDBID(playerDB, longestId, game);
         drapeau = Flag[playerINFO[1]]
         if(typeof(drapeau)==="undefined"){
-            drapeau = "assets/flags/question.png";
+            drapeau = "../assets/flags/question.png";
         };
         longestInfo.innerHTML = '<img src="' + drapeau + '" alt="" style="width: 25px; height: 25px;vertical-align:middle;"> ';
         longestInfo.innerHTML += "<span class='playerSpan'>" + playerINFO[2] + " - " + durationFormated + "<span>";
