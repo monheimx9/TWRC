@@ -389,6 +389,56 @@ function getLongestStandingWR(mapWR, game){
     }
 }
 
+function getLongestStandingIndividualWR(mapWR, game){
+    switch(game){
+        case "TMNF":
+            // 1. Trier par rang
+            mapWR.sort((a, b) => a[7] - b[7]); // rang est à l'index 7
+
+            // 2. Stocker les durées pour chaque joueur
+            let maxDuree = 0;
+            let maxTime;
+            let maxJoueur;
+
+            //Fonction pour parser la date au format DD/MM/YYYY
+            const parseDate = (dataStr) => {
+                const [jour, mois, annee] = dataStr.split('/').map(Number);
+                return new Date(annee, mois -1, jour); //mois -1 car janvier = 0 en js
+            }
+
+            for (let i = 0; i < mapWR.length; i++) {
+                const joueur = mapWR[i][0];
+                const dateDebut = parseDate(mapWR[i][3]); // date à l'index 3
+
+                // Si ce n'est pas le dernier record, on prend la date du suivant
+                // Sinon, on prend la date du jour (le record est toujours valable)
+                const dateFin = i < mapWR.length - 1
+                    ? parseDate(mapWR[i + 1][3])
+                    : new Date();
+
+
+                // Calcul de la durée en jours
+                const duree = Math.round((dateFin - dateDebut) / (1000 * 60 * 60 * 24));
+
+                // On additionne la durée pour le joueur
+                if (duree > maxDuree) {
+                    maxDuree = duree;
+                    indexMax = i;
+                    maxJoueur = joueur;
+                    maxTime = mapWR[i][2]
+                }
+            }
+
+            // 3. Pourcentage
+            let firstDate = parseDate(mapWR[0][3]);
+            let nbDays = Math.round((new Date() - firstDate)/(1000 * 60 * 60 * 24));
+            percent = Math.round(maxDuree/nbDays*100);
+
+            // 4. Retourner le résultat
+            return [maxJoueur, maxDuree, maxTime];
+    }
+}
+
 function convertTimeDuration(days) {
     const YEAR = 365;
     const MONTH = 30;
@@ -457,7 +507,7 @@ function mapInfo(mapWR, Nation, Flag, playerDB){
     };
 
     dominantInfo.innerHTML = '<img src="' + drapeau + '" alt="" style="width: 25px; height: 25px;vertical-align:middle;"> ';
-    dominantInfo.innerHTML += "<span class='playerSpan'>" + dominantPlayer[0] + " - " + dominantPlayer[1] + " WRs </span>";
+    dominantInfo.innerHTML += "<span class='playerSpan'>" + dominantPlayer[0] + " · " + dominantPlayer[1] + " WRs </span>";
 
     var biggestInfo = document.getElementById("biggestInfo");
     biggestInfo_results = getBestImprovement(mapWR, game);
@@ -467,7 +517,7 @@ function mapInfo(mapWR, Nation, Flag, playerDB){
         drapeau = "../assets/flags/question.png";
     };
     biggestInfo.innerHTML = '<img src="' + drapeau + '" alt="" style="width: 25px; height: 25px;vertical-align:middle;"> ';
-    biggestInfo.innerHTML += "<span class='playerSpan'>" + biggestInfo_results[1] + " - " + biggestInfo_results[0] + "<span>";
+    biggestInfo.innerHTML += "<span class='playerSpan'>" + biggestInfo_results[1] + " · " + biggestInfo_results[0] + "<span>";
 
     if(mapWR[0][8] != "a"){
         let biggesttId;
@@ -482,7 +532,7 @@ function mapInfo(mapWR, Nation, Flag, playerDB){
             drapeau = "../assets/flags/question.png";
         };
         biggestInfo.innerHTML = '<img src="' + drapeau + '" alt="" style="width: 25px; height: 25px;vertical-align:middle;"> ';
-        biggestInfo.innerHTML += "<span class='playerSpan'>" + playerINFO[2] + " - " + biggestInfo_results[0] + "<span>";
+        biggestInfo.innerHTML += "<span class='playerSpan'>" + playerINFO[2] + " · " + biggestInfo_results[0] + "<span>";
     }
     
     var longestInfo = document.getElementById("longestInfo");
@@ -494,8 +544,8 @@ function mapInfo(mapWR, Nation, Flag, playerDB){
     };
     longestInfo.innerHTML = '<img src="' + drapeau + '" alt="" style="width: 25px; height: 25px;vertical-align:middle;"> ';
     let duration = convertTimeDuration(longestInfo_results[1]);
-    let durationFormated = duration[0] + "Y'" + duration[1] + "M " + longestInfo_results[2] + "%";
-    longestInfo.innerHTML += "<span class='playerSpan'>" + longestInfo_results[0] + " - " + durationFormated + "<span>";
+    let durationFormated = duration[0] + "Y'" + duration[1] + "M · " + longestInfo_results[2] + "%";
+    longestInfo.innerHTML += "<span class='playerSpan'>" + longestInfo_results[0] + " · " + durationFormated + "<span>";
 
     if(mapWR[0][8] != "a"){
         let longestId;
@@ -510,61 +560,82 @@ function mapInfo(mapWR, Nation, Flag, playerDB){
             drapeau = "../assets/flags/question.png";
         };
         longestInfo.innerHTML = '<img src="' + drapeau + '" alt="" style="width: 25px; height: 25px;vertical-align:middle;"> ';
-        longestInfo.innerHTML += "<span class='playerSpan'>" + playerINFO[2] + " - " + durationFormated + "<span>";
+        longestInfo.innerHTML += "<span class='playerSpan'>" + playerINFO[2] + " · " + durationFormated + "<span>";
     }
 
-    let C08hist = [];
-    for(elem of csvData){
-        if(elem[1] === "C08 - Stadium"){
-            C08hist.push(elem);
+    var longestWRInfo = document.getElementById("longestWRInfo");
+    let longestWRInfo_results = getLongestStandingIndividualWR(mapWR, game);
+
+    drapeau = Flag[Nation[longestInfo_results[0]]];
+    if(typeof(drapeau)==="undefined"){
+        drapeau = "../assets/flags/question.png";
+    };
+    longestWRInfo.innerHTML = '<img src="' + drapeau + '" alt="" style="width: 25px; height: 25px;vertical-align:middle;"> ';
+    duration = convertTimeDuration(longestWRInfo_results[1]);
+    durationFormated = longestWRInfo_results[2] + " · " + duration[0] + "Y'" + duration[1] + "M";
+    longestWRInfo.innerHTML += "<span class='playerSpan'>" + longestWRInfo_results[0] + " · " + durationFormated + "<span>";
+
+    if(mapWR[0][8] != "a"){
+        let longestId;
+        for(CurrentLine of mapWR){
+            if(CurrentLine[0] == longestWRInfo_results[0]){
+                longestId = CurrentLine[8];
+            }
         }
+        playerINFO = getDBID(playerDB, longestId, game);
+        drapeau = Flag[playerINFO[1]]
+        if(typeof(drapeau)==="undefined"){
+            drapeau = "../assets/flags/question.png";
+        };
+        longestWRInfo.innerHTML = '<img src="' + drapeau + '" alt="" style="width: 25px; height: 25px;vertical-align:middle;"> ';
+        longestWRInfo.innerHTML += "<span class='playerSpan'>" + playerINFO[2] + " · " + durationFormated + "<span>";
     }
-    let maching = getLongestStandingWR(C08hist, "TMNF");
-    console.log(maching[0], convertTimeDuration(maching[1]))
+
+    lolfun();
 };
 
 function lolfun(){
     
-//     let maplist = [
-//         "A01-Race", "A02-Race", "A03-Race", "A04-Acrobatic", "A05-Race",
-//         "A06-Obstacle", "A07-Race", "A08-Endurance", "A09-Race", "A10-Acrobatic",
-//         "A11-Race", "A12-Speed", "A13-Race", "A14-Race", "A15-Speed",
-//         "B01-Race", "B02-Race", "B03-Race", "B04-Acrobatic", "B05-Race",
-//         "B06-Obstacle", "B07-Race", "B08-Endurance", "B09-Acrobatic", "B10-Speed",
-//         "B11-Race", "B12-Race", "B13-Obstacle", "B14-Speed", "B15-Race",
-//         "C01-Race", "C02-Race", "C03-Acrobatic", "C04-Race", "C05-Endurance",
-//         "C06-Speed", "C07-Race", "C08-Obstacle", "C09-Race", "C10-Acrobatic",
-//         "C11-Race", "C12-Obstacle", "C13-Race", "C14-Endurance", "C15-Speed",
-//         "D01-Endurance", "D02-Race", "D03-Acrobatic", "D04-Race", "D05-Race",
-//         "D06-Obstacle", "D07-Race", "D08-Speed", "D09-Obstacle", "D10-Race",
-//         "D11-Acrobatic", "D12-Speed", "D13-Race", "D14-Endurance", "D15-Endurance",
-//         "E01-Obstacle", "E02-Endurance", "E03-Endurance", "E04-Obstacle", "E05-Endurance"
-//     ]
+    let maplist = [
+        "A01-Race", "A02-Race", "A03-Race", "A04-Acrobatic", "A05-Race",
+        "A06-Obstacle", "A07-Race", "A08-Endurance", "A09-Race", "A10-Acrobatic",
+        "A11-Race", "A12-Speed", "A13-Race", "A14-Race", "A15-Speed",
+        "B01-Race", "B02-Race", "B03-Race", "B04-Acrobatic", "B05-Race",
+        "B06-Obstacle", "B07-Race", "B08-Endurance", "B09-Acrobatic", "B10-Speed",
+        "B11-Race", "B12-Race", "B13-Obstacle", "B14-Speed", "B15-Race",
+        "C01-Race", "C02-Race", "C03-Acrobatic", "C04-Race", "C05-Endurance",
+        "C06-Speed", "C07-Race", "C08-Obstacle", "C09-Race", "C10-Acrobatic",
+        "C11-Race", "C12-Obstacle", "C13-Race", "C14-Endurance", "C15-Speed",
+        "D01-Endurance", "D02-Race", "D03-Acrobatic", "D04-Race", "D05-Race",
+        "D06-Obstacle", "D07-Race", "D08-Speed", "D09-Obstacle", "D10-Race",
+        "D11-Acrobatic", "D12-Speed", "D13-Race", "D14-Endurance", "D15-Endurance",
+        "E01-Obstacle", "E02-Endurance", "E03-Endurance", "E04-Obstacle", "E05-Endurance"
+    ]
 
-//     let allDurations = [];
-//     for(map of maplist){
-//         var mapWR = [];
-//         for(elem of csvData){
-//             if(elem[1] === map){
-//                 mapWR.push(elem);
-//             }
-//         }
-//         let test = getLongestStandingWR(mapWR, "TMNF");
-//         allDurations.push([test[0], convertTimeDuration(test[1])]);
-//     }
-//     console.log(allDurations);
-// }
+    let allDurations = [];
+    for(map of maplist){
+        var mapWR = [];
+        for(elem of csvData){
+            if(elem[1] === map){
+                mapWR.push(elem);
+            }
+        }
+        let test = getLongestStandingIndividualWR(mapWR, "TMNF");
+        allDurations.push([test[0], convertTimeDuration(test[1])][1]);
+    }
+    console.log(allDurations);
+}
 
-// // Fonction pour basculer la valeur de la variable
-// function toggleVariable() {
-//     CheatOn = !CheatOn;
-//     getData(CheatOn);
-//     if(CheatOn){
-//         Togglecheat.innerHTML = "Cheater On";
-//     }
-//     else{
-//         Togglecheat.innerHTML = "Cheater Off";
-//     }
+// Fonction pour basculer la valeur de la variable
+function toggleVariable() {
+    CheatOn = !CheatOn;
+    getData(CheatOn);
+    if(CheatOn){
+        Togglecheat.innerHTML = "Cheater On";
+    }
+    else{
+        Togglecheat.innerHTML = "Cheater Off";
+    }
 }
 
 // Function that creates the horizontal scroller on top of the page to chose close relatives maps

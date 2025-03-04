@@ -368,24 +368,25 @@ body::before{
 }
 
 .mapInfoColumn tr{
-    height: 40px;
+    height: 35px;
     /* background-color: rgb(57, 70, 31); */
 }
 
 .left{
     padding-left: 5px;
     margin-right: 0px;
-    width: 46%;
+    width: 34%;
     border-bottom: 1px solid grey;
     font-weight: bold;
     color: rgb(131, 131, 131);
+    font-size: 12px;
 }
 
 .right{
     text-align: right;
     padding-right: 5px;
     margin-left: 0px;
-    width: 54%;
+    width: 66%;
     border-bottom: 1px solid grey;
 }
 
@@ -396,8 +397,8 @@ body::before{
 .improveSpan{
     color:blue;
     position: relative;
-    top: -2px;
-    font-size: 10px;
+    top: -1px;
+    font-size: 13px;
 }
 
 #mapPic{
