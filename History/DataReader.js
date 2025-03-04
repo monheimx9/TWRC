@@ -218,7 +218,6 @@ function getDBID(playerDB, id, game){
                     }
                 }
             }
-            break;
     }
 }
 
@@ -243,7 +242,7 @@ function getCorrectMapName(map, game){
     }
 }
 
-function getCorrectFileName(map, envi=null, game=null){
+function getCorrectFileName(envi=null, game=null){
     switch(game){
         case "TMNF":
             return "../assets/mapThumbnails/TMNF_" + SelectedMap.slice(0,3) + ".jpg";
@@ -285,6 +284,9 @@ function mostFrequentElement(arr) {
 }
 
 function convertTimeStr(time){
+    if(!time.includes(":")){
+        time = "0:" + time;
+    }
     let minutesSplit = time.split(":");
     let minute = parseInt(minutesSplit[0]);
     let secondSplit = minutesSplit[1].split(".");
@@ -293,25 +295,160 @@ function convertTimeStr(time){
     return minute * 60000 + second * 1000 + decim - 1000;
 }
 
+function speculation(date_str1, date_str2){
+    if(date_str1 == date_str2){
+        return "???";
+    }
+
+    let [day1, month1, year1] = date_str1.split("/");
+    let [day2, month2, year2] = date_str2.split("/");
+    //harmonisation année
+    if(!(year1 == "????" || year2 == "????")){ //on part du fait que si on connait pas l'année, on sait pas le mois
+        if(year1 != year2){
+            if(month1 == "??"){
+                month1 = "12";
+            }
+            if(month2 == "??"){
+                month2 = "01";
+            }
+        }
+    }
+    else{
+        if(year1 == "????"){
+            return "???";
+        }
+        else if(Number(year1) < 2017 || (Number(year1) == 2017 && Number(month1) < 5)){
+            [year2, month2, day2] = ["2017", "05", "09"];
+        }
+        else{
+            return "???";
+        }
+    }
+    if(year1 != year2){
+        if(month1 != month2){
+            if(day1 == "??"){
+                if(["01","03","05","07","08","10","12"].includes(month1)){
+                    day1 = "31";
+                }
+                else if(month1 == "02"){
+                    if(Number(year1)%4 == 0){
+                        day1 = "29";
+                    }
+                    else{
+                        day1 = "28";
+                    }
+                }
+                else{
+                    day1 = "30";
+                }
+            }
+            if(day2 == "??"){
+                day2 = "01"
+            }
+        }
+    }
+    else{
+        if(month1 != month2 && !(month1 == "??" || month2 == "??")){
+            if(day1 == "??"){
+                if(["01","03","05","07","08","10","12"].includes(month1)){
+                    day1 = "31";
+                }
+                else if(month1 == "02"){
+                    if(Number(year1)%4 == 0){
+                        day1 = "29";
+                    }
+                    else{
+                        day1 = "28";
+                    }
+                }
+                else{
+                    day1 = "30";
+                }
+            }
+            if(day2 == "??"){
+                day2 = "01";
+            }
+        }
+        else{
+            return "???";
+        }
+    }
+    
+    return [[day1,month1,year1], [day2,month2,year2]]
+}
+
+function compare_dates(date_str1, date_str2){
+    let [day1, month1, year1] = date_str1.split("/");
+    let [day2, month2, year2] = date_str2.split("/");
+    let specu_preciser = 0;
+
+    // Vérifier si une des dates contient des "?"
+    if((day1+month1+year1+day2+month2+year2).includes("?")){
+        let newdates = speculation(date_str1, date_str2);
+        if(newdates == "???"){
+            return "???";
+        }
+        specu_preciser = 1;
+        [day1, month1, year1] = [newdates[0][0], newdates[0][1], newdates[0][2]];
+        [day2, month2, year2] = [newdates[1][0], newdates[1][1], newdates[1][2]];
+    }
+    
+    // Convertir les parties de date en entiers
+    [day1, month1, year1] = [Number(day1), Number(month1), Number(year1)];
+    [day2, month2, year2] = [Number(day2), Number(month2), Number(year2)];
+    
+    // Créer des objets datetime
+    date1 = new Date(year1, month1-1, day1);
+    date2 = new Date(year2, month2-1, day2);
+    
+    // Calculer la différence en jours
+    delta = Math.round((date2 - date1) / (1000 * 60 * 60 * 24));
+    return [delta*-1, specu_preciser];
+}
+
 function getBestImprovement(mapWR, game){
     var coolDown = 7; // Number of days after first WR to start the tracking
-    if(game=="TMNF"){
-        unsort = mapWR.reverse();   
-        var improvement = 0;
-        var wrOfBestImprovement = NaN;
-        var indexOfBestImprovement = 0;
-        let [day, month, year] = unsort[0][3].split("/").map(Number);
-        var firstDate = new Date(year, month-1, day);
-        firstDate.setDate(firstDate.getDate() + coolDown);
-        
-        for(wr of unsort){
-            let [day, month, year] = wr[3].split("/").map(Number);
-            var newDate = new Date(year, month-1, day);
-            if(newDate<firstDate){
-                var currentWR = convertTimeStr(wr[2]);
+    switch(game){
+        case "TMNF":
+            unsort = mapWR.reverse();   
+            var improvement = 0;
+            var wrOfBestImprovement = NaN;
+            var indexOfBestImprovement = 0;
+            let [day, month, year] = unsort[0][3].split("/").map(Number);
+            var firstDate = new Date(year, month-1, day);
+            firstDate.setDate(firstDate.getDate() + coolDown);
+            
+            for(wr of unsort){
+                let [day, month, year] = wr[3].split("/").map(Number);
+                var newDate = new Date(year, month-1, day);
+                if(newDate<firstDate){
+                    var currentWR = convertTimeStr(wr[2]);
+                }
+                else{
+                    let currentWRTest = convertTimeStr(wr[2]+"0");
+                    let improvementTest = currentWR - currentWRTest;
+                    if(improvementTest>improvement){
+                        improvement = improvementTest;
+                        wrOfBestImprovement = indexOfBestImprovement;
+                    };
+                    currentWR = currentWRTest;
+                };
+                indexOfBestImprovement += 1;
             }
-            else{
-                let currentWRTest = convertTimeStr(wr[2]+"0");
+            break;
+        case "TM2":
+        case "TMT":
+            unsort = mapWR.reverse();
+            var improvement = 0;
+            var wrOfBestImprovement = NaN;
+            var indexOfBestImprovement = 0;
+            
+            for(wr of unsort){
+                if(wr[4] == "Cheated"){
+                    continue;
+                }
+                if(wr[2] == "???"){continue;}
+                let currentWRTest = convertTimeStr(wr[2]);
                 let improvementTest = currentWR - currentWRTest;
                 if(improvementTest>improvement){
                     improvement = improvementTest;
@@ -320,7 +457,7 @@ function getBestImprovement(mapWR, game){
                 currentWR = currentWRTest;
             };
             indexOfBestImprovement += 1;
-        }
+            break;
     }
     
     let thousandths = game == "TMNF";
@@ -330,97 +467,87 @@ function getBestImprovement(mapWR, game){
     ];
 }
 
+function parseDate(dataStr){
+    const [jour, mois, annee] = dataStr.split('/').map(Number);
+    return new Date(annee, mois -1, jour); //mois -1 car janvier = 0 en js
+}
+
 function getLongestStandingWR(mapWR, game){
     switch(game){
         case "TMNF":
-            // 1. Trier par rang
-            mapWR.sort((a, b) => a[7] - b[7]); // rang est à l'index 7
-
-            // 2. Stocker les durées pour chaque joueur
             const durees = {};
-
-            //Fonction pour parser la date au format DD/MM/YYYY
-            const parseDate = (dataStr) => {
-                const [jour, mois, annee] = dataStr.split('/').map(Number);
-                return new Date(annee, mois -1, jour); //mois -1 car janvier = 0 en js
-            }
 
             for (let i = 0; i < mapWR.length; i++) {
                 const joueur = mapWR[i][0];
                 const dateDebut = parseDate(mapWR[i][3]); // date à l'index 3
-
-                // Si ce n'est pas le dernier record, on prend la date du suivant
-                // Sinon, on prend la date du jour (le record est toujours valable)
                 const dateFin = i < mapWR.length - 1
                     ? parseDate(mapWR[i + 1][3])
                     : new Date();
 
-                // Calcul de la durée en jours
                 const duree = Math.round((dateFin - dateDebut) / (1000 * 60 * 60 * 24));
-                
-
-                // On additionne la durée pour le joueur
                 if (durees[joueur]) {
                     durees[joueur] += duree;
                 } else {
                     durees[joueur] = duree;
                 }
             }
-            console.log(durees)
-
-            // 3. Trouver le joueur avec la durée maximale
             let maxJoueur = null;
             let maxDuree = 0;
-
             for (const [joueur, duree] of Object.entries(durees)) {
                 if (duree > maxDuree) {
                     maxDuree = duree;
                     maxJoueur = joueur;
                 }
             }
-
-            // 4. Pourcentage
             let firstDate = parseDate(mapWR[0][3]);
             let nbDays = Math.round((new Date() - firstDate)/(1000 * 60 * 60 * 24));
             percent = Math.round(maxDuree/nbDays*100);
-
-            // 5. Retourner le résultat
             return [maxJoueur, maxDuree, percent];
+    // case "TM2":
+    //     durees = {};
+
+    //     for (let i = 0; i < mapWR.length; i++) {
+    //         const joueur = mapWR[i][0];
+    //         const dateDebut = parseDate(mapWR[i][3]); // date à l'index 3
+    //         const dateFin = i < mapWR.length - 1
+    //             ? parseDate(mapWR[i + 1][3])
+    //             : new Date();
+
+    //         const duree = Math.round((dateFin - dateDebut) / (1000 * 60 * 60 * 24));
+    //         if (durees[joueur]) {
+    //             durees[joueur] += duree;
+    //         } else {
+    //             durees[joueur] = duree;
+    //         }
+    //     }
+    //     maxJoueur = null;
+    //     maxDuree = 0;
+    //     for (const [joueur, duree] of Object.entries(durees)) {
+    //         if (duree > maxDuree) {
+    //             maxDuree = duree;
+    //             maxJoueur = joueur;
+    //         }
+    //     }
+    //     firstDate = parseDate(mapWR[0][3]);
+    //     nbDays = Math.round((new Date() - firstDate)/(1000 * 60 * 60 * 24));
+    //     percent = Math.round(maxDuree/nbDays*100);
+    //     return [maxJoueur, maxDuree, percent];
     }
 }
 
 function getLongestStandingIndividualWR(mapWR, game){
+    let maxDuree = 0;
+    let maxTime;
+    let maxJoueur;
     switch(game){
         case "TMNF":
-            // 1. Trier par rang
-            mapWR.sort((a, b) => a[7] - b[7]); // rang est à l'index 7
-
-            // 2. Stocker les durées pour chaque joueur
-            let maxDuree = 0;
-            let maxTime;
-            let maxJoueur;
-
-            //Fonction pour parser la date au format DD/MM/YYYY
-            const parseDate = (dataStr) => {
-                const [jour, mois, annee] = dataStr.split('/').map(Number);
-                return new Date(annee, mois -1, jour); //mois -1 car janvier = 0 en js
-            }
-
             for (let i = 0; i < mapWR.length; i++) {
                 const joueur = mapWR[i][0];
                 const dateDebut = parseDate(mapWR[i][3]); // date à l'index 3
-
-                // Si ce n'est pas le dernier record, on prend la date du suivant
-                // Sinon, on prend la date du jour (le record est toujours valable)
                 const dateFin = i < mapWR.length - 1
                     ? parseDate(mapWR[i + 1][3])
                     : new Date();
-
-
-                // Calcul de la durée en jours
                 const duree = Math.round((dateFin - dateDebut) / (1000 * 60 * 60 * 24));
-
-                // On additionne la durée pour le joueur
                 if (duree > maxDuree) {
                     maxDuree = duree;
                     indexMax = i;
@@ -428,14 +555,31 @@ function getLongestStandingIndividualWR(mapWR, game){
                     maxTime = mapWR[i][2]
                 }
             }
-
-            // 3. Pourcentage
-            let firstDate = parseDate(mapWR[0][3]);
-            let nbDays = Math.round((new Date() - firstDate)/(1000 * 60 * 60 * 24));
-            percent = Math.round(maxDuree/nbDays*100);
-
-            // 4. Retourner le résultat
             return [maxJoueur, maxDuree, maxTime];
+        case "TM2":
+        case "TMT":
+            let specul;
+            
+            for(let i = 0; i <mapWR.length; i++) {
+                let date1 = mapWR[i][3];
+                let date2 = i < mapWR.length - 1
+                    ? mapWR[i+1][3]
+                    : new Date();
+                const formattedDate2 = date2 instanceof Date
+                    ? `${String(date2.getDate()).padStart(2, '0')}/${String(date2.getMonth() + 1).padStart(2, '0')}/${date2.getFullYear()}`
+                    : date2; // Si `mapWR[i+1][3]` est déjà une date formatée
+                let resultCompar = compare_dates(formattedDate2, date1);
+                if(resultCompar == "???"){
+                    continue;
+                }
+                if(resultCompar[0] > maxDuree){
+                    maxDuree = resultCompar[0];
+                    maxTime = mapWR[i][2];
+                    maxJoueur = mapWR[i][0];
+                    specul = resultCompar[1];
+                }
+            }
+            return [maxJoueur, maxDuree, maxTime, specul];
     }
 }
 
@@ -443,32 +587,34 @@ function convertTimeDuration(days) {
     const YEAR = 365;
     const MONTH = 30;
   
-    // Calcul des années
     const years = Math.floor(days / YEAR);
     days %= YEAR;
   
-    // Calcul des mois
     const month = Math.floor(days / MONTH);
     days %= MONTH;
-  
-    // Le reste représente les jours
+
     return [years, month, days];
 }
 
 function mapInfo(mapWR, Nation, Flag, playerDB){
+    // console.log(speculation("??/??/2018", "01/06/2018"));
     let envi = mapWR[0][5];
     let game = mapWR[0][6];
 
+    // THUMBNAIL
     var mapPic = document.getElementById("mapPic");
-    mapPic.src = getCorrectFileName(SelectedMap, envi, game);
+    mapPic.src = getCorrectFileName(envi, game);
 
+    // WHAT GAME
     var gameInfo = document.getElementById("gameInfo");
     gameInfo.innerHTML = getFullGameName(game, envi);
 
+    // WHAT ENVI
     var enviInfo = document.getElementById("enviInfo");
     enviInfo.innerHTML = "<img src= '../assets/enviLogos/" + envi + ".png' alt='' style='width: 35px; height: 35px;vertical-align:middle;'> ";
     enviInfo.innerHTML += "<span class='playerSpan'>" + envi + "<span>";
 
+    // WHAT MAP
     var mapInfo = document.getElementById("mapInfo");
     mapInfo.innerHTML = "<img src= '../assets/difficultyLogos/Flag" + getDifficulty(SelectedMap, game) + ".png' alt='' style='width: 25px; height: 25px;vertical-align:middle;'> ";
     mapInfo.innerHTML += "<span class='playerSpan'>" + getCorrectMapName(SelectedMap, game) + "<span>";
@@ -483,9 +629,11 @@ function mapInfo(mapWR, Nation, Flag, playerDB){
         wrHolderList.push(CurrentLine[0]);
     }
 
+    // HOW MANY WORLD RECORDS
     var WRAmountInfo = document.getElementById("WRAmountInfo"); // AJOUTER LES INFOS EN TITLE
     WRAmountInfo.innerHTML = wrHolderList.length + " WRs";
 
+    // MOST PROLOFIC PLAYER
     var dominantInfo = document.getElementById("dominantInfo");
     let dominantPlayer = mostFrequentElement(wrHolderList);
     var drapeau = Flag[Nation[dominantPlayer[0]]];
@@ -509,6 +657,7 @@ function mapInfo(mapWR, Nation, Flag, playerDB){
     dominantInfo.innerHTML = '<img src="' + drapeau + '" alt="" style="width: 25px; height: 25px;vertical-align:middle;"> ';
     dominantInfo.innerHTML += "<span class='playerSpan'>" + dominantPlayer[0] + " · " + dominantPlayer[1] + " WRs </span>";
 
+    // BIGGEST IMPROVEMENT
     var biggestInfo = document.getElementById("biggestInfo");
     biggestInfo_results = getBestImprovement(mapWR, game);
 
@@ -535,44 +684,46 @@ function mapInfo(mapWR, Nation, Flag, playerDB){
         biggestInfo.innerHTML += "<span class='playerSpan'>" + playerINFO[2] + " · " + biggestInfo_results[0] + "<span>";
     }
     
+    // PLAYER WITH THE LONGEST TIME AS WORLD RECORD
     var longestInfo = document.getElementById("longestInfo");
     let longestInfo_results = getLongestStandingWR(mapWR, game);
 
-    drapeau = Flag[Nation[longestInfo_results[0]]];
-    if(typeof(drapeau)==="undefined"){
-        drapeau = "../assets/flags/question.png";
-    };
-    longestInfo.innerHTML = '<img src="' + drapeau + '" alt="" style="width: 25px; height: 25px;vertical-align:middle;"> ';
-    let duration = convertTimeDuration(longestInfo_results[1]);
-    let durationFormated = duration[0] + "Y'" + duration[1] + "M · " + longestInfo_results[2] + "%";
-    longestInfo.innerHTML += "<span class='playerSpan'>" + longestInfo_results[0] + " · " + durationFormated + "<span>";
+    // drapeau = Flag[Nation[longestInfo_results[0]]];
+    // if(typeof(drapeau)==="undefined"){
+    //     drapeau = "../assets/flags/question.png";
+    // };
+    // longestInfo.innerHTML = '<img src="' + drapeau + '" alt="" style="width: 25px; height: 25px;vertical-align:middle;"> ';
+    // let duration = convertTimeDuration(longestInfo_results[1]);
+    // let durationFormated = duration[0] + "Y'" + duration[1] + "M · " + longestInfo_results[2] + "%";
+    // longestInfo.innerHTML += "<span class='playerSpan'>" + longestInfo_results[0] + " · " + durationFormated + "<span>";
 
-    if(mapWR[0][8] != "a"){
-        let longestId;
-        for(CurrentLine of mapWR){
-            if(CurrentLine[0] == longestInfo_results[0]){
-                longestId = CurrentLine[8];
-            }
-        }
-        playerINFO = getDBID(playerDB, longestId, game);
-        drapeau = Flag[playerINFO[1]]
-        if(typeof(drapeau)==="undefined"){
-            drapeau = "../assets/flags/question.png";
-        };
-        longestInfo.innerHTML = '<img src="' + drapeau + '" alt="" style="width: 25px; height: 25px;vertical-align:middle;"> ';
-        longestInfo.innerHTML += "<span class='playerSpan'>" + playerINFO[2] + " · " + durationFormated + "<span>";
-    }
+    // if(mapWR[0][8] != "a"){
+    //     let longestId;
+    //     for(CurrentLine of mapWR){
+    //         if(CurrentLine[0] == longestInfo_results[0]){
+    //             longestId = CurrentLine[8];
+    //         }
+    //     }
+    //     playerINFO = getDBID(playerDB, longestId, game);
+    //     drapeau = Flag[playerINFO[1]]
+    //     if(typeof(drapeau)==="undefined"){
+    //         drapeau = "../assets/flags/question.png";
+    //     };
+    //     longestInfo.innerHTML = '<img src="' + drapeau + '" alt="" style="width: 25px; height: 25px;vertical-align:middle;"> ';
+    //     longestInfo.innerHTML += "<span class='playerSpan'>" + playerINFO[2] + " · " + durationFormated + "<span>";
+    // }
 
+    // LONGEST STANDING WORLD RECORD
     var longestWRInfo = document.getElementById("longestWRInfo");
     let longestWRInfo_results = getLongestStandingIndividualWR(mapWR, game);
 
-    drapeau = Flag[Nation[longestInfo_results[0]]];
+    drapeau = Flag[Nation[longestWRInfo_results[0]]];
     if(typeof(drapeau)==="undefined"){
         drapeau = "../assets/flags/question.png";
     };
     longestWRInfo.innerHTML = '<img src="' + drapeau + '" alt="" style="width: 25px; height: 25px;vertical-align:middle;"> ';
     duration = convertTimeDuration(longestWRInfo_results[1]);
-    durationFormated = longestWRInfo_results[2] + " · " + duration[0] + "Y'" + duration[1] + "M";
+    durationFormated = "~".repeat(longestWRInfo_results[3]) + longestWRInfo_results[2] + " · " + duration[0] + "Y'" + duration[1] + "M";
     longestWRInfo.innerHTML += "<span class='playerSpan'>" + longestWRInfo_results[0] + " · " + durationFormated + "<span>";
 
     if(mapWR[0][8] != "a"){
@@ -590,40 +741,38 @@ function mapInfo(mapWR, Nation, Flag, playerDB){
         longestWRInfo.innerHTML = '<img src="' + drapeau + '" alt="" style="width: 25px; height: 25px;vertical-align:middle;"> ';
         longestWRInfo.innerHTML += "<span class='playerSpan'>" + playerINFO[2] + " · " + durationFormated + "<span>";
     }
-
-    lolfun();
 };
 
 function lolfun(){
     
-    let maplist = [
-        "A01-Race", "A02-Race", "A03-Race", "A04-Acrobatic", "A05-Race",
-        "A06-Obstacle", "A07-Race", "A08-Endurance", "A09-Race", "A10-Acrobatic",
-        "A11-Race", "A12-Speed", "A13-Race", "A14-Race", "A15-Speed",
-        "B01-Race", "B02-Race", "B03-Race", "B04-Acrobatic", "B05-Race",
-        "B06-Obstacle", "B07-Race", "B08-Endurance", "B09-Acrobatic", "B10-Speed",
-        "B11-Race", "B12-Race", "B13-Obstacle", "B14-Speed", "B15-Race",
-        "C01-Race", "C02-Race", "C03-Acrobatic", "C04-Race", "C05-Endurance",
-        "C06-Speed", "C07-Race", "C08-Obstacle", "C09-Race", "C10-Acrobatic",
-        "C11-Race", "C12-Obstacle", "C13-Race", "C14-Endurance", "C15-Speed",
-        "D01-Endurance", "D02-Race", "D03-Acrobatic", "D04-Race", "D05-Race",
-        "D06-Obstacle", "D07-Race", "D08-Speed", "D09-Obstacle", "D10-Race",
-        "D11-Acrobatic", "D12-Speed", "D13-Race", "D14-Endurance", "D15-Endurance",
-        "E01-Obstacle", "E02-Endurance", "E03-Endurance", "E04-Obstacle", "E05-Endurance"
-    ]
+    // let maplist = [
+    //     "A01-Race", "A02-Race", "A03-Race", "A04-Acrobatic", "A05-Race",
+    //     "A06-Obstacle", "A07-Race", "A08-Endurance", "A09-Race", "A10-Acrobatic",
+    //     "A11-Race", "A12-Speed", "A13-Race", "A14-Race", "A15-Speed",
+    //     "B01-Race", "B02-Race", "B03-Race", "B04-Acrobatic", "B05-Race",
+    //     "B06-Obstacle", "B07-Race", "B08-Endurance", "B09-Acrobatic", "B10-Speed",
+    //     "B11-Race", "B12-Race", "B13-Obstacle", "B14-Speed", "B15-Race",
+    //     "C01-Race", "C02-Race", "C03-Acrobatic", "C04-Race", "C05-Endurance",
+    //     "C06-Speed", "C07-Race", "C08-Obstacle", "C09-Race", "C10-Acrobatic",
+    //     "C11-Race", "C12-Obstacle", "C13-Race", "C14-Endurance", "C15-Speed",
+    //     "D01-Endurance", "D02-Race", "D03-Acrobatic", "D04-Race", "D05-Race",
+    //     "D06-Obstacle", "D07-Race", "D08-Speed", "D09-Obstacle", "D10-Race",
+    //     "D11-Acrobatic", "D12-Speed", "D13-Race", "D14-Endurance", "D15-Endurance",
+    //     "E01-Obstacle", "E02-Endurance", "E03-Endurance", "E04-Obstacle", "E05-Endurance"
+    // ]
 
-    let allDurations = [];
-    for(map of maplist){
-        var mapWR = [];
-        for(elem of csvData){
-            if(elem[1] === map){
-                mapWR.push(elem);
-            }
-        }
-        let test = getLongestStandingIndividualWR(mapWR, "TMNF");
-        allDurations.push([test[0], convertTimeDuration(test[1])][1]);
-    }
-    console.log(allDurations);
+    // let allDurations = [];
+    // for(map of maplist){
+    //     var mapWR = [];
+    //     for(elem of csvData){
+    //         if(elem[1] === map){
+    //             mapWR.push(elem);
+    //         }
+    //     }
+    //     let test = getLongestStandingIndividualWR(mapWR, "TMNF");
+    //     allDurations.push([test[0], convertTimeDuration(test[1])][1]);
+    // }
+    // console.log(allDurations);
 }
 
 // Fonction pour basculer la valeur de la variable
@@ -636,29 +785,6 @@ function toggleVariable() {
     else{
         Togglecheat.innerHTML = "Cheater Off";
     }
-}
-
-// Function that creates the horizontal scroller on top of the page to chose close relatives maps
-function createMapSelector() {
-    let firstDiv = document.createElement("div");
-    firstDiv.style = 'width: 75%; overflow-x: scroll; margin: auto;';
-
-    let mapScroller = document.createElement("div");
-    mapScroller.className = "scrollmenu";
-    mapScroller.id = "mapScroller";
-    mapScroller.style = "width: 2630px;";
-
-    for (let i = 1; i <= 15; i++) {
-        format = i.toString().padStart(2, '0');
-        let singleMap = document.createElement("div");
-        singleMap.style = "background-image: url(./assets/mapThumbnails/canyonA" + format + ".jpg); background-size: 175px; width: 175px; height: 117px;";
-        singleMap.innerHTML = '<a href="#home">A' + format + '</a>';
-
-        mapScroller.appendChild(singleMap);
-    }
-    firstDiv.appendChild(mapScroller);
-
-    MapChoiceBlock.insertBefore(firstDiv, output1);
 }
 
 // Function that returns a column into an array
@@ -690,10 +816,6 @@ const Togglecheat = document.getElementById("monDiv");
 
 const params = new URLSearchParams(window.location.search); // Get the parameters from the URL
 var SelectedMap = params.get('id').replace(/_/g, ' '); // Name of the track without underscores
-
-/* List insertion */
-
-// createMapSelector(); // add the experimental map selector
 
 /* Leaderboard insertion */
 
