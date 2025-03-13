@@ -715,6 +715,7 @@ ZedroX;A13 - Stadium;25.448;18/12/2021;.;Stadium;TM2;16;a
 ZedroX;A13 - Stadium;25.444;18/12/2021;.;Stadium;TM2;17;a
 Flechetas;A13 - Stadium;25.443;07/04/2024;.;Stadium;TM2;18;a
 Flechetas;A13 - Stadium;25.426;26/04/2024;.;Stadium;TM2;19;a
+Phip;A13 - Stadium;25.291;09/03/2025;New cut;Stadium;TM2;20;a
 LeoTM2;A14 - Stadium;20.127;25/06/2013;.;Stadium;TM2;1;a
 Blizz;A14 - Stadium;20.126;25/06/2013;.;Stadium;TM2;2;a
 CarlJr;A14 - Stadium;20.108;16/07/2013;.;Stadium;TM2;3;a
@@ -785,6 +786,7 @@ RACETA;B02 - Stadium;25.593;18/05/2019;.;Stadium;TM2;11;a
 riolu;B02 - Stadium;25.561;23/05/2019;Cheated;Stadium;TM2;12;a
 Loupphok;B02 - Stadium;25.573;31/05/2021;.;Stadium;TM2;13;a
 RACETA;B02 - Stadium;25.553;22/03/2023;.;Stadium;TM2;14;a
+ZedroX;B02 - Stadium;25.544;16/02/2025;.;Stadium;TM2;15;a
 mt17;B03 - Stadium;21.296;30/06/2013;.;Stadium;TM2;1;a
 RACETA;B03 - Stadium;21.286;28/09/2013;.;Stadium;TM2;2;a
 Demon;B03 - Stadium;21.278;28/09/2013;.;Stadium;TM2;3;a
@@ -1455,6 +1457,9 @@ Reyger;D09 - Stadium;38.588;23/11/2019;.;Stadium;TM2;10;a
 Reyger;D09 - Stadium;38.535;24/11/2019;.;Stadium;TM2;11;a
 ZedroX;D09 - Stadium;38.528;16/08/2022;.;Stadium;TM2;12;a
 Loupphok;D09 - Stadium;38.522;02/05/2024;.;Stadium;TM2;13;a
+Phip;D09 - Stadium;38.508;02/03/2025;New cut;Stadium;TM2;14;a
+Loupphok;D09 - Stadium;38.497;11/03/2025;.;Stadium;TM2;15;a
+Loupphok;D09 - Stadium;38.484;11/03/2025;.;Stadium;TM2;16;a
 RACETA;D10 - Stadium;3:07.921;27/06/2013;.;Stadium;TM2;1;a
 JaV;D10 - Stadium;3:04.066;18/07/2013;Sub 3:07;Stadium;TM2;2;a
 Demon;D10 - Stadium;3:03.835;28/12/2013;Sub 3:03;Stadium;TM2;3;a
@@ -2026,6 +2031,7 @@ riolu;A02 - Lagoon;27.457;26/04/2020;Cheated;Lagoon;TM2;2;a
 Thoringer;A02 - Lagoon;27.451;12/12/2020;Cheated;Lagoon;TM2;3;a
 Nemesis;A02 - Lagoon;27.461;20/05/2022;.;Lagoon;TM2;4;a
 Nemesis;A02 - Lagoon;27.451;22/04/2023;DUCK;Lagoon;TM2;5;a
+fanakuri;A02 - Lagoon;27.413;06/03/2023;.;Lagoon;TM2;6;a
 riolu;A03 - Lagoon;23.323;19/03/2019;Cheated;Lagoon;TM2;1;a
 Flechetas;A03 - Lagoon;23.331;04/10/2021;.;Lagoon;TM2;2;a
 Flechetas;A03 - Lagoon;23.324;12/10/2021;.;Lagoon;TM2;3;a
@@ -2252,6 +2258,7 @@ mime;B13 - Lagoon;-;-;.;Lagoon;TM2;6;a
 Thoringer;B13 - Lagoon;-;-;.;Lagoon;TM2;7;a
 Nemesis;B13 - Lagoon;-;-;.;Lagoon;TM2;8;a
 Nemesis;B13 - Lagoon;-;-;.;Lagoon;TM2;9;a
+wormk22;B13 - Lagoon;34.292;05/03/2025;.;Lagoon;TM2;10;a
 riolu;B14 - Lagoon;-;-;.;Lagoon;TM2;1;a
 DarkLink94;B14 - Lagoon;-;-;.;Lagoon;TM2;2;a
 Samerlifofwer;B14 - Lagoon;-;-;.;Lagoon;TM2;3;a
@@ -2295,6 +2302,7 @@ wormk22;C04 - Lagoon;-;-;.;Lagoon;TM2;7;a
 wormk22;C04 - Lagoon;-;-;.;Lagoon;TM2;8;a
 wormk22;C04 - Lagoon;-;-;.;Lagoon;TM2;9;a
 eddyey;C04 - Lagoon;-;-;.;Lagoon;TM2;10;a
+wormk22;C04 - Lagoon;48.553;19/02/2025;.;Lagoon;TM2;11;a
 mime;C05 - Lagoon;-;-;.;Lagoon;TM2;1;a
 Mebe12;C05 - Lagoon;-;-;.;Lagoon;TM2;2;a
 eddyey;C05 - Lagoon;-;-;.;Lagoon;TM2;3;a
@@ -2427,6 +2435,7 @@ Piotrunio;D05 - Lagoon;-;-;.;Lagoon;TM2;2;a
 mime;D05 - Lagoon;-;-;.;Lagoon;TM2;3;a
 Mebe12;D05 - Lagoon;-;-;.;Lagoon;TM2;4;a
 eddyey;D05 - Lagoon;-;-;.;Lagoon;TM2;5;a
+wormk22;D05 - Lagoon;2:00.408;27/02/2025;.;Lagoon;TM2;6;a
 Lumby;D06 - Lagoon;-;-;.;Lagoon;TM2;1;a
 riolu;D06 - Lagoon;-;-;.;Lagoon;TM2;2;a
 Mebe12;D06 - Lagoon;-;-;.;Lagoon;TM2;3;a
@@ -4641,6 +4650,7 @@ Fwo.Link;A13-Race;0:27.56;02/08/2021;.;Stadium;TMNF;18;7459137
 Virtuoso.;A13-Race;0:27.54;30/03/2022;.;Stadium;TMNF;19;2038197
 Fwo.Link;A13-Race;0:27.47;01/04/2022;.;Stadium;TMNF;20;7459137
 Simi TM;A13-Race;0:27.34;11/01/2024;.;Stadium;TMNF;21;7695992
+Oogy749;A13-Race;0:27.33;02/03/2025;.;Stadium;TMNF;22;10255002
 BluEjAck;A14-Race;0:22.50;16/04/2008;.;Stadium;TMNF;1;2930
 aiden.KraL';A14-Race;0:22.14;16/04/2008;.;Stadium;TMNF;2;3159
 Spendy;A14-Race;0:21.99;16/04/2008;.;Stadium;TMNF;3;2921
@@ -5063,6 +5073,7 @@ Almighty Hefest;B12-Race;0:39.32;14/05/2020;.;Stadium;TMNF;42;6853602
 Jowmama';B12-Race;0:39.24;04/10/2024;.;Stadium;TMNF;43;9520105
 Maniac';B12-Race;0:39.22;14/11/2024;.;Stadium;TMNF;44;8317003
 supameen;B12-Race;0:39.17;03/12/2024;.;Stadium;TMNF;45;6941771
+Jowmama';B12-Race;0:39.13;09/03/2025;.;Stadium;TMNF;46;9520105
 M�SleriSM;B13-Obstacle;0:25.37;16/04/2008;.;Stadium;TMNF;1;3649
 Malay;B13-Obstacle;0:25.30;16/04/2008;.;Stadium;TMNF;2;2927
 Malay;B13-Obstacle;0:25.26;16/04/2008;.;Stadium;TMNF;3;2927
