@@ -10,9 +10,9 @@ async function getData(){
         /* Fetch all the data concurrently */
         const responses = await Promise.all([
             fetch('https://raw.githubusercontent.com/Loupphok/TWRC/main/data/WRDb.csv'),
-            fetch('https://raw.githubusercontent.com/Loupphok/TWRC/main/data/Nation.csv'),
             fetch('https://raw.githubusercontent.com/Loupphok/TWRC/main/data/flag.csv'),
-            fetch('https://raw.githubusercontent.com/Loupphok/TWRC/refs/heads/main/data/mapList.json')
+            fetch('https://raw.githubusercontent.com/Loupphok/TWRC/refs/heads/main/data/mapList.json'),
+            fetch('https://raw.githubusercontent.com/Loupphok/TWRC/refs/heads/main/otherTests/PlayerDB.json')
         ]);
 
         /* Extract the text from each response */
@@ -52,20 +52,9 @@ function parseData(alldata){
         }
         prevRank = elem[7];
     }
-
-
-    /* Fetching Nation data */
-    dataNation = alldata[1];  // Import data from Nation.csv
-    const rowsNation = dataNation.split('\n').filter(row => row.trim().length > 0); // Split the file content by newlines to get each row
-    
-    csvDataNation = rowsNation.map(row => row.split(';').filter(cell => cell.trim().length > 0));
-    var Nation = {};
-    for (elem of csvDataNation) {
-        Nation[elem[0]] = elem[1];
-    }
     
     /* Fetching Flag data */
-    dataFlag = alldata[2]; // Import data from Flag.csv
+    dataFlag = alldata[1]; // Import data from Flag.csv
     const rowsFlag = dataFlag.split('\n').filter(row => row.trim().length > 0); // Split the file content by newlines to get each row
     csvDataFlag = rowsFlag.map(row => row.split(';').filter(cell => cell.trim().length > 0));
     var Flag = {};
@@ -74,7 +63,7 @@ function parseData(alldata){
     }
 
     /* Fetching Maps data */
-    let allMaps = JSON.parse(alldata[3]);
+    let allMaps = JSON.parse(alldata[2]);
     var mapList = [];
     for(thing of allMaps){
         if(thing["game"] == game){
@@ -82,12 +71,33 @@ function parseData(alldata){
         };
     };
 
-    showInfo(wrdata, Nation, Flag, mapList); // Once its parsed, put the data into the table
+    /* Fetching Player data */
+    playerDB = JSON.parse(alldata[3]);
+
+    showInfo(wrdata, Flag, mapList, playerDB); // Once its parsed, put the data into the table
 }
 
-function showInfo(wrdata, Nation, Flag, mapList){
+function getDBID(playerDB, id, game){
+    switch(game){
+        case "TMNF":
+            for(player of playerDB){
+                if(typeof(player["TMNF_Id"])=="string"){
+                    if(id == player["TMNF_Id"]){
+                        return([player["Id"], player["Country"], player["Display_Name"]])
+                    }
+                }
+                else{
+                    if(player["TMNF_Id"].includes(id)){
+                        return([player["Id"], player["Country"], player["Display_Name"]])
+                    }
+                }
+            }
+    }
+}
+
+function showInfo(wrdata, Flag, mapList, playerDB){
     let mapIndex = 0;
-    console.log(wrdata);
+
     for(pre of [["A", "White"],["B", "Green"],["C", "Blue"],["D", "Red"],["E", "Black"]]) {
         // Select the letter of each maps
         letter = pre[0];
@@ -123,7 +133,6 @@ function showInfo(wrdata, Nation, Flag, mapList){
                     current_data = record;
                 }
             }
-            console.log(current_data)
 
             // Setup of each individual map boxes
             var MapThumbnailBox = document.createElement("div");
@@ -148,12 +157,15 @@ function showInfo(wrdata, Nation, Flag, mapList){
             var ThumbnailWrInfo = document.createElement("h5");
             ThumbnailWrInfo.className = "ThumbnailWrInfo";
             ThumbnailWrInfo.innerHTML = 'WR: <span class="Wr">'+current_data[2]+'</span> - '; /* "WR: " + the WR time */
-            let drapeau = Flag[Nation[current_data[0]]];
+            
+            /* Get player's id */
+            playerINFO = getDBID(playerDB, current_data[8], "TMNF");
+            let drapeau = Flag[playerINFO[1]]
             if(typeof(drapeau)==="undefined"){
                 drapeau = "../../assets/flags/question.png";
             };
             ThumbnailWrInfo.innerHTML += '<img class="WrFlag" src="' + drapeau + '">'; /* Adding the flag */
-            ThumbnailWrInfo.innerHTML += '<span class="WrHolder"> '+current_data[0]+'</span>'; /* Adding the wr holder */
+            ThumbnailWrInfo.innerHTML += '<span class="WrHolder"> '+playerINFO[2]+'</span>'; /* Adding the wr holder */
             ThumbnailFooter.appendChild(ThumbnailWrInfo);
 
             MapThumbnailBox.appendChild(ThumbnailFooter);
@@ -170,4 +182,3 @@ TOUT.id = "TOUT";
 Corps.appendChild(TOUT);
 
 getData();
-console.log("test");

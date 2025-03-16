@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="stats.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -31,10 +31,31 @@
                 </div>
             </div>
         </div>
+        <div class="PageHeader">
+            <h2 style="text-align: center; padding-top: 78px;">Statistics menu</h2>
+        </div>
         <div class="Corps">
-            <div class="PageHeader">
-                <h2 style="text-align: center; padding-top: 78px;">Statistics menu</h2>
+            <div class="leaderboardColumn">
+                <div id = "playerLB">
+                    <table class="tableLB">
+                        <tr>
+                          <th class='LeaderboardIndex'>#</th>
+                          <th colspan="2" class="LeaderboardPlayer" id="headerPlayer" style="text-align: left;">Player</th>
+                          <th class="LeaderboardCount">WR count</th>
+                        </tr>
+                    </table>
+                </div>
+                <div id = "countryLB">
+                    <table class="tableLB">
+                        <tr>
+                          <th class='LeaderboardIndex'>#</th>
+                          <th colspan="2" class="LeaderboardPlayer" id="headerPlayer" style="text-align: left;">Country</th>
+                          <th class="LeaderboardCount">WR count</th>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
+        <script src="teststats.js"></script>
     </body>
 </html>

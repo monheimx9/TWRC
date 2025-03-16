@@ -5,7 +5,8 @@ async function getData(){
         const responses = await Promise.all([
             fetch('https://raw.githubusercontent.com/Loupphok/TWRC/main/data/WRDb.csv'),
             fetch('https://raw.githubusercontent.com/Loupphok/TWRC/main/data/Nation.csv'),
-            fetch('https://raw.githubusercontent.com/Loupphok/TWRC/main/data/flag.csv')
+            fetch('https://raw.githubusercontent.com/Loupphok/TWRC/main/data/flag.csv'),
+            fetch('https://raw.githubusercontent.com/Loupphok/TWRC/refs/heads/main/otherTests/PlayerDB.json')
         ]);
 
         /* Extract the text from each response */
@@ -45,8 +46,11 @@ function parseData(alldata){
     for (elem of csvDataFlag) {
         Flag[elem[0]] = "assets/flags/" + elem[1];
     }
+    
+    /* Fetching Player data */
+    playerDB = JSON.parse(alldata[3]);
 
-    getInfo(mapWR, Nation, Flag); // Once its parsed, put the data into the page
+    getInfo(mapWR, Nation, Flag, playerDB); // Once its parsed, put the data into the page
 }
 
 function convertDate(dateStr){
@@ -100,10 +104,28 @@ function getMostRecentLists(lists, k = 5) {
         .map(item => item.list);
 }
 
+function getDBID(playerDB, id, game){
+    switch(game){
+        case "TMNF":
+            for(player of playerDB){
+                if(typeof(player["TMNF_Id"])=="string"){
+                    if(id == player["TMNF_Id"]){
+                        return([player["Id"], player["Country"], player["Display_Name"]])
+                    }
+                }
+                else{
+                    if(player["TMNF_Id"].includes(id)){
+                        return([player["Id"], player["Country"], player["Display_Name"]])
+                    }
+                }
+            }
+    }
+}
+
 function getInfo(mapWR, Nation, Flag){
     // Number of WR archived
     let wrBox = document.getElementsByClassName("wrBox")[0];
-    wrBox.innerHTML = mapWR.length;
+    wrBox.innerHTML = mapWR.length -1;
 
     // Find latest WR
     let latestWRs = getMostRecentLists(mapWR, 15);
@@ -138,10 +160,17 @@ function getInfo(mapWR, Nation, Flag){
 
         let latestHolder = document.createElement("h3");
         let drapeau = Flag[Nation[wr[0]]];
+        let player = wr[0];
+        /* Get TMNF info if needed */
+        if(wr[8] != "a"){
+            playerINFO = getDBID(playerDB, wr[8], wr[6]);
+            drapeau = Flag[playerINFO[1]]
+            player = playerINFO[2];
+        }
         if(typeof(drapeau)==="undefined"){
             drapeau = "assets/flags/question.png";
         };
-        latestHolder.innerHTML = "by " + wr[0] + " <img class='flagLatestWR' src='" + drapeau + "'>";
+        latestHolder.innerHTML = "by <img class='flagLatestWR' src='" + drapeau + "'> " + player;
         latestInfo.appendChild(latestHolder);
 
         let latestDate = document.createElement("h3");
@@ -172,10 +201,10 @@ function getInfo(mapWR, Nation, Flag){
 
 getData()
 
-fetch("start_serv.txt") // Remplace par ton fichier (CSV, JSON, TXT...)
-  .then(response => response.text()) // Convertit la réponse en texte
-  .then(data => console.log(data)) // Affiche le contenu dans la console
-  .catch(error => console.error("Erreur :", error));
+// fetch("start_serv.txt") // Remplace par ton fichier (CSV, JSON, TXT...)
+//   .then(response => response.text()) // Convertit la réponse en texte
+//   .then(data => console.log(data)) // Affiche le contenu dans la console
+//   .catch(error => console.error("Erreur :", error));
 
 const container = document.querySelector(".latestWR-menu");
 

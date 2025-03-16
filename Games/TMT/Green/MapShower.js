@@ -140,6 +140,7 @@ function showInfo(wrdata, Nation, Flag){
         
         var ThumbnailWrInfo = document.createElement("h5");
         ThumbnailWrInfo.className = "ThumbnailWrInfo";
+        console.log(current_data)
         ThumbnailWrInfo.innerHTML = 'WR: <span class="Wr">'+current_data[2]+'</span> - '; /* "WR: " + the WR time */
         let drapeau = Flag[Nation[current_data[0]]];
         if(typeof(drapeau)==="undefined"){

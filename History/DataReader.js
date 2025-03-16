@@ -83,6 +83,7 @@ function showInfo(mapWR, Nation, Flag, playerDB){
 
     /* Creation line by line of the data */
     for(CurrentLine of mapWR){
+        console.log(CurrentLine);
         var Cheat = false;
         if(CurrentLine[4] === "Cheated"){
             Cheat = true;
@@ -295,13 +296,14 @@ function convertTimeStr(time){
     return minute * 60000 + second * 1000 + decim - 1000;
 }
 
-function speculation(date_str1, date_str2){
+function speculation(date_str1, date_str2, game){
     if(date_str1 == date_str2){
         return "???";
     }
 
     let [day1, month1, year1] = date_str1.split("/");
     let [day2, month2, year2] = date_str2.split("/");
+
     //harmonisation année
     if(!(year1 == "????" || year2 == "????")){ //on part du fait que si on connait pas l'année, on sait pas le mois
         if(year1 != year2){
@@ -317,9 +319,13 @@ function speculation(date_str1, date_str2){
         if(year1 == "????"){
             return "???";
         }
-        else if(Number(year1) < 2017 || (Number(year1) == 2017 && Number(month1) < 5)){
-            [year2, month2, day2] = ["2017", "05", "09"];
+
+        else if(game == "TM2"){
+            if(Number(year1) < 2017 || (Number(year1) == 2017 && Number(month1) < 5)){
+                [year2, month2, day2] = ["2017", "05", "07"];
+            }
         }
+
         else{
             return "???";
         }
@@ -377,14 +383,14 @@ function speculation(date_str1, date_str2){
     return [[day1,month1,year1], [day2,month2,year2]]
 }
 
-function compare_dates(date_str1, date_str2){
+function compare_dates(date_str1, date_str2, game){
     let [day1, month1, year1] = date_str1.split("/");
     let [day2, month2, year2] = date_str2.split("/");
     let specu_preciser = 0;
 
     // Vérifier si une des dates contient des "?"
     if((day1+month1+year1+day2+month2+year2).includes("?")){
-        let newdates = speculation(date_str1, date_str2);
+        let newdates = speculation(date_str1, date_str2, game);
         if(newdates == "???"){
             return "???";
         }
@@ -406,7 +412,50 @@ function compare_dates(date_str1, date_str2){
     return [delta*-1, specu_preciser];
 }
 
-function getBestImprovement(mapWR, game){
+function time_delta(former, newer) {
+    let [former_x_pos, newer_x_pos] = [x_detector(former), x_detector(newer)];
+    let diff = String(convertTimeStr(remplacer_caractere(former, former_x_pos, '0')) -
+                        convertTimeStr(remplacer_caractere(newer, newer_x_pos, '0')) +
+                        1000
+                    );
+
+    if (Number(diff) < 1000) {
+        return 'Reseted';
+    } else {
+        let affichage =
+            '-' + (diff.slice(-5,-3) - 1) + '.' + diff.slice(-3,-2) + diff.slice(-2,-1) + diff.slice(-1);
+        return (
+            remplacer_caractere(affichage, former_x_pos + newer_x_pos, '?') + 's'
+        );
+    }
+}
+  
+function x_detector(time) {
+    const x_pos = [];
+    let index = 0;
+  
+    for (elem of time) {
+        if (elem.includes('x')) {
+            x_pos.push(index);
+        }
+        index += 1;
+    }
+  
+    return x_pos;
+}
+  
+function remplacer_caractere(chaine, position, nouveau_caractere) {
+    let liste_caracteres = chaine.split(''); // Convertir la chaîne en une liste de caractères
+   
+    for (elem of position) {
+        liste_caracteres[elem] = nouveau_caractere; // Remplacer le caractère à la position spécifiée
+    }
+  
+    let nouvelle_chaine = liste_caracteres.join(''); // Reconvertir la liste en une chaîne de caractères
+    return nouvelle_chaine;
+}
+
+function getBestImprovement(mapWR, game, envi){
     var coolDown = 7; // Number of days after first WR to start the tracking
     switch(game){
         case "TMNF":
@@ -435,36 +484,57 @@ function getBestImprovement(mapWR, game){
                 };
                 indexOfBestImprovement += 1;
             }
-            break;
+            let thousandths = game == "TMNF";
+            return [
+                unsort[wrOfBestImprovement][2] + " <span class='improveSpan'>(-" + (improvement/1000).toFixed(3-thousandths)+"s)</span>",
+                unsort[wrOfBestImprovement][0]
+            ];
         case "TM2":
         case "TMT":
             unsort = mapWR.reverse();
-            var improvement = 0;
+            var improvement = "-0.000s";
             var wrOfBestImprovement = NaN;
             var indexOfBestImprovement = 0;
-            
-            for(wr of unsort){
-                if(wr[4] == "Cheated"){
+            var FirstWR = unsort[0][2];
+            for(let i = 0; i < unsort.length - 1; i++){
+                nextWR = unsort[i+1][2];
+                if(nextWR == "???"){
+                    FirstWR = unsort[i+2][2];
+                    nextWR = unsort[i+3][2];
+                    i += 2;
                     continue;
                 }
-                if(wr[2] == "???"){continue;}
-                let currentWRTest = convertTimeStr(wr[2]);
-                let improvementTest = currentWR - currentWRTest;
-                if(improvementTest>improvement){
-                    improvement = improvementTest;
-                    wrOfBestImprovement = indexOfBestImprovement;
-                };
-                currentWR = currentWRTest;
-            };
-            indexOfBestImprovement += 1;
-            break;
+                
+                if(game == "TM2" && ["Canyon", "Valley"].includes(envi)){
+                    if(unsort[i+1][3].slice(-4) == "2017" && Number(unsort[i][3].slice(-4)) < 2017){
+                        FirstWR = unsort[i+1][2];
+                        nextWR = unsort[i+2][2];
+                        i += 1;
+                        continue;
+                    }
+                }
+
+                let improvementTest = time_delta(FirstWR, nextWR);
+                FirstWR = nextWR;
+
+                for(let j = 0; j < improvementTest.length; j++){
+                    if(typeof(Number(improvementTest[j])) == "number"){
+                        if(Number(improvement[j])<Number(improvementTest[j])){
+                            improvement = improvementTest;
+                            wrOfBestImprovement = i+1;
+                            break;
+                        }
+                        else if(Number(improvement[j]) > Number(improvementTest[j])){
+                            break;
+                        }
+                    }
+                }
+            }
+            return [
+                unsort[wrOfBestImprovement][2] + " <span class='improveSpan'>(" + improvement + ")</span>",
+                unsort[wrOfBestImprovement][0]
+            ];
     }
-    
-    let thousandths = game == "TMNF";
-    return [
-        unsort[wrOfBestImprovement][2] + " <span class='improveSpan'>(-" + (improvement/1000).toFixed(3-thousandths)+"s)</span>",
-        unsort[wrOfBestImprovement][0]
-    ];
 }
 
 function parseDate(dataStr){
@@ -473,9 +543,15 @@ function parseDate(dataStr){
 }
 
 function getLongestStandingWR(mapWR, game){
+    const durees = {};
+    let maxJoueur = null;
+    let maxDuree = 0;
+    let firstDate;
+    let nbDays;
+    let percent;
+
     switch(game){
         case "TMNF":
-            const durees = {};
 
             for (let i = 0; i < mapWR.length; i++) {
                 const joueur = mapWR[i][0];
@@ -491,47 +567,47 @@ function getLongestStandingWR(mapWR, game){
                     durees[joueur] = duree;
                 }
             }
-            let maxJoueur = null;
-            let maxDuree = 0;
+
             for (const [joueur, duree] of Object.entries(durees)) {
                 if (duree > maxDuree) {
                     maxDuree = duree;
                     maxJoueur = joueur;
                 }
             }
-            let firstDate = parseDate(mapWR[0][3]);
-            let nbDays = Math.round((new Date() - firstDate)/(1000 * 60 * 60 * 24));
+            firstDate = parseDate(mapWR[0][3]);
+            nbDays = Math.round((new Date() - firstDate)/(1000 * 60 * 60 * 24));
             percent = Math.round(maxDuree/nbDays*100);
             return [maxJoueur, maxDuree, percent];
-    // case "TM2":
-    //     durees = {};
-
-    //     for (let i = 0; i < mapWR.length; i++) {
-    //         const joueur = mapWR[i][0];
-    //         const dateDebut = parseDate(mapWR[i][3]); // date à l'index 3
-    //         const dateFin = i < mapWR.length - 1
-    //             ? parseDate(mapWR[i + 1][3])
-    //             : new Date();
-
-    //         const duree = Math.round((dateFin - dateDebut) / (1000 * 60 * 60 * 24));
-    //         if (durees[joueur]) {
-    //             durees[joueur] += duree;
-    //         } else {
-    //             durees[joueur] = duree;
-    //         }
-    //     }
-    //     maxJoueur = null;
-    //     maxDuree = 0;
-    //     for (const [joueur, duree] of Object.entries(durees)) {
-    //         if (duree > maxDuree) {
-    //             maxDuree = duree;
-    //             maxJoueur = joueur;
-    //         }
-    //     }
-    //     firstDate = parseDate(mapWR[0][3]);
-    //     nbDays = Math.round((new Date() - firstDate)/(1000 * 60 * 60 * 24));
-    //     percent = Math.round(maxDuree/nbDays*100);
-    //     return [maxJoueur, maxDuree, percent];
+        case "TMT":
+        case "TM2":
+            for (let i = 0; i < mapWR.length; i++) {
+                let date1 = mapWR[i][3];
+                let date2 = i < mapWR.length - 1
+                    ? mapWR[i+1][3]
+                    : new Date();
+                const formattedDate2 = date2 instanceof Date
+                    ? `${String(date2.getDate()).padStart(2, '0')}/${String(date2.getMonth() + 1).padStart(2, '0')}/${date2.getFullYear()}`
+                    : date2; // Si `mapWR[i+1][3]` est déjà une date formatée
+                let resultCompar = compare_dates(formattedDate2, date1, game);
+                if(resultCompar == "???"){
+                    continue;
+                }
+                if (durees[mapWR[i][0]]) {
+                    durees[mapWR[i][0]] += resultCompar[0];
+                } else {
+                    durees[mapWR[i][0]] = resultCompar[0];
+                }
+            }
+            for (const [joueur, duree] of Object.entries(durees)) {
+                if (duree > maxDuree) {
+                    maxDuree = duree;
+                    maxJoueur = joueur;
+                }
+            }
+            firstDate = parseDate(mapWR[0][3]);
+            nbDays = Math.round((new Date() - firstDate)/(1000 * 60 * 60 * 24));
+            percent = Math.round(maxDuree/nbDays*100);
+            return [maxJoueur, maxDuree, percent];
     }
 }
 
@@ -568,7 +644,7 @@ function getLongestStandingIndividualWR(mapWR, game){
                 const formattedDate2 = date2 instanceof Date
                     ? `${String(date2.getDate()).padStart(2, '0')}/${String(date2.getMonth() + 1).padStart(2, '0')}/${date2.getFullYear()}`
                     : date2; // Si `mapWR[i+1][3]` est déjà une date formatée
-                let resultCompar = compare_dates(formattedDate2, date1);
+                let resultCompar = compare_dates(formattedDate2, date1, game);
                 if(resultCompar == "???"){
                     continue;
                 }
@@ -658,8 +734,15 @@ function mapInfo(mapWR, Nation, Flag, playerDB){
     dominantInfo.innerHTML += "<span class='playerSpan'>" + dominantPlayer[0] + " · " + dominantPlayer[1] + " WRs </span>";
 
     // BIGGEST IMPROVEMENT
+    let cheatLess = [];
+    for(line of mapWR){
+        if(line[4] != "Cheated"){
+            cheatLess.push(line);
+        }
+    }
+
     var biggestInfo = document.getElementById("biggestInfo");
-    biggestInfo_results = getBestImprovement(mapWR, game);
+    biggestInfo_results = getBestImprovement(cheatLess, game, envi);
 
     drapeau = Flag[Nation[biggestInfo_results[1]]];
     if(typeof(drapeau)==="undefined"){
@@ -668,9 +751,9 @@ function mapInfo(mapWR, Nation, Flag, playerDB){
     biggestInfo.innerHTML = '<img src="' + drapeau + '" alt="" style="width: 25px; height: 25px;vertical-align:middle;"> ';
     biggestInfo.innerHTML += "<span class='playerSpan'>" + biggestInfo_results[1] + " · " + biggestInfo_results[0] + "<span>";
 
-    if(mapWR[0][8] != "a"){
+    if(cheatLess[0][8] != "a"){
         let biggesttId;
-        for(CurrentLine of mapWR){
+        for(CurrentLine of cheatLess){
             if(CurrentLine[0] == biggestInfo_results[1]){
                 biggesttId = CurrentLine[8];
             }
@@ -686,36 +769,36 @@ function mapInfo(mapWR, Nation, Flag, playerDB){
     
     // PLAYER WITH THE LONGEST TIME AS WORLD RECORD
     var longestInfo = document.getElementById("longestInfo");
-    let longestInfo_results = getLongestStandingWR(mapWR, game);
+    let longestInfo_results = getLongestStandingWR(cheatLess, game);
 
-    // drapeau = Flag[Nation[longestInfo_results[0]]];
-    // if(typeof(drapeau)==="undefined"){
-    //     drapeau = "../assets/flags/question.png";
-    // };
-    // longestInfo.innerHTML = '<img src="' + drapeau + '" alt="" style="width: 25px; height: 25px;vertical-align:middle;"> ';
-    // let duration = convertTimeDuration(longestInfo_results[1]);
-    // let durationFormated = duration[0] + "Y'" + duration[1] + "M · " + longestInfo_results[2] + "%";
-    // longestInfo.innerHTML += "<span class='playerSpan'>" + longestInfo_results[0] + " · " + durationFormated + "<span>";
+    drapeau = Flag[Nation[longestInfo_results[0]]];
+    if(typeof(drapeau)==="undefined"){
+        drapeau = "../assets/flags/question.png";
+    };
+    longestInfo.innerHTML = '<img src="' + drapeau + '" alt="" style="width: 25px; height: 25px;vertical-align:middle;"> ';
+    let duration = convertTimeDuration(longestInfo_results[1]);
+    let durationFormated = duration[0] + "Y'" + duration[1] + "M · " + longestInfo_results[2] + "%";
+    longestInfo.innerHTML += "<span class='playerSpan'>" + longestInfo_results[0] + " · " + durationFormated + "<span>";
 
-    // if(mapWR[0][8] != "a"){
-    //     let longestId;
-    //     for(CurrentLine of mapWR){
-    //         if(CurrentLine[0] == longestInfo_results[0]){
-    //             longestId = CurrentLine[8];
-    //         }
-    //     }
-    //     playerINFO = getDBID(playerDB, longestId, game);
-    //     drapeau = Flag[playerINFO[1]]
-    //     if(typeof(drapeau)==="undefined"){
-    //         drapeau = "../assets/flags/question.png";
-    //     };
-    //     longestInfo.innerHTML = '<img src="' + drapeau + '" alt="" style="width: 25px; height: 25px;vertical-align:middle;"> ';
-    //     longestInfo.innerHTML += "<span class='playerSpan'>" + playerINFO[2] + " · " + durationFormated + "<span>";
-    // }
+    if(cheatLess[0][8] != "a"){
+        let longestId;
+        for(CurrentLine of cheatLess){
+            if(CurrentLine[0] == longestInfo_results[0]){
+                longestId = CurrentLine[8];
+            }
+        }
+        playerINFO = getDBID(playerDB, longestId, game);
+        drapeau = Flag[playerINFO[1]]
+        if(typeof(drapeau)==="undefined"){
+            drapeau = "../assets/flags/question.png";
+        };
+        longestInfo.innerHTML = '<img src="' + drapeau + '" alt="" style="width: 25px; height: 25px;vertical-align:middle;"> ';
+        longestInfo.innerHTML += "<span class='playerSpan'>" + playerINFO[2] + " · " + durationFormated + "<span>";
+    }
 
     // LONGEST STANDING WORLD RECORD
     var longestWRInfo = document.getElementById("longestWRInfo");
-    let longestWRInfo_results = getLongestStandingIndividualWR(mapWR, game);
+    let longestWRInfo_results = getLongestStandingIndividualWR(cheatLess, game);
 
     drapeau = Flag[Nation[longestWRInfo_results[0]]];
     if(typeof(drapeau)==="undefined"){
@@ -723,12 +806,12 @@ function mapInfo(mapWR, Nation, Flag, playerDB){
     };
     longestWRInfo.innerHTML = '<img src="' + drapeau + '" alt="" style="width: 25px; height: 25px;vertical-align:middle;"> ';
     duration = convertTimeDuration(longestWRInfo_results[1]);
-    durationFormated = "~".repeat(longestWRInfo_results[3]) + longestWRInfo_results[2] + " · " + duration[0] + "Y'" + duration[1] + "M";
+    durationFormated = longestWRInfo_results[2] + " · " + "~".repeat(longestWRInfo_results[3]) + duration[0] + "Y'" + duration[1] + "M";
     longestWRInfo.innerHTML += "<span class='playerSpan'>" + longestWRInfo_results[0] + " · " + durationFormated + "<span>";
 
-    if(mapWR[0][8] != "a"){
+    if(cheatLess[0][8] != "a"){
         let longestId;
-        for(CurrentLine of mapWR){
+        for(CurrentLine of cheatLess){
             if(CurrentLine[0] == longestWRInfo_results[0]){
                 longestId = CurrentLine[8];
             }
@@ -761,6 +844,22 @@ function lolfun(){
     //     "E01-Obstacle", "E02-Endurance", "E03-Endurance", "E04-Obstacle", "E05-Endurance"
     // ]
 
+    // let maplist = [
+    //     'A01 - Stadium', 'A02 - Stadium', 'A03 - Stadium', 'A04 - Stadium', 'A05 - Stadium',
+    //     'A06 - Stadium', 'A07 - Stadium', 'A08 - Stadium', 'A09 - Stadium', 'A10 - Stadium',
+    //     'A11 - Stadium', 'A12 - Stadium', 'A13 - Stadium', 'A14 - Stadium', 'A15 - Stadium',
+    //     'B01 - Stadium', 'B02 - Stadium', 'B03 - Stadium', 'B04 - Stadium', 'B05 - Stadium',
+    //     'B06 - Stadium', 'B07 - Stadium', 'B08 - Stadium', 'B09 - Stadium', 'B10 - Stadium',
+    //     'B11 - Stadium', 'B12 - Stadium', 'B13 - Stadium', 'B14 - Stadium', 'B15 - Stadium',
+    //     'C01 - Stadium', 'C02 - Stadium', 'C03 - Stadium', 'C04 - Stadium', 'C05 - Stadium',
+    //     'C06 - Stadium', 'C07 - Stadium', 'C08 - Stadium', 'C09 - Stadium', 'C10 - Stadium',
+    //     'C11 - Stadium', 'C12 - Stadium', 'C13 - Stadium', 'C14 - Stadium', 'C15 - Stadium',
+    //     'D01 - Stadium', 'D02 - Stadium', 'D03 - Stadium', 'D04 - Stadium', 'D05 - Stadium',
+    //     'D06 - Stadium', 'D07 - Stadium', 'D08 - Stadium', 'D09 - Stadium', 'D10 - Stadium',
+    //     'D11 - Stadium', 'D12 - Stadium', 'D13 - Stadium', 'D14 - Stadium', 'D15 - Stadium',
+    //     'E01 - Stadium', 'E02 - Stadium', 'E03 - Stadium', 'E04 - Stadium', 'E05 - Stadium'
+    // ]
+
     // let allDurations = [];
     // for(map of maplist){
     //     var mapWR = [];
@@ -769,8 +868,8 @@ function lolfun(){
     //             mapWR.push(elem);
     //         }
     //     }
-    //     let test = getLongestStandingIndividualWR(mapWR, "TMNF");
-    //     allDurations.push([test[0], convertTimeDuration(test[1])][1]);
+    //     let test = getLongestStandingWR(mapWR, "TM2");
+    //     allDurations.push([test[0], convertTimeDuration(test[1])][0]);
     // }
     // console.log(allDurations);
 }
