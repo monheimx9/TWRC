@@ -370,7 +370,7 @@ riolu | 00:21.245 | 11/06/2016
 riolu | 00:21.244 | 11/06/2016
 riolu | 00:21.231 | 11/06/2016
 Samerlifofwer | 00:21.208 | 01/09/2022
-µR  +   $F8F|$FFF|$F8F| $DDDJol$CCCty$BBBso$AAAnic.   zuqujago-pc58e283da6ca79   @   TMTurbo | 00:21.173 | 01/09/2022
+ï¿½R  +   $F8F|$FFF|$F8F| $DDDJol$CCCty$BBBso$AAAnic.   zuqujago-pc58e283da6ca79   @   TMTurbo | 00:21.173 | 01/09/2022
 Samerlifofwer | 00:21.148 | 06/09/2022
 
 
@@ -1024,9 +1024,9 @@ Fanakuri | 00:37.866 | 13/11/2023
 
 
 89
-GBX BUCR 0	è      0	¡   0	Ò €0	Y            €   tUoqbwHZiod8Uz7qIFnSSE1Rgd1      €   jibikira-pc56f3ea8557d18–í     ï»¿Â’Personal record   henixihi-pc56f3fd87024e1   @   TMTurbo | 01:00.822 | 13/05/2016
-GBX BUCR 0	è      0	¡   0	Ò €0	Y            €   tUoqbwHZiod8Uz7qIFnSSE1Rgd1      €   jibikira-pc56f3ea8557d18Ìë     ï»¿Â’Personal record   henixihi-pc56f3fd87024e1   @   TMTurbo | 01:00.364 | 13/05/2016
-GBX BUCR 0	è      0	¡   0	Ò €0	Y            €   tUoqbwHZiod8Uz7qIFnSSE1Rgd1      €   jibikira-pc56f3ea8557d18æé     ï»¿Â’Personal record   henixihi-pc56f3fd87024e1   @   TMTurbo | 00:59.878 | 13/05/2016
+GBX BUCR 0	ï¿½      0	ï¿½   0	ï¿½ ï¿½0	Y            ï¿½   tUoqbwHZiod8Uz7qIFnSSE1Rgd1      ï¿½   jibikira-pc56f3ea8557d18ï¿½ï¿½     ï»¿Â’Personal record   henixihi-pc56f3fd87024e1   @   TMTurbo | 01:00.822 | 13/05/2016
+GBX BUCR 0	ï¿½      0	ï¿½   0	ï¿½ ï¿½0	Y            ï¿½   tUoqbwHZiod8Uz7qIFnSSE1Rgd1      ï¿½   jibikira-pc56f3ea8557d18ï¿½ï¿½     ï»¿Â’Personal record   henixihi-pc56f3fd87024e1   @   TMTurbo | 01:00.364 | 13/05/2016
+GBX BUCR 0	ï¿½      0	ï¿½   0	ï¿½ ï¿½0	Y            ï¿½   tUoqbwHZiod8Uz7qIFnSSE1Rgd1      ï¿½   jibikira-pc56f3ea8557d18ï¿½ï¿½     ï»¿Â’Personal record   henixihi-pc56f3fd87024e1   @   TMTurbo | 00:59.878 | 13/05/2016
 riolu | 00:50.455 | 04/06/2016
 asier | 00:50.240 | 03/12/2016
 riolu | 00:50.158 | 16/12/2016
@@ -1060,12 +1060,12 @@ Fanakuri | 00:45.521 | 21/07/2023
 
 
 92
-GBX BUCR 0	å      0	    0	Ð €0	Y            €   HzOvBs2HokWRYf_XfuGiN6pq17
-      €   jibikira-pc56f3ea8557d18þô     ï»¿Â’Personal record   henixihi-pc56f3fd87024e1   @   TMTurbo | 01:02.718 | 13/05/2016
-GBX BUCR 0	å      0	    0	Ð €0	Y            €   HzOvBs2HokWRYf_XfuGiN6pq17
-      €   jibikira-pc56f3ea8557d18ô     ï»¿Â’Personal record   henixihi-pc56f3fd87024e1   @   TMTurbo | 01:02.478 | 13/05/2016
-GBX BUCR 0	å      0	    0	Ð €0	Y            €   HzOvBs2HokWRYf_XfuGiN6pq17
-      €   jibikira-pc56f3ea8557d18%ó     ï»¿Â’Personal record   henixihi-pc56f3fd87024e1   @   TMTurbo | 01:02.245 | 13/05/2016
+GBX BUCR 0	ï¿½      0	ï¿½   0	ï¿½ ï¿½0	Y            ï¿½   HzOvBs2HokWRYf_XfuGiN6pq17
+      ï¿½   jibikira-pc56f3ea8557d18ï¿½ï¿½     ï»¿Â’Personal record   henixihi-pc56f3fd87024e1   @   TMTurbo | 01:02.718 | 13/05/2016
+GBX BUCR 0	ï¿½      0	ï¿½   0	ï¿½ ï¿½0	Y            ï¿½   HzOvBs2HokWRYf_XfuGiN6pq17
+      ï¿½   jibikira-pc56f3ea8557d18ï¿½     ï»¿Â’Personal record   henixihi-pc56f3fd87024e1   @   TMTurbo | 01:02.478 | 13/05/2016
+GBX BUCR 0	ï¿½      0	ï¿½   0	ï¿½ ï¿½0	Y            ï¿½   HzOvBs2HokWRYf_XfuGiN6pq17
+      ï¿½   jibikira-pc56f3ea8557d18%ï¿½     ï»¿Â’Personal record   henixihi-pc56f3fd87024e1   @   TMTurbo | 01:02.245 | 13/05/2016
 riolu | 00:41.655 | 12/06/2016
 riolu | 00:41.377 | 30/07/2016
 asier | 00:41.342 | 04/11/2016
