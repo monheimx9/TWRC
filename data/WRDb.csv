@@ -38,7 +38,7 @@ riolu;A03 - Canyon;17.190;02/10/2012;.;Canyon;TM2;6;a
 riolu;A03 - Canyon;17.158;20/02/2015;.;Canyon;TM2;7;a
 DarkLink94;A03 - Canyon;16.998;09/05/2017;.;Canyon;TM2;8;a
 DarkLink94;A03 - Canyon;16.968;12/05/2017;.;Canyon;TM2;9;a
-Marios2000;A03 - Canyon;16.951;25/05/2017;.;Canyon;TM2;10;a
+marios2000;A03 - Canyon;16.951;25/05/2017;.;Canyon;TM2;10;a
 riolu;A03 - Canyon;16.934;16/06/2017;.;Canyon;TM2;11;a
 riolu;A03 - Canyon;16.911;09/08/2017;.;Canyon;TM2;12;a
 Mebe12;A03 - Canyon;16.908;26/05/2018;.;Canyon;TM2;13;a
@@ -2550,7 +2550,7 @@ Advision;001;32.230;25/03/2016;STM;Canyon;TMT;3;a
 CarlJr;001;32.223;26/03/2016;.;Canyon;TMT;4;a
 riolu;001;32.208;26/03/2016;.;Canyon;TMT;5;a
 riolu;001;32.206;26/03/2016;Cheated;Canyon;TMT;6;a
-Marios2000;001;32.146;01/04/2016;.;Canyon;TMT;7;a
+marios2000;001;32.146;01/04/2016;.;Canyon;TMT;7;a
 riolu;001;32.142;03/06/2016;.;Canyon;TMT;8;a
 Jerome;001;32.126;10/08/2016;.;Canyon;TMT;9;a
 riolu;001;32.088;31/08/2016;.;Canyon;TMT;10;a
@@ -4058,7 +4058,7 @@ fanakuri;092;41.042;18/10/2022;.;Valley;TMT;18;a
 fanakuri;092;40.963;18/10/2022;.;Valley;TMT;19;a
 Looz;093;43.755;24/03/2016;.;Valley;TMT;1;a
 atomariel;093;42.538;25/03/2016;.;Valley;TMT;2;a
-slimpikcet;093;42.529;25/03/2016;.;Valley;TMT;3;a
+Slimpikcet;093;42.529;25/03/2016;.;Valley;TMT;3;a
 BigBang1112;093;41.726;26/03/2016;.;Valley;TMT;4;a
 riolu;093;41.672;04/04/2016;.;Valley;TMT;5;a
 NeYo-8826;093;37.167;16/04/2016;New cut;Valley;TMT;6;a
@@ -4413,7 +4413,7 @@ Sapi;112;41.264;08/02/2023;.;Stadium;TMT;16;a
 Sapi;112;41.198;08/02/2023;.;Stadium;TMT;17;a
 Sapi;112;41.154;08/02/2023;.;Stadium;TMT;18;a
 Sapi;112;40.986;08/02/2023;.;Stadium;TMT;19;a
-fanakrui;112;40.892;28/02/2023;.;Stadium;TMT;20;a
+fanakuri;112;40.892;28/02/2023;.;Stadium;TMT;20;a
 Scotsman;113;41.363;24/03/2016;.;Stadium;TMT;1;a
 Pac;113;40.932;25/03/2016;.;Stadium;TMT;2;a
 Koenz;113;37.188;25/03/2016;.;Stadium;TMT;3;a
@@ -4422,7 +4422,7 @@ racehans;113;36.999;03/05/2016;.;Stadium;TMT;5;a
 riolu;113;36.913;17/11/2018;.;Stadium;TMT;6;a
 Nayko;113;36.881;26/12/2020;DUCK;Stadium;TMT;7;a
 Nayko;113;36.767;28/12/2020;.;Stadium;TMT;8;a
-fanakrui;113;36.724;17/06/2023;.;Stadium;TMT;9;a
+fanakuri;113;36.724;17/06/2023;.;Stadium;TMT;9;a
 fanakuri;113;36.655;20/06/2023;.;Stadium;TMT;10;a
 RotakeR;113;36.528;12/09/2023;.;Stadium;TMT;11;a
 Koenz;114;48.976;24/03/2016;.;Stadium;TMT;1;a
@@ -4437,7 +4437,7 @@ riolu;114;45.971;05/02/2019;.;Stadium;TMT;9;a
 riolu;114;45.845;07/02/2019;Cheated;Stadium;TMT;10;a
 Spam;114;45.894;06/12/2019;.;Stadium;TMT;11;a
 Camion;114;45.868;04/11/2022;.;Stadium;TMT;12;a
-fanakrui;114;45.844;05/05/2023;DUCK;Stadium;TMT;13;a
+fanakuri;114;45.844;05/05/2023;DUCK;Stadium;TMT;13;a
 faqez;114;45.695;16/05/2024;.;Stadium;TMT;14;a
 RotakeR;114;45.652;03/06/2024;.;Stadium;TMT;15;a
 Spam;115;2:01.456;24/03/2016;.;Stadium;TMT;1;a
@@ -4573,7 +4573,7 @@ MGM;131;59.341;25/03/2016;.;Valley;TMT;2;a
 Purification;131;59.188;25/03/2016;.;Valley;TMT;3;a
 RedExtra;131;58.850;26/03/2016;.;Valley;TMT;4;a
 Danneboy;131;58.659;27/03/2016;.;Valley;TMT;5;a
-slimpikcet;131;58.387;27/03/2016;.;Valley;TMT;6;a
+Slimpikcet;131;58.387;27/03/2016;.;Valley;TMT;6;a
 styx;131;57.296;27/03/2016;Cheated;Valley;TMT;7;a
 riolu;131;56.974;14/04/2016;.;Valley;TMT;8;a
 riolu;131;56.79;16/05/2016;.;Valley;TMT;9;a
@@ -4599,7 +4599,7 @@ fanakuri;136;-;-;.;Valley;TMT;3;a
 Mentaloli;137;58.68;07/04/2016;.;Valley;TMT;1;a
 Mentaloli;137;58.651;07/04/2016;.;Valley;TMT;2;a
 DarkLink94;137;57.031;08/04/2016;.;Valley;TMT;3;a
-NeYo;137;55.311;16/04/2016;.;Valley;TMT;4;a
+NeYo-8826;137;55.311;16/04/2016;.;Valley;TMT;4;a
 fanakuri;137;-;-;.;Valley;TMT;5;a
 skilley77;138;56.860;28/03/2016;.;Valley;TMT;1;a
 Eyohna;138;53.423;31/03/2016;.;Valley;TMT;2;a
@@ -4617,33 +4617,85 @@ fanakuri;139;-;-;.;Valley;TMT;6;a
 riolu;140;3:01.136;24/03/2016;.;Valley;TMT;1;a
 riolu;140;2:59.297;04/05/2016;.;Valley;TMT;2;a
 fanakuri;140;-;-;.;Valley;TMT;3;a
-riolu;141;40.893;22/04/2016;.;Lagoon;TMT;1;a
-fanakuri;141;-;-;.;Lagoon;TMT;2;a
+riolu;141;40.893;21/04/2016;Live;Lagoon;TMT;1;a
+riolu;141;40.843;18/10/2016;.;Lagoon;TMT;2;a
+DarkLink94;141;40.746;06/03/2017;.;Lagoon;TMT;3;a
+riolu;141;40.718;03/11/2018;.;Lagoon;TMT;4;a
+Samerlifofwer;141;40.705;28/02/2020;.;Lagoon;TMT;5;a
+Samerlifofwer;141;40.628;29/02/2020;.;Lagoon;TMT;6;a
+riolu;141;40.494;01/07/2020;Cheated;Lagoon;TMT;7;a
+Samerlifofwer;141;40.583;12/08/2022;.;Lagoon;TMT;8;a
+Samerlifofwer;141;40.490;13/08/2022;DUCK;Lagoon;TMT;9;a
+Samerlifofwer;141;40.470;13/08/2022;.;Lagoon;TMT;10;a
+fanakuri;141;40.428;11/06/2024;.;Lagoon;TMT;11;a
 riolu;142;38.056;26/04/2016;.;Lagoon;TMT;1;a
 7Alvin;142;38.028;19/05/2016;.;Lagoon;TMT;2;a
 7Alvin;142;37.957;19/05/2016;.;Lagoon;TMT;3;a
 7Alvin;142;37.941;20/05/2016;.;Lagoon;TMT;4;a
 7Alvin;142;37.788;20/05/2016;.;Lagoon;TMT;5;a
 Neko;142;37.750;21/05/2016;.;Lagoon;TMT;6;a
-Neko;142;37.66;21/05/2016;.;Lagoon;TMT;7;a
+Neko;142;37.66x;21/05/2016;.;Lagoon;TMT;7;a
 Neko;142;37.525;21/05/2016;.;Lagoon;TMT;8;a
 7Alvin;142;37.294;21/05/2016;.;Lagoon;TMT;9;a
-fanakuri;142;-;-;.;Lagoon;TMT;10;a
+riolu;142;37.24x;??/??/2018;.;Lagoon;TMT;10;a
+riolu;142;37.096;28/02/2019;.;Lagoon;TMT;11;a
+mime;142;37.033;24/06/2020;DUCK;Lagoon;TMT;12;a
+Samerlifofwer;142;37.023;11/09/2022;.;Lagoon;TMT;13;a
+fanakuri;142;37.018;08/07/2023;.;Lagoon;TMT;14;a
+faqez;142;36.998;07/10/2024;.;Lagoon;TMT;15;a
+fanakuri;142;36.940;13/10/2024;.;Lagoon;TMT;16;a
+fanakuri;142;36.911;13/10/2024;.;Lagoon;TMT;17;a
 riolu;143;58.177;26/04/2016;.;Lagoon;TMT;1;a
 riolu;143;57.938;30/04/2016;.;Lagoon;TMT;2;a
-riolu;143;57.553;06/05/2016;.;Lagoon;TMT;3;a
-Neko;143;57.528;09/06/2016;.;Lagoon;TMT;4;a
-riolu;143;57.408;16/06/2016;.;Lagoon;TMT;5;a
-YxalagOiram;143;57.271;23/06/2016;.;Lagoon;TMT;6;a
-Samerlifofwer;143;-;-;.;Lagoon;TMT;7;a
-riolu;144;56.58;26/04/2016;.;Lagoon;TMT;1;a
-riolu;144;54.908;26/04/2016;.;Lagoon;TMT;2;a
-fanakuri;144;-;-;.;Lagoon;TMT;3;a
+riolu;143;57.688;05/05/2016;.;Lagoon;TMT;3;a
+riolu;143;57.553;06/05/2016;.;Lagoon;TMT;4;a
+Neko;143;57.528;09/06/2016;.;Lagoon;TMT;5;a
+riolu;143;57.408;16/06/2016;.;Lagoon;TMT;6;a
+YxalagOiram;143;57.271;23/06/2016;.;Lagoon;TMT;7;a
+riolu;143;57.100;14/09/2016;.;Lagoon;TMT;8;a
+riolu;143;56.881;19/10/2016;.;Lagoon;TMT;9;a
+Samerlifofwer;143;56.823;27/02/2020;DUCK;Lagoon;TMT;10;a
+Samerlifofwer;143;56.812;04/02/2023;.;Lagoon;TMT;11;a
+Samerlifofwer;143;56.726;05/02/2023;.;Lagoon;TMT;12;a
+fanakuri;143;56.621;06/11/2023;.;Lagoon;TMT;13;a
+Samerlifofwer;143;56.484;09/12/2023;.;Lagoon;TMT;14;a
+Samerlifofwer;143;56.371;11/12/2023;.;Lagoon;TMT;15;a
+Samerlifofwer;143;56.272;12/12/2023;.;Lagoon;TMT;16;a
+riolu;144;58.140;23/04/2016;.;Lagoon;TMT;17;a
+riolu;144;57.196;24/04/2016;.;Lagoon;TMT;18;a
+riolu;144;56.586;26/04/2016;.;Lagoon;TMT;19;a
+riolu;144;54.908;26/04/2016;.;Lagoon;TMT;20;a
+ender;144;54.793;29/08/2018;.;Lagoon;TMT;21;a
+ender;144;54.678;23/12/2018;.;Lagoon;TMT;22;a
+riolu;144;54.438;06/01/2019;.;Lagoon;TMT;23;a
+Samerlifofwer;144;54.407;07/03/2020;.;Lagoon;TMT;24;a
+riolu;144;54.316;01/07/2020;Cheated;Lagoon;TMT;25;a
+Thoringer;144;54.096;08/08/2022;Cheated;Lagoon;TMT;26;a
+Samerlifofwer;144;54.278;09/08/2022;DUCK;Lagoon;TMT;27;a
+fanakuri;144;54.254;03/06/2024;.;Lagoon;TMT;28;a
+Samerlifofwer;144;54.247;06/07/2024;.;Lagoon;TMT;29;a
 riolu;145;2:48.695;24/03/2016;.;Lagoon;TMT;1;a
 LEaT14eX;145;2:48.471;16/04/2016;.;Lagoon;TMT;2;a
 riolu;145;2:45.635;22/04/2016;.;Lagoon;TMT;3;a
-Neko;145;2:45.192;18/06/2016;.;Lagoon;TMT;4;a
-Samerlifofwer;145;-;-;.;Lagoon;TMT;5;a
+Neko;145;2:45.192;17/06/2016;.;Lagoon;TMT;4;a
+riolu;145;2:43.262;17/06/2016;.;Lagoon;TMT;5;a
+Koala;145;2:42.70x;20/11/2018;.;Lagoon;TMT;6;a
+riolu;145;2:41.972;25/02/2019;.;Lagoon;TMT;7;a
+Thoringer;145;2:41.328;15/11/2020;Cheated;Lagoon;TMT;8;a
+ender;145;2:41.960;23/09/2021;DUCK;Lagoon;TMT;9;a
+Samerlifofwer;145;2:41.66x;04/10/2021;.;Lagoon;TMT;10;a
+Samerlifofwer;145;2:41.311;15/06/2023;DUCK;Lagoon;TMT;11;a
+Samerlifofwer;145;2:41.028;15/06/2023;.;Lagoon;TMT;12;a
+Samerlifofwer;145;2:40.732;18/06/2023;.;Lagoon;TMT;13;a
+Samerlifofwer;145;2:40.562;19/06/2023;.;Lagoon;TMT;14;a
+Samerlifofwer;145;2:40.382;19/06/2023;.;Lagoon;TMT;15;a
+Samerlifofwer;145;2:40.334;19/06/2023;.;Lagoon;TMT;16;a
+Samerlifofwer;145;2:40.225;19/06/2023;.;Lagoon;TMT;17;a
+Samerlifofwer;145;2:40.150;20/06/2023;.;Lagoon;TMT;18;a
+Samerlifofwer;145;2:40.072;22/06/2023;.;Lagoon;TMT;19;a
+Samerlifofwer;145;2:40.031;22/06/2023;.;Lagoon;TMT;20;a
+Samerlifofwer;145;2:40.018;22/06/2023;.;Lagoon;TMT;21;a
+Samerlifofwer;145;2:39.855;24/06/2023;.;Lagoon;TMT;22;a
 riolu;146;47.267;26/04/2016;.;Lagoon;TMT;1;a
 riolu;146;47.143;27/04/2016;.;Lagoon;TMT;2;a
 Samerlifofwer;146;-;-;.;Lagoon;TMT;3;a
