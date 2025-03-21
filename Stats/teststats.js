@@ -79,7 +79,7 @@ function showInfo(mapWR, Nation, Flag, playerDB){
 
     for(elem of mapWR){
         if(elem[6] != "game"){
-            if(elem[4] != "Cheated"){
+            // if(elem[4] != "Cheated"){
                 let currentPlayer = elem[0] + "|SPLIT|" + Nation[elem[0]];
                 if(elem[8] != "a"){
                     let playerINFO = getDBID(playerDB, elem[8], game);
@@ -91,7 +91,7 @@ function showInfo(mapWR, Nation, Flag, playerDB){
                     }
                 }
                 players.push(currentPlayer);
-            }
+            // }
         }
     }
     let occursPlayers = countOccurrences(players);
@@ -157,7 +157,7 @@ function showInfo(mapWR, Nation, Flag, playerDB){
     let country = [];
     for(elem of mapWR){
         if(elem[6] != "game"){
-            if(elem[4] != "Cheated"){
+            // if(elem[4] != "Cheated"){
                 let currentPlayer = Nation[elem[0]];
                 if(elem[8] != "a"){
                     let playerINFO = getDBID(playerDB, elem[8], game);
@@ -169,7 +169,7 @@ function showInfo(mapWR, Nation, Flag, playerDB){
                     }
                 }
                 country.push(currentPlayer);
-            }
+            // }
         }
     }
 
