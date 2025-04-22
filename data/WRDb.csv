@@ -1948,6 +1948,7 @@ Speed;D06 - Valley;-;-;.;Valley;TM2;6;a
 Speed;D06 - Valley;-;-;.;Valley;TM2;7;a
 Speed;D06 - Valley;-;-;.;Valley;TM2;8;a
 Speed;D06 - Valley;-;-;.;Valley;TM2;9;a
+AM98;D06 - Valley;0:55.904;21/04/2025;.;Valley;TM2;10;a
 riolu;D07 - Valley;-;-;.;Valley;TM2;1;a
 Speed;D07 - Valley;-;-;.;Valley;TM2;2;a
 Mebe12;D07 - Valley;-;-;.;Valley;TM2;3;a
@@ -1975,6 +1976,7 @@ Mebe12;D12 - Valley;-;-;.;Valley;TM2;3;a
 Mebe12;D12 - Valley;-;-;.;Valley;TM2;4;a
 riolu;D13 - Valley;-;-;.;Valley;TM2;1;a
 Speed;D13 - Valley;-;-;.;Valley;TM2;2;a
+AM98;D13 - Valley;0:47.705;21/04/2025;.;Valley;TM2;3;a
 riolu;D14 - Valley;-;-;.;Valley;TM2;1;a
 BigBang1112;D14 - Valley;-;-;.;Valley;TM2;2;a
 Mebe12;D14 - Valley;-;-;.;Valley;TM2;3;a
@@ -1982,6 +1984,9 @@ BigBang1112;D14 - Valley;-;-;.;Valley;TM2;4;a
 Mebe12;D14 - Valley;-;-;.;Valley;TM2;5;a
 Speed;D14 - Valley;-;-;.;Valley;TM2;6;a
 Mebe12;D14 - Valley;-;-;.;Valley;TM2;7;a
+HQCookie;D14 - Valley;1:00.577;12/04/2025;.;Valley;TM2;8;a
+HQCookie;D14 - Valley;1:00.205;21/04/2025;.;Valley;TM2;9;a
+HQCookie;D14 - Valley;0:59.847;21/04/2025;.;Valley;TM2;10;a
 riolu;D15 - Valley;-;-;.;Valley;TM2;1;a
 Speed;D15 - Valley;-;-;.;Valley;TM2;2;a
 Speed;D15 - Valley;-;-;.;Valley;TM2;3;a
@@ -2070,6 +2075,8 @@ Flechetas;A06 - Lagoon;23.238;11/09/2021;.;Lagoon;TM2;2;a
 Flechetas;A06 - Lagoon;23.228;27/09/2021;DUCK;Lagoon;TM2;3;a
 eddyey;A06 - Lagoon;23.215;01/05/2024;riolu alt;Lagoon;TM2;4;a
 eddyey;A06 - Lagoon;23.211;01/05/2024;riolu alt;Lagoon;TM2;5;a
+zappz;A06 - Lagoon;23.210;15/04/2025;Duck;Lagoon;TM2;6;a
+zappz;A06 - Lagoon;23.196;15/04/2025;.;Lagoon;TM2;7;a
 mime;A07 - Lagoon;18.391;17/02/2020;.;Lagoon;TM2;1;a
 Gyrule;A07 - Lagoon;18.390;27/02/2020;.;Lagoon;TM2;2;a
 mime;A07 - Lagoon;18.388;28/02/2020;.;Lagoon;TM2;3;a
@@ -3562,6 +3569,7 @@ Samerlifofwer;061;32.185;01/02/2023;.;Lagoon;TMT;19;a
 fanakuri;061;32.101;06/12/2023;.;Lagoon;TMT;20;a
 GriesGotts;061;32.038;22/09/2024;.;Lagoon;TMT;21;a
 HQCookie;061;32.032;01/01/2025;.;Lagoon;TMT;22;a
+GriesGotts;061;31.965;19/04/2025;.;Lagoon;TMT;23;a
 MGM;062;30.299;24/03/2016;.;Lagoon;TMT;1;a
 Shezou;062;30.288;25/03/2016;.;Lagoon;TMT;2;a
 Harryvanman;062;30.255;25/03/2016;.;Lagoon;TMT;3;a
@@ -4809,6 +4817,7 @@ Samerlifofwer;149;38.73x;24/05/2021;.;Lagoon;TMT;16;a
 Samerlifofwer;149;38.726;09/05/2023;.;Lagoon;TMT;17;a
 Samerlifofwer;149;38.646;09/05/2023;.;Lagoon;TMT;18;a
 GriesGotts;149;38.608;12/03/2025;.;Lagoon;TMT;19;a
+Samerlifofwer;149;38.578;16/04/2025;.;Lagoon;TMT;20;a
 riolu;150;2:57.307;24/03/2016;.;Lagoon;TMT;1;a
 riolu;150;2:51.787;03/05/2016;.;Lagoon;TMT;2;a
 riolu;150;2:50.004;19/09/2016;.;Lagoon;TMT;3;a
@@ -4939,6 +4948,7 @@ __;169;1:38.075;16/07/2016;.;Canyon;TMT;3;a
 Neko;169;1:37.102;16/07/2016;.;Canyon;TMT;4;a
 riolu;169;1:35.258;30/07/2016;.;Canyon;TMT;5;a
 fanakuri;169;-;-;.;Canyon;TMT;6;a
+Pawk;169;1:31.750;19/04/2025;.;Canyon;TMT;7;a
 Pac;170;2:05.972;26/03/2016;.;Canyon;TMT;1;a
 riolu;170;2:02.890;14/05/2016;.;Canyon;TMT;2;a
 fanakuri;170;-;-;.;Canyon;TMT;3;a
@@ -5154,9 +5164,17 @@ Samerlifofwer;189;1:03.248;07/05/2024;.;Lagoon;TMT;11;a
 Samerlifofwer;189;1:03.198;08/05/2024;.;Lagoon;TMT;12;a
 Samerlifofwer;189;1:03.122;08/05/2024;.;Lagoon;TMT;13;a
 Samerlifofwer;189;1:03.108;03/04/2025;New cut;Lagoon;TMT;14;a
-Samerlifofwer;189;1:02.530;04/04/2025;.;Lagoon;TMT;15;a
-kraazy_kid;189;1:02.365;09/04/2025;.;Lagoon;TMT;16;a
-Samerlifofwer;189;1:02.140;09/04/2025;.;Lagoon;TMT;17;a
+Samerlifofwer;189;1:03.024;03/04/2025;.;Lagoon;TMT;15;a
+Samerlifofwer;189;1:02.946;03/04/2025;.;Lagoon;TMT;16;a
+Samerlifofwer;189;1:02.530;04/04/2025;.;Lagoon;TMT;17;a
+kraazy_kid;189;1:02.365;09/04/2025;.;Lagoon;TMT;18;a
+Samerlifofwer;189;1:02.140;09/04/2025;.;Lagoon;TMT;19;a
+Samerlifofwer;189;1:02.094;11/04/2025;.;Lagoon;TMT;20;a
+Samerlifofwer;189;1:02.084;11/04/2025;.;Lagoon;TMT;21;a
+Samerlifofwer;189;1:01.738;11/04/2025;.;Lagoon;TMT;22;a
+HQCookie;189;1:01.535;11/04/2025;New cut;Lagoon;TMT;23;a
+HQCookie;189;1:01.103;11/04/2025;.;Lagoon;TMT;24;a
+Samerlifofwer;189;1:00.546;13/04/2025;.;Lagoon;TMT;25;a
 styx;190;1:42.850;03/04/2016;Cheated;Lagoon;TMT;1;a
 ion;190;1:42.230;30/04/2016;.;Lagoon;TMT;2;a
 NJin;190;1:41.293;05/05/2016;.;Lagoon;TMT;3;a
@@ -5565,6 +5583,7 @@ lp.mc;A12-Speed;0:12.02;18/05/2018;.;Stadium;TMNF;35;7169284
 trinitymot;A12-Speed;0:11.91;30/05/2018;.;Stadium;TMNF;36;5594219
 Softieee;A12-Speed;0:11.58;13/01/2019;.;Stadium;TMNF;37;6066467
 Almighty Hefest;A12-Speed;0:10.61;20/01/2019;.;Stadium;TMNF;38;6853602
+Axell;A12-Speed;0:10.51;20/04/2025;.;Stadium;TMNF;39;9592994
 Phally;A13-Race;0:31.25;14/04/2008;.;Stadium;TMNF;1;2500
 lokash;A13-Race;0:31.15;17/04/2008;.;Stadium;TMNF;2;5610
 Marius 89;A13-Race;0:31.12;21/04/2008;.;Stadium;TMNF;3;20535
@@ -6937,6 +6956,7 @@ Drew.;D11-Acrobatic;0:09.56;24/09/2012;.;Stadium;TMNF;29;1092385
 florian35235;D11-Acrobatic;0:09.45;30/11/2012;.;Stadium;TMNF;30;4495467
 Drew.;D11-Acrobatic;0:09.44;10/10/2019;.;Stadium;TMNF;31;1092385
 dennis090;D11-Acrobatic;0:09.22;19/02/2022;.;Stadium;TMNF;32;6650217
+pastagrows;D11-Acrobatic;0:09.19;18/04/2025;.;Stadium;TMNF;33;9433228
 SabineGoth;D12-Speed;0:44.81;16/04/2008;.;Stadium;TMNF;1;2027
 aiden.KraL';D12-Speed;0:42.46;16/04/2008;.;Stadium;TMNF;2;3159
 BluEjAck;D12-Speed;0:41.87;16/04/2008;.;Stadium;TMNF;3;2930
