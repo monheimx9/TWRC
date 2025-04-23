@@ -94,7 +94,7 @@ function showInfo(mapWR, Nation, Flag, playerDB){
         }
 
         /* Setup line of table */
-        var tableLine = document.createElement("tr");     
+        var tableLine = document.createElement("tr");
 
         if(Cheat){
             tableLine.style = "color: #e06560; font-style: italic;";
@@ -125,6 +125,18 @@ function showInfo(mapWR, Nation, Flag, playerDB){
 
         if(typeof(drapeau)==="undefined"){
             drapeau = "../assets/flags/question.png";
+        };
+
+        /* Adding the clickability to lines to check player stats page */
+        let playerName;
+        if(CurrentLine[8] != "a"){
+            playerName = playerINFO[2]
+        }
+        else{
+            playerName=CurrentLine[0];
+        }
+        tableLine.onclick = function(){
+            window.location.href = "../Stats/Playerstats/playerstats.html?id=" + playerName;
         };
 
         LeaderboardNation.innerHTML = '<div class="FlagPic"><img src="' + drapeau + '" alt=""></div>';

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="playerstats.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+        <title>TWRC</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+        <link rel="icon" href="../../assets/logo.png">
+    </head>
+    <body>
+        <div class="Menu">
+            <div class="Title">
+                <div class="TWRC">
+                    <img src="../../assets/logo2.png" id="TitleLogo">
+                    <div class="ActualTitle">
+                        <h1>Trackmania World Record Central</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="Navigation">
+                <div class="NavigationButtonMenu">
+                    <h4 class="MenuButton"><a class="MenubuttonLink" href="../../hub.html">Home</a></h4>
+                    <h4 class="MenuButton"><a class="MenubuttonLink" href="../../Games/games.html">Games</a></h4>
+                    <h4 class="MenuButton"><a class="MenubuttonLink" href="../stats.html">Statistics</a></h4>
+                    <h4 class="MenuButton"><a class="MenubuttonLink" href="../../About/about.html">About</a></h4>
+                </div>
+            </div>
+        </div>
+        <div class="PageHeader">
+            <h2 style="text-align: center; padding-top: 78px;">Player statistics menu</h2>
+        </div>
+        <div class="Corps">
+            <div id="pageColumns">
+                <div id="playerInfos">
+                    <div id="infoHeader">
+                        <img src="../../assets/flags/Unknown.png">
+                        Hylis
+                    </div>
+                    <div class="mapInfoColumn">
+                        <table id="infoTable" style="width: 100%;">
+                            <tr>
+                                <td class="left">Games</td>
+                                <td class="right" id="gamesInfo">*list*</td>
+                            </tr>
+                            <tr>
+                                <td class="left">Environments</td>
+                                <td class="right" id="envisInfo">*list*</td>
+                            </tr>
+                            <tr>
+                                <td class="left">WR Count</td>
+                                <td class="right" id="wrCountInfo">X Wrs</td>
+                            </tr>
+                            <tr>
+                                <td class="left">Current WR Count</td>
+                                <td class="right" id="wrCountCurrentInfo">{Uncalculated yet}</td>
+                            </tr>
+                            <tr>
+                                <td class="left">Unique map count</td>
+                                <td class="right" id="uniqueMapCountInfo">X maps</td>
+                            </tr>
+                            <tr>
+                                <td class="left">Most prolific map(s)</td>
+                                <td class="right" id="prolificMapInfo">___ - X Wrs</td>
+                            </tr>
+                            <tr>
+                                <td class="left">Most prolific game</td>
+                                <td class="right" id="prolificGameInfo">___ - X Wrs</td>
+                            </tr>
+                            <tr style="border-top: 1px solid grey;">
+                                <td class="left">Most prolific envi</td>
+                                <td class="right" id="prolificEnviInfo">___ - X Wrs</td>
+                            </tr>
+                            <tr style="border-top: 1px solid grey;">
+                                <td class="left">Longest Standing WR</td>
+                                <td class="right" id="longestWrInfo">{Uncalculated yet}</td>
+                            </tr>
+                            <tr>
+                                <td class="left">First WR</td>
+                                <td class="right" id="firstWrInfo">___ - xx.xxx - ??/??/????</td>
+                            </tr>
+                            <tr>
+                                <td class="left">Latest WR</td>
+                                <td class="right" id="latestWrInfo">___ - xx.xxx - ??/??/????</td>
+                            </tr>
+                            <!-- Add cheated wr amount and duck amount if they exist in the player stats -->
+                            <!-- Filter tab -->
+                            <!-- wr number graph -->
+                        </table>
+                    </div>
+                </div>
+                <div class="wrColumn">
+                    <div id = "playerLB">
+                        <span id="tableTitle">History World Records</span>
+                        <table class="tableLB">
+                            <tr>
+                              <th class="tableMap">Map</th>
+                              <th class="tableTime">Time</th>
+                              <th class="tableDate">Date</th>
+                              <th class="tableDesc">Info</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="playerstats.js"></script>
+    </body>
+</html>

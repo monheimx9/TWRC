@@ -1613,7 +1613,7 @@
     },
     {
         "Id": 126,
-        "Display_Name": "Speed",
+        "Display_Name": "ArSpeed",
         "Country": "ind",
         "TMO_Id": null,
         "TMS_Id": null,

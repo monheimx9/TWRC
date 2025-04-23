@@ -3,7 +3,7 @@ body{
     font-family: "Noto Sans", "Century Gothic", Verdana, sans-serif;
     color: white;
     margin: 0px;
-    background-image: blur(url(../assets/TM2LagoonBackground.png));
+    background-image: blur(url(../../assets/TM2LagoonBackground.png));
     position: relative;
 }
 
@@ -14,7 +14,7 @@ body::before{
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url(../assets/TM2LagoonBackground.png);
+    background-image: url(../../assets/TM2LagoonBackground.png);
     background-size: cover;
     background-position: center;
     filter: blur(3px);
@@ -143,56 +143,112 @@ body::before{
     margin-bottom: 10px;
 }
 
-
 /*###########################################*/
+#pageColumns{
+    display: flex;
+    align-items: stretch; /* ou flex-start */
+}
 
-#playerPageButton{
-    background-color: rgba(96, 128, 224, 0.12);
-    border: 3px solid #2d44ad;
-    border-radius: 18px;
-    box-shadow: rgba(0, 0, 0, 0.12) 0 1px 1px;
-    color: #FFFFFF;
-    cursor: pointer;
-    display: block;
-    font-size: 15px;
-    line-height: 100%;
-    margin: 10px;
-    outline: 0;
-    padding: 11px 5px 12px;
+#playerInfos{
+    background-color: rgba(0, 0, 0, 0.521);
+    align-self: flex-start;
+    border-radius: 20px;
+    /* overflow: hidden; */
+    border-collapse: collapse;
+    box-shadow: 0px 0px 10px rgb(0, 0, 0);
+    width: 450px;
+    height: auto;
+    margin: 20px 10px;
+}
+
+#infoHeader{
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: center;
+    font-size: 43px;
+    font-weight: bold;
+}
+#infoHeader img{
+    height: 60px;
+    margin-right: 10px;
+}
+
+#tableLB{
+    display: flex;
+    justify-content: center;
+}
+
+.lineLB td{
+    font-size: 20px;
     text-align: center;
-    width: 200px;
-    user-select: none;
-    -webkit-transition: background-color 0.2s, box-shadow 0.2s, color 0.2s;
-    -moz-transition: background-color 0.2s, box-shadow 0.2s, color 0.2s;
-    -o-transition: background-color 0.2s, box-shadow 0.2s, color 0.2s;
-    transition: background-color 0.2s, box-shadow 0.2s, color 0.2s;
 }
 
-#playerPageButton:hover{
-    background-color: rgb(96, 139, 224);
-    box-shadow: 0px 0px 20px #30475f;
-    color: #000000;
+#tableTitle{
+    font-size: 40px;
+    padding-bottom: 10px;
+    font-family: "Lexend", "Century Gothic", Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    text-shadow: 0px 0px 10px rgb(0, 0, 0);
 }
 
-#playerPageButton:active {
-    background-color: rgb(34, 34, 34);
+.tableMap{
+    /* background-color: yellowgreen; */
+    font-size: 25px;
+    width: 10px;
+}
+
+.mapInfo{
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    padding-left: 5px;
+}
+
+.mapInfo img{
+    height: 28px;
+}
+
+.mapGameSpan{
+    color: #999999;
+    font-style: italic;
+    font-size: 13px;
+    padding-top: 5px;
+    padding-right: 5px;
+}
+
+.tableTime{
+    /* background-color: aqua; */
+    font-size: 25px;
+    width: 150px;
+}
+
+.tableDate{
+    /* background-color: red; */
+    font-size: 25px;
+}
+
+.tableDesc{
+    /* background-color: yellowgreen; */
+    font-size: 25px;
 }
 
 /*###########################################*/
-.leaderboardColumn{
+.wrColumn{
     display: flex;
     justify-content:space-around;
+    margin-left: 70px;
 }
 
-.leaderboardColumn tr{
+.wrColumn tr{
     border-bottom: 1px solid rgba(255, 255, 255, 0.116);
 }
 
-.leaderboardColumn tr:last-child{
+.wrColumn tr:last-child{
     border-bottom: none;
 }
 
-.leaderboardColumn th{
+.wrColumn th{
     /* background-color: #2d2f34; */
     border-bottom: 1px solid rgba(255, 255, 255, 0.116);
     font-weight: bold;
@@ -202,35 +258,17 @@ body::before{
     text-shadow: 0px 0px 10px black;
 }
 
-.leaderboardColumn tr:nth-child(n+2):hover{
+.wrColumn tr:hover{
     background-color: rgba(0, 0, 0, 0.493);
-    /* text-decoration: underline; */
-    cursor: pointer;
     /* border-bottom: 1px dashed rgb(22, 114, 22);
     border-top: 1px dashed rgb(22, 114, 22);
     text-shadow: 0px 0px 5px rgb(255, 187, 0); */
 }
 
-/* tr:hover td{
-    font-size: 26px;
-} */
-/* PAS OUF */
-
-
-.MapChoiceBlock{
-    padding-left: 10%;
-    padding-right: 10%;
-}
-
-.LeaderboardBlock{
-    display: flex;
-    justify-content: center;
-}
-
-.leaderboardColumn .tableLB{
+.wrColumn .tableLB{
     padding: 0%;
     margin: 0%;
-    width: 550px;
+    width: 650px;
     background-color: rgba(0, 0, 0, 0.521);
     /* border: 3px solid grey; Bordure de 5px d'épaisseur, couleur bleue */
     border-radius: 20px;
@@ -259,58 +297,48 @@ body::before{
     }
 } */
 
-#output1{
-    display: flex;
-    justify-content: center;
+/* COLUMN INFO */
+
+.mapInfoColumn{
+    margin: 10px 0px;
+    padding: 2px;
+    /* height: 500px; */
+    max-width: 440px;
+    min-width: 440px;
+    font-family: "Noto Sans", "Century Gothic", Verdana, sans-serif;
 }
 
-.leaderboardColumn td, th{
-    height: 40px;
-    font-size: 25px;
+.mapInfoColumn
+
+#infoTable{
+    border-top: 1px solid grey;
+    border-spacing: 0px;
 }
 
-.LeaderboardNation{
-    padding-left: 15px;
-    padding-right: 0px;
-    width: 2%;
-    /* background-color: aqua; */
-}
-
-.FlagPic{
-    width: 35px;
+.mapInfoColumn tr{
     height: 35px;
+    /* background-color: rgb(57, 70, 31); */
 }
 
-.FlagPic img{
-    width: 100%;
-}
-
-.LeaderboardIndex .FlagPic img{
-    padding-left: 7px;
-}
-
-#headerPlayer{
-    padding-left: 30px;
-    padding-right: 0px;
-}
-
-.LeaderboardIndex{
-    text-align: center;
-    font-size: 20px;
-    padding-left: 10px;
-    /* background-color: blue; */
-    width: 50px;
-}
-
-.LeaderboardPlayer{
+.left{
     padding-left: 5px;
-    padding-right: 0px;
-    width: 300px;
-    font-size: 23px;
-    /* background-color: aqua; */
+    margin-right: 0px;
+    width: 34%;
+    border-bottom: 1px solid grey;
+    font-weight: bold;
+    color: rgb(131, 131, 131);
+    font-size: 12px;
 }
 
-.LeaderboardCount{
-    text-align: center;
-    /* background-color: red; */
+.right{
+    text-align: right;
+    padding-right: 5px;
+    margin-left: 0px;
+    width: 66%;
+    border-bottom: 1px solid grey;
+}
+
+.envisInfo{
+    display: flex;
+    justify-content: flex-end;
 }

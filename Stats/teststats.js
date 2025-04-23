@@ -69,6 +69,11 @@ function getDBID(playerDB, id, game){
     }
 }
 
+// function toggleVariable(){
+//     // console.log("yo");
+//     window.location.href = "../Stats/Playerstats/playerstats.html?id=Thoringer";
+// }
+
 function showInfo(mapWR, Nation, Flag, playerDB){
     let game = "TMNF";
     let players = [];
@@ -80,6 +85,7 @@ function showInfo(mapWR, Nation, Flag, playerDB){
     for(elem of mapWR){
         if(elem[6] != "game"){
             // if(elem[4] != "Cheated"){
+            console.log(elem)
                 let currentPlayer = elem[0] + "|SPLIT|" + Nation[elem[0]];
                 if(elem[8] != "a"){
                     let playerINFO = getDBID(playerDB, elem[8], game);
@@ -103,6 +109,9 @@ function showInfo(mapWR, Nation, Flag, playerDB){
         let [driver, nationality] = elem[0].split("|SPLIT|");
         
         const line = document.createElement("tr");
+        line.onclick = function(){
+            window.location.href = "../Stats/Playerstats/playerstats.html?id=" + driver;
+        };
 
         if(["riolu", "Techno", "styx", "Thoringer"].includes(driver)){
             line.style = "color: #e06560; font-style: italic;";
