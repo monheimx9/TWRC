@@ -1655,6 +1655,7 @@ Mebe12;A04 - Valley;22.420;06/02/2024;.;Valley;TM2;10;a
 Mebe12;A04 - Valley;22.411;06/02/2024;.;Valley;TM2;11;a
 Mebe12;A04 - Valley;22.401;06/02/2024;.;Valley;TM2;12;a
 Mebe12;A04 - Valley;22.394;10/02/2024;.;Valley;TM2;13;a
+Mebe12;A04 - Valley;22.391;05/05/2025;.;Valley;TM2;14;a
 Mebe12;A05 - Valley;-;-;.;Valley;TM2;1;a
 Howell;A05 - Valley;53.675;20/03/2025;.;Valley;TM2;2;a
 riolu;A06 - Valley;28.280;01/01/2015;.;Valley;TM2;1;a
@@ -1905,6 +1906,7 @@ Speed;C14 - Valley;-;-;.;Valley;TM2;5;a
 Speed;C14 - Valley;-;-;.;Valley;TM2;6;a
 Mebe12;C14 - Valley;-;-;.;Valley;TM2;7;a
 HQCookie;C14 - Valley;44.908;03/05/2025;.;Valley;TM2;8;a
+Mebe12;C14 - Valley;44.907;05/05/2025;.;Valley;TM2;9;a
 riolu;C15 - Valley;-;-;.;Valley;TM2;1;a
 Speed;C15 - Valley;-;-;.;Valley;TM2;2;a
 Speed;C15 - Valley;-;-;.;Valley;TM2;3;a
@@ -5008,18 +5010,28 @@ Samerlifofwer;150;2:46.243;18/08/2022;.;Lagoon;TMT;13;a
 Samerlifofwer;150;2:45.811;19/08/2022;DUCK;Lagoon;TMT;14;a
 Samerlifofwer;150;2:45.525;19/08/2022;.;Lagoon;TMT;15;a
 CarlJr;151;50.458;25/04/2016;.;Stadium;TMT;1;a
-riolu;151;49.834;30/04/2016;.;Stadium;TMT;2;a
+riolu;151;49.834;29/04/2016;.;Stadium;TMT;2;a
 Samerlifofwer;151;49.67x;25/05/2018;.;Stadium;TMT;3;a
-ender;151;-;-;.;Stadium;TMT;4;a
+riolu;151;49.550;02/11/2018;.;Stadium;TMT;4;a
+RotakeR;151;49.540;16/03/2020;DUCK;Stadium;TMT;5;a
+mime;151;49.458;27/06/2021;.;Stadium;TMT;6;a
+ender;151;49.381;18/02/2022;.;Stadium;TMT;7;a
+mime;151;49.178;20/02/2022;.;Stadium;TMT;8;a
+RotakeR;151;49.056;12/09/2023;.;Stadium;TMT;9;a
+ender;151;48.951;20/02/2024;.;Stadium;TMT;10;a
 riolu;152;41.277;24/03/2016;.;Stadium;TMT;1;a
 lumatom;152;41.055;28/03/2016;.;Stadium;TMT;2;a
 racehans;152;40.920;28/03/2016;.;Stadium;TMT;3;a
 YxalagOiram;152;40.774;16/04/2016;.;Stadium;TMT;4;a
 keby;152;40.645;21/04/2016;.;Stadium;TMT;5;a
-xxAlex765xx;152;40.623;27/4/2016;.;Stadium;TMT;6;a
+xxAlex765xx;152;40.623;27/04/2016;.;Stadium;TMT;6;a
 xxAlex765xx;152;40.512;27/04/2016;.;Stadium;TMT;7;a
 keby;152;40.498;30/04/2016;.;Stadium;TMT;8;a
-RotakeR;152;-;-;.;Stadium;TMT;9;a
+keby;152;40.441;20/10/2016;.;Stadium;TMT;9;a
+riolu;152;40.435;02/11/2018;.;Stadium;TMT;10;a
+CD;152;40.347;27/04/2021;DUCK;Stadium;TMT;11;a
+RotakeR;152;40.342;23/07/2022;.;Stadium;TMT;12;a
+RotakeR;152;40.247;11/08/2022;.;Stadium;TMT;13;a
 Koenz;153;38.948;24/03/2016;.;Stadium;TMT;1;a
 TekkForce;153;38.867;27/03/2016;.;Stadium;TMT;2;a
 Freezer_24;153;38.721;02/04/2016;.;Stadium;TMT;3;a
@@ -5027,44 +5039,84 @@ LEaT14eX;153;38.672;16/04/2016;.;Stadium;TMT;4;a
 Neko;153;38.362;27/04/16;.;Stadium;TMT;5;a
 CarlJr;153;38.646;25/04/2016;.;Stadium;TMT;6;a
 xxAlex765xx;153;38.587;27/04/2016;.;Stadium;TMT;7;a
-riolu;153;38.492;03/05/2016;.;Stadium;TMT;8;a
-riolu;153;38.137;06/05/2016;.;Stadium;TMT;9;a
+riolu;153;38.492;02/05/2016;.;Stadium;TMT;8;a
+riolu;153;38.137;05/05/2016;.;Stadium;TMT;9;a
 7Alvin;153;38.056;10/05/2016;.;Stadium;TMT;10;a
 7Alvin;153;38.013;10/05/2016;.;Stadium;TMT;11;a
 7Alvin;153;37.985;11/05/2016;.;Stadium;TMT;12;a
-fanakuri;153;-;-;.;Stadium;TMT;13;a
+Spam;153;37.973;14/09/2016;.;Stadium;TMT;13;a
+riolu;153;37.531;08/09/2018;New cut;Stadium;TMT;14;a
+Joltysonic;153;37.497;14/03/2021;DUCK;Stadium;TMT;15;a
+HQCookie;153;37.473;05/04/2023;.;Stadium;TMT;16;a
+fanakuri;153;37.286;19/04/2023;.;Stadium;TMT;17;a
 CarlJr;154;47.417;25/04/2016;.;Stadium;TMT;1;a
 Firop;154;47.408;05/05/2016;.;Stadium;TMT;2;a
 Firop;154;47.320;05/05/2016;.;Stadium;TMT;3;a
-riolu;154;47.262;06/05/2016;.;Stadium;TMT;4;a
+riolu;154;47.262;05/05/2016;.;Stadium;TMT;4;a
 riolu;154;46.881;10/05/2016;.;Stadium;TMT;5;a
 Samerlifofwer;154;46.73x;20/05/2018;.;Stadium;TMT;6;a
-Hefest;154;-;-;.;Stadium;TMT;7;a
+riolu;154;46.675;24/10/2018;.;Stadium;TMT;7;a
+mime;154;46.597;09/06/2021;DUCK;Stadium;TMT;8;a
+mime;154;46.504;11/06/2021;.;Stadium;TMT;9;a
+mime;154;46.223;13/06/2021;New cut;Stadium;TMT;10;a
+mime;154;45.981;13/06/2021;.;Stadium;TMT;11;a
+mime;154;45.578;13/06/2021;.;Stadium;TMT;12;a
+Hefest;154;45.462;05/06/2022;.;Stadium;TMT;13;a
 CarlJr;155;2:02.227;25/04/2016;.;Stadium;TMT;1;a
-Schmaniol;155;-;-;.;Stadium;TMT;2;a
+riolu;155;2:02.095;08/09/2016;.;Stadium;TMT;2;a
+riolu;155;2:01.588;08/09/2016;.;Stadium;TMT;3;a
+Spam;155;2:01.535;15/09/2016;.;Stadium;TMT;4;a
+Spam;155;2:01.511;20/04/2017;.;Stadium;TMT;5;a
+riolu;155;2:00.926;21/11/2018;.;Stadium;TMT;6;a
+Joltysonic;155;2:00.868;06/11/2020;DUCK;Stadium;TMT;7;a
+Schmaniol;155;2:00.578;09/08/2022;.;Stadium;TMT;8;a
 Koenz;156;43.129;23/03/2016;.;Stadium;TMT;1;a
 CarlJr;156;43.078;06/04/2016;.;Stadium;TMT;2;a
-RotakeR;156;-;-;.;Stadium;TMT;3;a
+riolu;156;42.876;05/09/2016;.;Stadium;TMT;3;a
+Spam;156;42.866;24/03/2017;.;Stadium;TMT;4;a
+Spam;156;42.393;??/??/????;.;Stadium;TMT;5;a
+riolu;156;42.378;07/01/2019;.;Stadium;TMT;6;a
+RotakeR;156;42.371;10/01/2024;DUCK;Stadium;TMT;7;a
 CarlJr;157;47.718;25/04/2016;.;Stadium;TMT;1;a
 riolu;157;47.697;05/05/2016;.;Stadium;TMT;2;a
 riolu;157;47.555;06/05/2016;.;Stadium;TMT;3;a
 JaV;157;47.402;10/05/2016;.;Stadium;TMT;4;a
-RotakeR;157;-;-;.;Stadium;TMT;5;a
+riolu;157;47.255;08/09/2016;.;Stadium;TMT;5;a
+riolu;157;47.180;08/09/2016;.;Stadium;TMT;6;a
+Spam;157;47.160;16/09/2016;.;Stadium;TMT;7;a
+asier;157;47.078;17/07/2017;.;Stadium;TMT;8;a
+riolu;157;46.896;07/11/2018;.;Stadium;TMT;9;a
+RotakeR;157;46.686;25/06/2022;DUCK;Stadium;TMT;10;a
 CarlJr;158;41.956;25/04/2016;.;Stadium;TMT;1;a
 riolu;158;41.762;06/05/2016;.;Stadium;TMT;2;a
-riolu;158;41.710;04/06/2016;.;Stadium;TMT;3;a
-riolu;158;41.648;04/06/2016;.;Stadium;TMT;4;a
-HQCookie;158;-;-;.;Stadium;TMT;5;a
+riolu;158;41.718;04/06/2016;.;Stadium;TMT;3;a
+riolu;158;41.710;04/06/2016;.;Stadium;TMT;4;a
+riolu;158;41.648;04/06/2016;.;Stadium;TMT;5;a
+Spam;158;41.537;16/09/2016;.;Stadium;TMT;6;a
+riolu;158;37.837;03/02/2019;.;Stadium;TMT;7;a
+HQCookie;158;37.127;03/06/2024;DUCK;Stadium;TMT;8;a
 CarlJr;159;1:10.177;26/04/2016;.;Stadium;TMT;1;a
 KevinStrike;159;1:10.147;27/04/2016;.;Stadium;TMT;2;a
-riolu;159;1:09.396;06/05/2016;.;Stadium;TMT;3;a
-asier;159;1:09.02x;??/??/????;.;Stadium;TMT;4;a
-Samerlifofwer;159;1:08.83x;06/09/2018;.;Stadium;TMT;5;a
-fanakuri;159;-;-;.;Stadium;TMT;6;a
-CptSalmon;159;1:08.350;06/04/2025;.;Stadium;TMT;7;a
+riolu;159;1:09.868;05/05/2016;.;Stadium;TMT;3;a
+riolu;159;1:09.396;05/05/2016;.;Stadium;TMT;4;a
+riolu;159;1:09.360;08/09/2016;.;Stadium;TMT;5;a
+riolu;159;1:09.245;10/09/2016;.;Stadium;TMT;6;a
+riolu;159;1:09.236;10/09/2016;.;Stadium;TMT;7;a
+riolu;159;1:09.088;10/09/2016;.;Stadium;TMT;8;a
+asier;159;1:09.023;03/02/2018;.;Stadium;TMT;9;a
+Samerlifofwer;159;1:08.832;06/09/2018;.;Stadium;TMT;10;a
+riolu;159;1:08.740;13/11/2018;.;Stadium;TMT;11;a
+mime;159;1:08.615;11/08/2021;DUCK;Stadium;TMT;12;a
+fanakuri;159;1:08.515;19/06/2023;.;Stadium;TMT;13;a
+CptSalmon;159;1:08.350;06/04/2025;.;Stadium;TMT;14;a
 CarlJr;160;2:53.768;26/04/2016;.;Stadium;TMT;1;a
-riolu;160;2:53.500;06/05/2016;.;Stadium;TMT;2;a
-mime;160;-;-;.;Stadium;TMT;3;a
+riolu;160;2:53.500;05/05/2016;.;Stadium;TMT;2;a
+Spam;160;2:52.573;20/09/2016;.;Stadium;TMT;3;a
+asier;160;2:51.345;17/08/2017;.;Stadium;TMT;4;a
+riolu;160;2:50.987;09/12/2018;.;Stadium;TMT;5;a
+Sapi;160;2:50.832;14/08/2021;DUCK;Stadium;TMT;6;a
+mime;160;2:50.718;??/08/2021;.;Stadium;TMT;7;a
+mime;160;2:49.720;26/08/2021;.;Stadium;TMT;8;a
 Suptim4L;161;1:07.185;01/04/2016;.;Canyon;TMT;1;a
 TommyD1zzle;161;1:07.005;03/05/2016;.;Canyon;TMT;2;a
 riolu;161;1:05.664;09/05/2016;.;Canyon;TMT;3;a
