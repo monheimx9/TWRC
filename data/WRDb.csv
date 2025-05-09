@@ -2325,6 +2325,7 @@ wormk22;C04 - Lagoon;-;-;.;Lagoon;TM2;8;a
 wormk22;C04 - Lagoon;-;-;.;Lagoon;TM2;9;a
 riolu;C04 - Lagoon;-;-;eddyey;Lagoon;TM2;10;a
 wormk22;C04 - Lagoon;48.553;19/02/2025;.;Lagoon;TM2;11;a
+wormk22;C04 - Lagoon;48.548;08/05/2025;.;Lagoon;TM2;12;a
 mime;C05 - Lagoon;-;-;.;Lagoon;TM2;1;a
 Mebe12;C05 - Lagoon;-;-;.;Lagoon;TM2;2;a
 riolu;C05 - Lagoon;-;-;eddyey;Lagoon;TM2;3;a
@@ -3141,10 +3142,13 @@ racehans;035;53.301;02/04/2016;.;Stadium;TMT;4;a
 Fire!;035;53.258;22/01/2017;.;Stadium;TMT;5;a
 riolu;035;53.097;30/03/2017;.;Stadium;TMT;6;a
 Aziix;035;53.081;26/11/2019;DUCK;Stadium;TMT;7;a
-RotakeR;035;52.876;27/03/2020;Sub 53;Stadium;TMT;8;a
-Aziix;035;52.874;08/03/2023;.;Stadium;TMT;9;a
-Aziix;035;52.835;09/03/2023;.;Stadium;TMT;10;a
-Aziix;035;52.825;12/03/2023;.;Stadium;TMT;11;a
+RotakeR;035;53.075;27/03/2020;.;Stadium;TMT;8;a
+RotakeR;035;52.967;27/03/2020;Sub 53;Stadium;TMT;9;a
+RotakeR;035;52.914;27/03/2020;.;Stadium;TMT;10;a
+RotakeR;035;52.876;27/03/2020;.;Stadium;TMT;11;a
+Aziix;035;52.874;08/03/2023;.;Stadium;TMT;12;a
+Aziix;035;52.835;09/03/2023;.;Stadium;TMT;13;a
+Aziix;035;52.825;12/03/2023;.;Stadium;TMT;14;a
 Scotsman;036;23.531;24/03/2016;.;Stadium;TMT;1;a
 Sphinx;036;23.393;25/03/2016;.;Stadium;TMT;2;a
 AleTheLegend;036;23.334;25/03/2016;.;Stadium;TMT;3;a
@@ -3199,7 +3203,9 @@ Neko;039;27.253;29/07/2016;.;Stadium;TMT;9;a
 eprotizuu;039;27.148;??/??/????;.;Stadium;TMT;10;a
 riolu;039;27.108;08/02/2019;Cheated;Stadium;TMT;11;a
 HQCookie;039;27.128;24/01/2023;.;Stadium;TMT;12;a
-RotakeR;039;26.981;13/11/2023;DUCK;Stadium;TMT;13;a
+RotakeR;039;27.076;12/11/2023;.;Stadium;TMT;13;a
+RotakeR;039;27.060;12/11/2023;.;Stadium;TMT;14;a
+RotakeR;039;26.981;12/11/2023;DUCK;Stadium;TMT;15;a
 Scotsman;040;1:13.784;24/03/2016;.;Stadium;TMT;1;a
 racerlight;040;1:13.703;28/03/2016;.;Stadium;TMT;2;a
 Wag;040;1:13.112;29/03/2016;.;Stadium;TMT;3;a
@@ -3869,7 +3875,8 @@ riolu;079;33.534;30/09/2018;Live;Stadium;TMT;15;a
 HQCookie;079;33.550;02/05/2016;.;Stadium;TMT;16;a
 HQCookie;079;33.548;13/02/2023;.;Stadium;TMT;17;a
 HQCookie;079;33.513;13/02/2023;DUCK;Stadium;TMT;18;a
-RotakeR;079;33.465;11/11/2023;.;Stadium;TMT;19;a
+RotakeR;079;33.492;10/11/2023;.;Stadium;TMT;19;a
+RotakeR;079;33.465;10/11/2023;.;Stadium;TMT;20;a
 Pascow;080;1:52.714;24/03/2016;.;Stadium;TMT;1;a
 NixGames;080;1:52.108;25/03/2016;.;Stadium;TMT;2;a
 xxAlex765xx;080;1:51.911;25/03/2016;.;Stadium;TMT;3;a
@@ -4484,7 +4491,8 @@ Nayko;113;36.881;26/12/2020;DUCK;Stadium;TMT;7;a
 Nayko;113;36.767;28/12/2020;.;Stadium;TMT;8;a
 Fanakuri;113;36.724;17/06/2023;.;Stadium;TMT;9;a
 Fanakuri;113;36.655;20/06/2023;.;Stadium;TMT;10;a
-RotakeR;113;36.528;12/09/2023;.;Stadium;TMT;11;a
+RotakeR;113;36.522;09/09/2023;.;Stadium;TMT;11;a
+RotakeR;113;36.528;10/09/2023;.;Stadium;TMT;12;a
 Koenz;114;48.976;24/03/2016;.;Stadium;TMT;1;a
 DanikB;114;47.470;25/03/2016;.;Stadium;TMT;2;a
 Lookid;114;47.344;03/04/2016;.;Stadium;TMT;3;a
@@ -4500,7 +4508,8 @@ Spam;114;45.894;06/12/2019;.;Stadium;TMT;12;a
 Camion;114;45.868;04/11/2022;.;Stadium;TMT;13;a
 Fanakuri;114;45.844;05/05/2023;DUCK;Stadium;TMT;14;a
 faqez;114;45.695;16/05/2024;.;Stadium;TMT;15;a
-RotakeR;114;45.652;03/06/2024;.;Stadium;TMT;16;a
+RotakeR;114;45.670;30/05/2024;.;Stadium;TMT;16;a
+RotakeR;114;45.652;02/06/2024;.;Stadium;TMT;17;a
 Spam;115;2:01.456;24/03/2016;.;Stadium;TMT;1;a
 Pac;115;1:59.115;25/03/2016;.;Stadium;TMT;2;a
 Nize;115;1:57.887;05/04/2016;.;Stadium;TMT;3;a
@@ -4550,8 +4559,9 @@ Nize;118;42.320;05/04/2016;.;Stadium;TMT;7;a
 Pac;118;41.268;05/04/2016;.;Stadium;TMT;8;a
 riolu;118;41.221;02/11/2018;Cheated;Stadium;TMT;9;a
 Crinatiraxx;118;41.263;12/05/2020;.;Stadium;TMT;10;a
-RotakeR;118;41.135;25/04/2023;.;Stadium;TMT;11;a
-Fanakuri;118;41.128;05/12/2023;.;Stadium;TMT;12;a
+RotakeR;118;41.211;29/07/2022;.;Stadium;TMT;11;a
+RotakeR;118;41.135;29/07/2022;.;Stadium;TMT;12;a
+Fanakuri;118;41.128;05/12/2023;.;Stadium;TMT;13;a
 hec_ker;119;47.402;24/03/2016;.;Stadium;TMT;1;a
 Toxx.99;119;47.354;25/03/2016;.;Stadium;TMT;2;a
 Pac;119;44.874;25/03/2016;.;Stadium;TMT;3;a
@@ -4579,7 +4589,7 @@ Scrapie;120;1:49.885;08/04/2016;.;Stadium;TMT;7;a
 Spam;120;1:49.714;17/08/2016;.;Stadium;TMT;8;a
 riolu;120;1:49.660;22/10/2018;.;Stadium;TMT;9;a
 RotakeR;120;1:49.478;23/02/2020;DUCK;Stadium;TMT;10;a
-Sapi;120;1:49.231;02/06/2021;.;Stadiuma;TMT;11;a
+Sapi;120;1:49.231;02/06/2021;.;Stadium;TMT;11;a
 L94;121;47.393;15/04/2016;.;Canyon;TMT;1;a
 Hivee;121;47.383;26/04/2016;.;Canyon;TMT;2;a
 Bill;121;47.217;26/05/2016;.;Canyon;TMT;3;a
@@ -5026,15 +5036,16 @@ riolu;152;41.277;24/03/2016;.;Stadium;TMT;1;a
 lumatom;152;41.055;28/03/2016;.;Stadium;TMT;2;a
 racehans;152;40.920;28/03/2016;.;Stadium;TMT;3;a
 YxalagOiram;152;40.774;16/04/2016;.;Stadium;TMT;4;a
-keby;152;40.645;21/04/2016;.;Stadium;TMT;5;a
+Keby;152;40.645;21/04/2016;.;Stadium;TMT;5;a
 xxAlex765xx;152;40.623;27/04/2016;.;Stadium;TMT;6;a
 xxAlex765xx;152;40.512;27/04/2016;.;Stadium;TMT;7;a
-keby;152;40.498;30/04/2016;.;Stadium;TMT;8;a
-keby;152;40.441;20/10/2016;.;Stadium;TMT;9;a
+Keby;152;40.498;30/04/2016;.;Stadium;TMT;8;a
+Keby;152;40.441;20/10/2016;.;Stadium;TMT;9;a
 riolu;152;40.435;02/11/2018;.;Stadium;TMT;10;a
 CD;152;40.347;27/04/2021;DUCK;Stadium;TMT;11;a
 RotakeR;152;40.342;23/07/2022;.;Stadium;TMT;12;a
-RotakeR;152;40.247;11/08/2022;.;Stadium;TMT;13;a
+RotakeR;152;40.281;27/07/2022;.;Stadium;TMT;13;a
+RotakeR;152;40.247;28/07/2022;.;Stadium;TMT;14;a
 Koenz;153;38.948;24/03/2016;.;Stadium;TMT;1;a
 TekkForce;153;38.867;27/03/2016;.;Stadium;TMT;2;a
 Freezer_24;153;38.721;02/04/2016;.;Stadium;TMT;3;a
@@ -5088,8 +5099,16 @@ riolu;157;47.255;08/09/2016;.;Stadium;TMT;5;a
 riolu;157;47.180;08/09/2016;.;Stadium;TMT;6;a
 Spam;157;47.160;16/09/2016;.;Stadium;TMT;7;a
 asier;157;47.078;17/07/2017;.;Stadium;TMT;8;a
-riolu;157;46.896;07/11/2018;.;Stadium;TMT;9;a
-RotakeR;157;46.686;25/06/2022;DUCK;Stadium;TMT;10;a
+riolu;157;46.896;07/11/2018;Cheated;Stadium;TMT;9;a
+mime;157;47.068;05/12/2021;.;Stadium;TMT;10;a
+RotakeR;157;46.980;23/06/2022;.;Stadium;TMT;11;a
+RotakeR;157;46.938;23/06/2022;.;Stadium;TMT;12;a
+RotakeR;157;46.911;23/06/2022;.;Stadium;TMT;13;a
+RotakeR;157;46.840;23/06/2022;DUCK;Stadium;TMT;14;a
+RotakeR;157;46.831;23/06/2022;.;Stadium;TMT;15;a
+RotakeR;157;46.812;23/06/2022;.;Stadium;TMT;16;a
+RotakeR;157;46.802;24/06/2022;.;Stadium;TMT;17;a
+RotakeR;157;46.686;24/06/2022;.;Stadium;TMT;18;a
 CarlJr;158;41.956;25/04/2016;.;Stadium;TMT;1;a
 riolu;158;41.762;06/05/2016;.;Stadium;TMT;2;a
 riolu;158;41.718;04/06/2016;.;Stadium;TMT;3;a
@@ -5604,7 +5623,11 @@ riolu;192;54.48x;??/??/????;.;Stadium;TMT;5;a
 Samerlifofwer;192;54.397;09/01/2020;DUCK;Stadium;TMT;6;a
 Samerlifofwer;192;54.30x;10/01/2020;.;Stadium;TMT;7;a
 Samerlifofwer;192;54.297;11/01/2020;.;Stadium;TMT;8;a
-RotakeR;192;53.798;16/07/2022;.;Stadium;TMT;9;a
+RotakeR;192;54.258;14/07/2022;.;Stadium;TMT;9;a
+RotakeR;192;54.157;14/07/2022;.;Stadium;TMT;10;a
+RotakeR;192;54.045;14/07/2022;.;Stadium;TMT;11;a
+RotakeR;192;53.873;15/07/2022;.;Stadium;TMT;12;a
+RotakeR;192;53.798;15/07/2022;.;Stadium;TMT;13;a
 CarlJr;193;49.841;26/04/2016;.;Stadium;TMT;1;a
 KevinStrike;193;49.333;12/05/2016;.;Stadium;TMT;2;a
 KevinStrike;193;48.997;13/05/2016;.;Stadium;TMT;3;a
@@ -5666,7 +5689,11 @@ riolu;197;57.544;01/09/2016;.;Stadium;TMT;8;a
 Joltysonic;197;57.411;08/08/2019;.;Stadium;TMT;9;a
 riolu;197;57.296;18/08/2019;.;Stadium;TMT;10;a
 Joltysonic;197;57.280;28/08/2021;DUCK;Stadium;TMT;11;a
-RotakeR;197;57.028;15/07/2022;.;Stadium;TMT;12;a
+RotakeR;197;57.250;11/07/2022;.;Stadium;TMT;12;a
+RotakeR;197;57.204;11/07/2022;.;Stadium;TMT;13;a
+RotakeR;197;57.184;12/07/2022;.;Stadium;TMT;14;a
+RotakeR;197;57.085;12/07/2022;.;Stadium;TMT;15;a
+RotakeR;197;57.028;12/07/2022;.;Stadium;TMT;16;a
 riolu;198;46.202;25/03/2016;STM;Stadium;TMT;1;a
 CarlJr;198;46.036;25/03/2016;.;Stadium;TMT;2;a
 Granady;198;45.941;06/04/2016;.;Stadium;TMT;3;a
