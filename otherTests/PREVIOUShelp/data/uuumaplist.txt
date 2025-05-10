@@ -1,4 +1,4 @@
-map;date;time;player;cheated
+track;date;time;player;cheated
 A01;??/03/2013;0:22.78x;Guillaume;0
 A01;??/03/2013;0:22.77x;RACETA;0
 A01;??/03/2013;0:22.717;Kripke;0

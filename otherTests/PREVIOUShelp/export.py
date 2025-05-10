@@ -55,11 +55,11 @@ def date_tier_moyen(date1, date2):
 
     return date1_third_str, date2_third_str
 
-chemin_fichier_python = os.path.realpath(__file__)
-repertoire_fichier = os.path.dirname(chemin_fichier_python)
-os.chdir(repertoire_fichier)
+# chemin_fichier_python = os.path.realpath(__file__)
+# repertoire_fichier = os.path.dirname(chemin_fichier_python)
+# os.chdir(repertoire_fichier)
 
-donnees_maps = pd.read_csv("./data/maplist.txt", header=0, sep=";")
+donnees_maps = pd.read_csv("otherTests/PREVIOUShelp/data/maplist.txt", header=0, sep=";", dtype={'track': str})
 
 estimated_times = donnees_maps.copy()
 estimated_times["check"] = 0
@@ -68,7 +68,7 @@ for i in range(0,len(donnees_maps)):
     if "?" not in donnees_maps.date[i]:
         estimated_times.loc[i, "check"] = 1
 
-    elif donnees_maps.date[i][2:] == "/03/2013":
+    elif donnees_maps.date[i][2:] == "/03/2016":
         estimated_times.loc[i, "check"] = 1
 
     elif "?" not in donnees_maps.date[i][2:]:
@@ -93,17 +93,17 @@ for i in range(0,len(donnees_maps)):
                             estimated_times.loc[i, "date"] = donnees_maps.date[i-1]
                             estimated_times.loc[i, "check"] = 1  
     
-    if estimated_times.check[i] == 0:
-        if "?" in donnees_maps.date[i]:
-            if i != 0 or i != len(donnees_maps):
-                if "?" not in donnees_maps.date[i-1]:
-                    if int(donnees_maps.date[i-1][6:]) < 2017:
-                        estimated_times.loc[i, "date"] = "09/05/2017"
-                        estimated_times.loc[i, "check"] = 1
-                        if "?" not in donnees_maps.date[i+1]:
-                            if int(donnees_maps.date[i+1][6:]) < 2017:
-                                estimated_times.loc[i, "date"] = donnees_maps.date[i]
-                                estimated_times.loc[i, "check"] = 0
+    # if estimated_times.check[i] == 0:
+    #     if "?" in donnees_maps.date[i]:
+    #         if i != 0 or i != len(donnees_maps):
+    #             if "?" not in donnees_maps.date[i-1]:
+    #                 if int(donnees_maps.date[i-1][6:]) < 2017:
+    #                     estimated_times.loc[i, "date"] = "09/05/2017"
+    #                     estimated_times.loc[i, "check"] = 1
+    #                     if "?" not in donnees_maps.date[i+1]:
+    #                         if int(donnees_maps.date[i+1][6:]) < 2017:
+    #                             estimated_times.loc[i, "date"] = donnees_maps.date[i]
+    #                             estimated_times.loc[i, "check"] = 0
 
     if estimated_times.check[i] == 0:
         if "?" in donnees_maps.date[i]:
@@ -112,7 +112,7 @@ for i in range(0,len(donnees_maps)):
                 donnees_temp = donnees_maps.query(f"track == '{current_map}'")
                 surplus_index = donnees_temp.index[0]
                 if donnees_maps.time[i] == donnees_temp.time[surplus_index]:
-                    estimated_times.loc[i, "date"] = "20/06/2013"
+                    estimated_times.loc[i, "date"] = "20/03/2016"
                     estimated_times.loc[i, "check"] = 1
     
     if estimated_times.check[i] == 0:
@@ -131,7 +131,7 @@ for i in range(0,len(donnees_maps)):
 # list of every 2 weeks
 
 # Définir la date de début
-start_date = '14/06/2013'
+start_date = '20/03/2016'
 dates_list = generate_dates(start_date)
 #dates_list = ['01/01/2014','01/01/2015','01/01/2016','01/01/2017','01/01/2018','01/01/2019','01/01/2020','01/01/2021','01/01/2022','01/01/2023','01/01/2024','01/01/2025']
 map_list = donnees_maps["track"].unique().tolist()
@@ -167,6 +167,7 @@ for track in map_list:
         
         if elem[3:] != "03/2013":
             dateWR = datetime.strptime(elem, "%d/%m/%Y")
+            print(track)
             dateNextWR = datetime.strptime(next_wr, "%d/%m/%Y")
             for i in range(0,len(dates_list)):
                 date2 = datetime.strptime(dates_list[i], "%d/%m/%Y")
@@ -186,4 +187,4 @@ tableau_fin = pd.DataFrame.from_dict(player_history, orient='index', columns=dat
 tableau_fin.reset_index(inplace=True)
 tableau_fin.rename(columns={'index': 'Player'}, inplace=True)
 
-tableau_fin.to_csv('dataframe_exporte.csv', sep=';', index=False)
+tableau_fin.to_csv('otherTests/PREVIOUShelp/dataframe_exporte.csv', sep=';', index=False)
