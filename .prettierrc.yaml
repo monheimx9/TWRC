@@ -1,0 +1,15 @@
+# .prettierrc or .prettierrc.yaml
+printWidth: 100
+tabWidth: 4
+useTabs: false
+singleQuote: false
+htmlWhitespaceSensitivity: "ignore" # Changed from "css"
+bracketSameLine: false
+
+overrides:
+    - files: "*.html"
+      options:
+          tabWidth: 4
+          printWidth: 200 # Higher value to prevent wrapping
+          htmlWhitespaceSensitivity: "strict"
+          proseWrap: "never" # Prevents forced line breaks in text/html

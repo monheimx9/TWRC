@@ -1,0 +1,32 @@
+<%- include('partials/header.html') -%>
+<div class="PageHeader">
+    <h2 style="text-align: center; padding-top: 78px">Statistics menu</h2>
+</div>
+<div class="Corps">
+    <!-- <div id="buttonSelectors">
+                <div id="playerPageButton" onclick="toggleVariable()">Individual player stats</div>
+            </div> -->
+    <br /><br />
+    <div class="leaderboardColumn">
+        <div id="playerLB">
+            <table class="tableLB">
+                <tr>
+                    <th class="LeaderboardIndex">#</th>
+                    <th colspan="2" class="LeaderboardPlayer" id="headerPlayer" style="text-align: left">Player</th>
+                    <th class="LeaderboardCount">WR count</th>
+                </tr>
+            </table>
+        </div>
+        <div id="countryLB">
+            <table class="tableLB">
+                <tr>
+                    <th class="LeaderboardIndex">#</th>
+                    <th colspan="2" class="LeaderboardPlayer" id="headerPlayer" style="text-align: left">Country</th>
+                    <th class="LeaderboardCount">WR count</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="/js/stats.js"></script>
+<%- include('partials/footer.html') -%>
