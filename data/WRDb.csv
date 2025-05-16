@@ -1905,7 +1905,7 @@ Speed;B04 - Valley;30.758;26/11/2019;.;Valley;TM2;6;a
 riolu;B04 - Valley;30.609;28/11/2019;.;Valley;TM2;7;a
 Mebe12;B04 - Valley;30.661;28/07/2021;.;Valley;TM2;8;a
 GravelGuy;B04 - Valley;30.652;29/07/2021;.;Valley;TM2;9;a
-Mebe12;B04 - Valley;30.546;02/08/2021;.;Valley;TM2;10;a
+Mebe12;B04 - Valley;30.546;02/08/2021;DUCK;Valley;TM2;10;a
 Luffy;B05 - Valley;2:00.977;23/07/2013;.;Valley;TM2;1;a
 riolu;B05 - Valley;2:00.577;04/09/2013;.;Valley;TM2;2;a
 riolu;B05 - Valley;1:59.508;29/09/2015;yes -1s;Valley;TM2;3;a
@@ -2053,9 +2053,9 @@ riolu;B14 - Valley;35.148;??/05/2017;.;Valley;TM2;5;a
 riolu;B14 - Valley;35.029;??/09/2017;.;Valley;TM2;6;a
 Speed;B14 - Valley;35.005;05/09/2019;.;Valley;TM2;7;a
 riolu;B14 - Valley;34.967;10/09/2019;.;Valley;TM2;8;a
-GravelGuy;B14 - Valley;34.941;17/01/2020;DUCK;Valley;TM2;9;a
+GravelGuy;B14 - Valley;34.941;17/01/2020;.;Valley;TM2;9;a
 riolu;B14 - Valley;34.938;17/01/2020;.;Valley;TM2;10;a
-Speed;B14 - Valley;34.928;31/10/2020;.;Valley;TM2;11;a
+Speed;B14 - Valley;34.928;31/10/2020;DUCK;Valley;TM2;11;a
 GravelGuy;B14 - Valley;34.922;02/12/2021;.;Valley;TM2;12;a
 Speed;B14 - Valley;34.918;31/01/2023;.;Valley;TM2;13;a
 Speed;B14 - Valley;34.915;03/02/2023;.;Valley;TM2;14;a
