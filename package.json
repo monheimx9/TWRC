@@ -17,10 +17,21 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "dev": "node --watch app",
-        "start": "node app"
+        "start": "node app",
+        "migrate": "node flyway.js migrate",
+        "migrate:undo": "node flyway.js undo",
+        "migrate:status": "node flyway.js info",
+        "migrate:clean": "node flyway.js clean",
+        "migrate:install": "node flyway.js install"
     },
     "dependencies": {
+        "csv-parser": "^3.2.0",
+        "dotenv": "^16.5.0",
         "ejs": "^3.1.10",
-        "express": "^5.1.0"
+        "express": "^5.1.0",
+        "i18n-iso-countries": "^7.14.0"
+    },
+    "devDependencies": {
+        "mysql2": "^3.14.1"
     }
 }
