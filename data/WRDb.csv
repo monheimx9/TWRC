@@ -164,7 +164,7 @@ Mebe12;B02 - Canyon;31.811;23/05/2021;.;Canyon;TM2;6;a
 Mebe12;B02 - Canyon;31.796;03/07/2021;.;Canyon;TM2;7;a
 Ricky;B03 - Canyon;20.648;30/03/2020;.;Canyon;TM2;1;a
 Mebe12;B03 - Canyon;20.600;25/08/2020;.;Canyon;TM2;2;a
-asphalte;B03 - Canyon;20.386;20/11/2024;New cut;Canyon;TM2;3;a
+asphalte;B03 - Canyon;20.386;20/11/2024;.;Canyon;TM2;2;a
 riolu;B04 - Canyon;30.440;02/04/2019;.;Canyon;TM2;1;a
 Mebe12;B04 - Canyon;30.420;17/07/2020;.;Canyon;TM2;2;a
 Mebe12;B04 - Canyon;30.415;13/02/2021;.;Canyon;TM2;3;a
@@ -755,6 +755,7 @@ Rollin;A15 - Stadium;1:12.154;04/07/2019;.;Stadium;TM2;13;a
 riolu;A15 - Stadium;1:12.090;06/07/2019;.;Stadium;TM2;14;a
 Rollin;A15 - Stadium;1:12.085;08/07/2019;DUCK;Stadium;TM2;15;a
 Loupphok;A15 - Stadium;1:12.068;03/12/2022;.;Stadium;TM2;16;a
+Loupphok;A15 - Stadium;1:12.054;24/05/2025;.;Stadium;TM2;17;a
 Wally;B01 - Stadium;34.890;24/06/2013;.;Stadium;TM2;1;a
 racehans;B01 - Stadium;34.854;12/08/2013;.;Stadium;TM2;2;a
 RACETA;B01 - Stadium;34.620;??/??/????;<03/15;Stadium;TM2;3;a
@@ -2279,7 +2280,7 @@ Speed;D15 - Valley;-;-;.;Valley;TM2;3;a
 GravelGuy;D15 - Valley;-;-;.;Valley;TM2;4;a
 Mebe12;D15 - Valley;-;-;.;Valley;TM2;5;a
 Killer;E01 - Valley;1:44.219;13/08/2013;.;Valley;TM2;1;a
-Cordanis;E01 - Valley;1:39.088;??/??/????;Cheated;Valley;TM2;2;a
+Cornadis;E01 - Valley;1:39.088;??/??/????;Cheated;Valley;TM2;2;a
 riolu;E01 - Valley;1:38.864;??/??/????;.;Valley;TM2;3;a
 riolu;E01 - Valley;1:38.533;11/12/2014;.;Valley;TM2;4;a
 riolu;E01 - Valley;1:36.809;27/03/2019;.;Valley;TM2;5;a
@@ -4896,7 +4897,7 @@ RotakeR;117;37.974;27/08/2022;.;Stadium;TMT;16;a
 Fanakuri;117;37.898;12/04/2023;.;Stadium;TMT;17;a
 Koenz;118;43.908;24/03/2016;.;Stadium;TMT;1;a
 MGM;118;43.388;25/03/2016;.;Stadium;TMT;2;a
-Pascow;118;43.211;26/03/2016;.;Stadium;TMT;3;a
+pascow;118;43.211;26/03/2016;.;Stadium;TMT;3;a
 TheBigBerta;118;42.856;26/03/2016;.;Stadium;TMT;4;a
 IceBluez;118;42.421;28/03/2016;.;Stadium;TMT;5;a
 FranLJump;118;42.391;28/03/2016;.;Stadium;TMT;6;a
@@ -6620,7 +6621,7 @@ Rollin;B03-Race;0:24.81;31/03/2021;.;Stadium;TMNF;30;1158852
 Maniac';B03-Race;0:24.78;31/03/2021;.;Stadium;TMNF;31;8317003
 Rollin;B03-Race;0:24.53;06/04/2021;.;Stadium;TMNF;32;1158852
 Maniac';B03-Race;0:24.50;08/05/2024;.;Stadium;TMNF;33;8317003
-Maniac';B03-Race;0:24.49;29/05/2025;.;Stadium;TMNF;34;8317003
+Maniac';B03-Race;0:24.49;29/05/2025;.;Stadium;TMNF;33;8317003
 adriweb;B04-Acrobatic;0:12.87;16/04/2008;.;Stadium;TMNF;1;2580
 /ITA\Silk;B04-Acrobatic;0:12.82;16/04/2008;.;Stadium;TMNF;2;2647
 UKFC ruse;B04-Acrobatic;0:12.79;16/04/2008;.;Stadium;TMNF;3;2766
@@ -7534,6 +7535,10 @@ Almighty Hefest;D03-Acrobatic;0:15.28;01/07/2020;.;Stadium;TMNF;23;6853602
 Rollin;D03-Acrobatic;0:14.83;12/04/2021;.;Stadium;TMNF;24;1158852
 Almighty Hefest;D03-Acrobatic;0:14.59;13/04/2021;.;Stadium;TMNF;25;6853602
 Kimura;D03-Acrobatic;0:14.55;26/09/2024;.;Stadium;TMNF;26;7342346
+Almighty Hefest;D03-Acrobatic;0:14.46;22/05/2025;.;Stadium;TMNF;27;6853602
+Almighty Hefest;D03-Acrobatic;0:14.42;22/05/2025;.;Stadium;TMNF;28;6853602
+Almighty Hefest;D03-Acrobatic;0:14.41;23/05/2025;.;Stadium;TMNF;29;6853602
+Almighty Hefest;D03-Acrobatic;0:14.24;23/05/2025;.;Stadium;TMNF;30;6853602
 M SleriSM;D04-Race;0:50.89;16/04/2008;.;Stadium;TMNF;1;3649
 Rommel;D04-Race;0:50.46;16/04/2008;.;Stadium;TMNF;2;2699
 LoG.ism;D04-Race;0:47.11;16/04/2008;.;Stadium;TMNF;3;3963
